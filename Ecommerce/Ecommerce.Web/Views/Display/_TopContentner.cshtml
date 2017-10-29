@@ -1,0 +1,47 @@
+﻿@model IQueryable<Ecommerce.Domain.Model.Promotion>
+
+<div id="top-banner-and-menu" class="homepage2">
+    <div class="container">
+        <div class="col-xs-12">
+            <!-- ========================================== SECTION – HERO ========================================= -->
+            <div id="hero">
+                <div id="owl-main" class="owl-carousel height-lg owl-inner-nav owl-ui-lg">
+
+                    @foreach (var item in Model)
+                    {
+                        <div class="item" style="background-image: url('@Url.Content("~/images/khuyenmai/")@item.AnhCT'); cursor:pointer" onclick="window.location = '@Url.Action("KhuyenMaiPost","KhuyenMai")?id=' + @item.MaKM;">
+                            <div class="container-fluid">
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+            <!-- ========================================= SECTION – HERO : END ========================================= -->
+        </div>
+    </div>
+</div><!-- /.homepage2 -->
+<!-- ========================================= HOME BANNERS ========================================= -->
+<section id="banner-holder" class="wow fadeInUp banner-holder">
+    <div class="container">
+        <div class="col-xs-12 col-lg-6 no-margin banner">
+            <a href="category-grid-2">
+                <div class="banner-text theblue">
+                    <h1>New Life</h1>
+                    <span class="tagline">Introducing New Category</span>
+                </div>
+                <img class="banner-image" alt="" src="images/banners/MUA-ONLINE.png" data-echo="images/banners/MUA-ONLINE.png" />
+            </a>
+        </div>
+        <div class="col-xs-12 col-lg-6 no-margin text-right banner">
+            <a href="category-grid-2">
+                <div class="banner-text right">
+                    <h1>Time &amp; Style</h1>
+                    <span class="tagline">Checkout new arrivals</span>
+                </div>
+                <img class="banner-image" alt="" src="/images/banners/S6-S6-EDGE.png" data-echo="/images/banners/S6-S6-EDGE.png" />
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ========================================= HOME BANNERS : END ========================================= -->

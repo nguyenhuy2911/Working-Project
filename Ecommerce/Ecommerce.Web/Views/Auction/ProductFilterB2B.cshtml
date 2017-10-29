@@ -1,0 +1,34 @@
+﻿<script>
+    function summitfilter()
+    {
+        var form = document.getElementById("productfilterfrm");
+        form.submit();
+    }
+
+</script>
+
+<!-- ========================================= PRODUCT FILTER ========================================= -->
+@model IQueryable<Ecommerce.Domain.Model.LoaiSP>
+@using Ecommerce.Web.Models;
+<div class="widget">
+    <h1>Lọc sản phẩm</h1>
+    <form id="productfilterfrm" action="@Url.Action("AdvancedSearchView", "Search")" autocomplete="off">
+        <div class="body bordered">
+            <div class="category-filter">
+                <h2>Loại</h2>
+                <hr>
+                <h5>Loại sản phẩm</h5>
+                <ul>
+                    @{
+                        foreach (var item in Model)
+                        {
+                            <li><input name="loai" class="le-checkbox" type="radio" value="@item.MaLoai" /> <label>@item.TenLoai</label></li>
+                        }
+                    }
+                </ul>
+            </div><!-- /.category-filter -->
+        </div><!-- /.body -->
+    </form>
+</div><!-- /.widget -->
+<!-- ========================================= PRODUCT FILTER : END ========================================= -->
+
