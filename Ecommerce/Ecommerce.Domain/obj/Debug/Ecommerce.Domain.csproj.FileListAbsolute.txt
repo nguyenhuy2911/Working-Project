@@ -17,3 +17,13 @@ E:\lip cms\Practise\Ecommerce\Ecommerce.Domain\bin\Debug\EntityFramework.SqlServ
 E:\lip cms\Practise\Ecommerce\Ecommerce.Domain\obj\Debug\Ecommerce.Domain.csprojResolveAssemblyReference.cache
 E:\lip cms\Practise\Ecommerce\Ecommerce.Domain\obj\Debug\Ecommerce.Domain.dll
 E:\lip cms\Practise\Ecommerce\Ecommerce.Domain\obj\Debug\Ecommerce.Domain.pdb
+E:\Working\Git\working project\Ecommerce\Ecommerce.Domain\bin\Debug\Ecommerce.Domain.dll.config
+E:\Working\Git\working project\Ecommerce\Ecommerce.Domain\bin\Debug\Ecommerce.Domain.dll
+E:\Working\Git\working project\Ecommerce\Ecommerce.Domain\bin\Debug\Ecommerce.Domain.pdb
+E:\Working\Git\working project\Ecommerce\Ecommerce.Domain\bin\Debug\EntityFramework.dll
+E:\Working\Git\working project\Ecommerce\Ecommerce.Domain\bin\Debug\EntityFramework.SqlServer.dll
+E:\Working\Git\working project\Ecommerce\Ecommerce.Domain\bin\Debug\EntityFramework.xml
+E:\Working\Git\working project\Ecommerce\Ecommerce.Domain\bin\Debug\EntityFramework.SqlServer.xml
+E:\Working\Git\working project\Ecommerce\Ecommerce.Domain\obj\Debug\Ecommerce.Domain.csprojResolveAssemblyReference.cache
+E:\Working\Git\working project\Ecommerce\Ecommerce.Domain\obj\Debug\Ecommerce.Domain.dll
+E:\Working\Git\working project\Ecommerce\Ecommerce.Domain\obj\Debug\Ecommerce.Domain.pdb

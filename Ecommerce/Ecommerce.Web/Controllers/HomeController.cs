@@ -114,42 +114,38 @@ namespace Ecommerce.Web.Controllers
             return View(donhang);
         }
 
+        [AllowAnonymous]
         public ActionResult Checkout()
         {
-            if (Request.IsAuthenticated)
+
+            DonhangKHModel dh = new DonhangKHModel();
+            Donhangtongquan model = new Donhangtongquan();
+            dh.nguoiMua = dh.Xemttnguoidung(User.Identity.GetUserId());
+            if (dh.nguoiMua != null)
             {
-                DonhangKHModel dh = new DonhangKHModel();
-                dh.nguoiMua = dh.Xemttnguoidung(User.Identity.GetUserId());
-                Donhangtongquan dhtq = new Donhangtongquan()
+                model = new Donhangtongquan()
                 {
                     buyer = dh.nguoiMua.HoTen,
                     seller = dh.nguoiMua.HoTen,
                     phoneNumber = dh.nguoiMua.PhoneNumber,
                     address = dh.nguoiMua.DiaChi
                 };
-                return View(dhtq);
             }
-            else
-            {
-                return RedirectToAction("Authentication", "Account", new { returnUrl = "/Home/Checkout" });
-            }
+            
+            return View(model);
+
         }
 
-        [AuthLog(Roles = "Quản trị viên,Nhân viên,Khách hàng")]
+        [AllowAnonymous]
         [HttpPost]
         public ActionResult Checkout(Donhangtongquan dh)
         {
-            if (User.Identity.IsAuthenticated)
-            {
-                DonhangKHModel dhmodel = new DonhangKHModel();
-                dhmodel.Luudonhang(dh, User.Identity.GetUserId(), ManagerObiect.getIntance().giohang);
-                ManagerObiect.getIntance().giohang.EmptyCart();
-                return RedirectToAction("Index", "Home");
-            }
-            else
-            {
-                return RedirectToAction("Checkout", "Home");
-            }
+
+            DonhangKHModel dhmodel = new DonhangKHModel();
+            dhmodel.Luudonhang(dh, User.Identity.GetUserId(), ManagerObiect.getIntance().giohang);
+            ManagerObiect.getIntance().giohang.EmptyCart();
+            return RedirectToAction("Index", "Home");
+
         }
 
         public ActionResult MainMenu()

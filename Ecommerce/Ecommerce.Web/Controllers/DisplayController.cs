@@ -21,10 +21,10 @@ namespace  Ecommerce.Web.Controllers
             List<Display> listItems = disPlayService.GetDisPlays().ToList();
             if (listItems != null)
             {
-                model.Logo = listItems.Where(p => p.Type == "Logo").FirstOrDefault().Value;
-                model.FaceBook = listItems.Where(p => p.Type == "Facebook").FirstOrDefault().Value;
-                model.PhonNumber = listItems.Where(p => p.Type == "Phone").FirstOrDefault().Value;
-                model.WebsiteName = listItems.Where(p => p.Type == "WebsiteName").FirstOrDefault().Value;
+                model.Logo = listItems.Where(p => p.Type == "Logo")?.FirstOrDefault()?.Value;
+                model.FaceBook = listItems.Where(p => p.Type == "Facebook")?.FirstOrDefault()?.Value;
+                model.PhonNumber = listItems.Where(p => p.Type == "Phone")?.FirstOrDefault()?.Value;
+                model.WebsiteName = listItems.Where(p => p.Type == "WebsiteName")?.FirstOrDefault()?.Value;
             }
             return View(model);
         }
