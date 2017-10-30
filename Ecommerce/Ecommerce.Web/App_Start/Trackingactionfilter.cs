@@ -20,7 +20,7 @@ namespace  Ecommerce.Web.App_Start
                 // them san pham da xem
                 SanPhamModel sp = new SanPhamModel();
                 ManagerObiect.getIntance().Themsanphammoixem(sp.getSanPham(maSP));
-                ManagerObiect.getIntance().SaveTrackingLog(temp);
+               // ManagerObiect.getIntance().SaveTrackingLog(temp);
             }
         }
 

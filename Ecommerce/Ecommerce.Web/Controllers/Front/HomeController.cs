@@ -125,10 +125,10 @@ namespace Ecommerce.Web.Controllers
             {
                 model = new Donhangtongquan()
                 {
-                    buyer = dh.nguoiMua.HoTen,
-                    seller = dh.nguoiMua.HoTen,
-                    phoneNumber = dh.nguoiMua.PhoneNumber,
-                    address = dh.nguoiMua.DiaChi
+                    OrderBy = dh.nguoiMua.HoTen,
+                    ReceivedPerson = dh.nguoiMua.HoTen,
+                    PhoneNumber = dh.nguoiMua.PhoneNumber,
+                    Address = dh.nguoiMua.DiaChi
                 };
             }
             
@@ -142,7 +142,7 @@ namespace Ecommerce.Web.Controllers
         {
 
             DonhangKHModel dhmodel = new DonhangKHModel();
-            dhmodel.Luudonhang(dh, User.Identity.GetUserId(), ManagerObiect.getIntance().giohang);
+            dhmodel.Luudonhang(dh, !string.IsNullOrEmpty(User.Identity.GetUserId())? User.Identity.GetUserId() : "customer", ManagerObiect.getIntance().giohang);
             ManagerObiect.getIntance().giohang.EmptyCart();
             return RedirectToAction("Index", "Home");
 
@@ -155,19 +155,7 @@ namespace Ecommerce.Web.Controllers
             return PartialView("_MainMenuPartial", menulist);
         }
 
-        public ActionResult SPNoiBat(int? skip)
-        {
-            SanPhamModel sp = new SanPhamModel();
-            int skipnum = (skip ?? 0);
-            IQueryable<SanPham> splist = sp.SPHot();
-            splist = splist.OrderBy(r => r.MaSP).Skip(skipnum).Take(4);
-            if (splist.Any())
-                return PartialView("_ProductTabLoadMorePartial", splist);
-            else
-                return null;
-        }
-
-        public ActionResult SPMoiNhap(int? skip)
+        public ActionResult ItemsNewest(int? skip)
         {
             SanPhamModel sp = new SanPhamModel();
             int skipnum = (skip ?? 0);
@@ -179,7 +167,7 @@ namespace Ecommerce.Web.Controllers
                 return null;
         }
 
-        public ActionResult SPKhuyenMai(int? skip)
+        public ActionResult ItemsPromotion(int? skip)
         {
             SanPhamModel sp = new SanPhamModel();
             int skipnum = (skip ?? 0);
@@ -191,7 +179,7 @@ namespace Ecommerce.Web.Controllers
                 return null;
         }
 
-        public ActionResult SPBanChay()
+        public ActionResult ItemsBestSeller()
         {
             SanPhamModel sp = new SanPhamModel();
             IQueryable<SanPham> splist = sp.SPBanChay(7);
@@ -200,9 +188,11 @@ namespace Ecommerce.Web.Controllers
             else
                 return null;
         }
-        public ActionResult SPMoiXem()
+
+        public ActionResult ItemsRecentlyView()
         {
-            return PartialView("_RecentlyViewPartial", ManagerObiect.getIntance().Laydanhsachsanphammoixem());
+            var model = ManagerObiect.getIntance().Laydanhsachsanphammoixem();
+            return PartialView("_RecentlyViewPartial", model);
         }
 
     }

@@ -88,45 +88,46 @@ namespace  Ecommerce.Web.Models
                 return users;
             }
         }
-        public void Luudonhang(Donhangtongquan a, string maKH, Giohang giohang)
+        public void Luudonhang(Donhangtongquan orderInfo, string maKH, Giohang cart)
         {
             try
             {
                 using ( EcommerceModel_DbContext db = new EcommerceModel_DbContext())
                 {
-                    DonHangKH dhkh = new DonHangKH();
-                    dhkh.MaDH = RandomMa();
-                    dhkh.MaKH = maKH;
+                    DonHangKH _order = new DonHangKH();
+                    _order.MaDH = RandomMa();
+                    _order.MaKH = maKH;
+                    _order.OrderBy = orderInfo.OrderBy;
+                    _order.ReceivedPerson = orderInfo.ReceivedPerson;
+                    _order.Diachi = orderInfo.Address;
+                    _order.Dienthoai = orderInfo.PhoneNumber;
+                    _order.Ghichu = orderInfo.Note;
+                    _order.NgayDatMua = DateTime.Now;
+                    _order.TinhTrangDH = 1;
+                    _order.Tongtien = cart.TinhtongtienCart();
+                    _order.PhiVanChuyen = 0;
 
-                    dhkh.Diachi = a.address;
-                    dhkh.Dienthoai = a.phoneNumber;
-                    dhkh.Ghichu = a.Note;
-                    dhkh.NgayDatMua = DateTime.Now;
-                    dhkh.TinhTrangDH = 1;
-                    dhkh.Tongtien = giohang.TinhtongtienCart();
-                    dhkh.PhiVanChuyen = 0;
-
-                    dhkh = db.DonHangKHs.Add(dhkh);
+                    _order = db.DonHangKHs.Add(_order);
                     db.SaveChanges();
 
-                    Luuchitietdonhang(giohang, db, dhkh.MaDH);
+                    SaveDetailOrder(cart, db, _order.MaDH);
                 }
             }
-            catch (Exception e) { }
+            catch (Exception ex) { }
         }
 
-        private void Luuchitietdonhang(Giohang giohang, EcommerceModel_DbContext db, string maDH)
+        private void SaveDetailOrder(Giohang cart, EcommerceModel_DbContext db, string orderId)
         {
-            foreach (var temp in giohang.getGiohang())
+            foreach (var temp in cart.getGiohang())
             {
-                ChiTietDonHang chiTiet = new ChiTietDonHang()
+                ChiTietDonHang _detail = new ChiTietDonHang()
                 {
-                    MaDH = maDH,
+                    MaDH = orderId,
                     MaSP = temp.sanPham.MaSP,
                     SoLuong = temp.Soluong,
                     ThanhTien = (decimal)temp.Thanhtien
                 };
-                db.ChiTietDonHangs.Add(chiTiet);
+                db.ChiTietDonHangs.Add(_detail);
 
             }
             db.SaveChanges();

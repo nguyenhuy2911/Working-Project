@@ -1,4 +1,5 @@
 ﻿@model Ecommerce.Web.Models.Giohang
+@using Ecommerce.Web.Helper
 <section id="your-order">
     <h2 class="border h1">Order của bạn</h2>
     <form>
@@ -9,8 +10,18 @@
                     <a href="#" class="qty">@Model.getGiohang()[i].Soluong x</a>
                 </div>
                 <div class="col-xs-12 col-sm-9 ">
-                    <div class="title"><a href="#"> @Model.getGiohang()[i].sanPham.TenSP</a></div>
-                    <div class="brand">sony</div>
+                    <div class="col-xs-12 col-sm-1 no-margin">
+                        <a href="@Url.RouteUrl("ProductDetail", new { id = @Model.getGiohang()[i].sanPham.MaSP, alias= @Model.getGiohang()[i].sanPham.TenSP.GenerateFriendlyName()})" title="@Model.getGiohang()[i].sanPham.TenSP" class="thumb-holder">
+                            <img class="lazy" alt="@Model.getGiohang()[i].sanPham.TenSP" src="~/images/products/@Model.getGiohang()[i].sanPham.AnhDaiDien" />
+                        </a>
+                    </div>
+                    <div class="col-xs-12 col-sm-10">
+                        <div class="title">
+                            <a href="@Url.RouteUrl("ProductDetail", new { id = @Model.getGiohang()[i].sanPham.MaSP, alias= @Model.getGiohang()[i].sanPham.TenSP.GenerateFriendlyName()})" title="@Model.getGiohang()[i].sanPham.TenSP">@Model.getGiohang()[i].sanPham.TenSP</a>
+                        </div>
+                        <div class="brand">sony</div>
+                    </div>
+                    
                 </div>
                 <div class="col-xs-12 col-sm-2 no-margin">
                     <div class="price">@string.Format("{0:0,0}", @Model.getGiohang()[i].Thanhtien)  Đồng</div>
@@ -25,7 +36,7 @@
             <ul class="tabled-data inverse-bold no-border">
                 <li>
                     <label>Tổng Tiền Sản Phẩm</label>
-                    <div class="value ">@string.Format("{0:0,0}",@Model.Tinhtongtiensanpham()) Đồng</div>
+                    <div class="value ">@string.Format("{0:0,0}", @Model.Tinhtongtiensanpham()) Đồng</div>
                 </li>
                 <li>
                     <label>Phí Vận Chuyển</label>
@@ -37,7 +48,7 @@
             <ul id="total-field" class="tabled-data inverse-bold ">
                 <li>
                     <label>Tổng tiền thanh toán</label>
-                    <div class="value">@string.Format("{0:0,0}",@Model.TinhtongtienCart()) Đồng</div>
+                    <div class="value">@string.Format("{0:0,0}", @Model.TinhtongtienCart()) Đồng</div>
                 </li>
             </ul><!-- /.tabled-data -->
         </div><!-- /#subtotal-holder -->

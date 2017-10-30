@@ -40,7 +40,7 @@
     @Scripts.Render("~/bundles/jqueryval")
     <script src="@Url.Content("~/js/themxoasuaajax.js")"></script>
     <script src="~/js/B2BAdmin.js"></script>
-    
+
     <!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -66,19 +66,99 @@
             </div>
             <!-- user dropdown ends -->
             <ul class="collapse navbar-collapse nav navbar-nav top-menu">
-                <li><a href="@Url.Action("Index", "Home")"><i class="glyphicon glyphicon-globe"></i> Về trang chủ</a></li>
+                <li><a href="@Url.Action("Index", "Home")"><i class="glyphicon glyphicon-globe"></i></a></li>
+                <li>
+                    <a class="ajax-link" href="@Url.Action("Index","Admin")"><i class="glyphicon glyphicon-home"></i></a>
+                </li>
                 <li class="dropdown">
                     <a href="#" data-toggle="dropdown">
-                        <i class="glyphicon glyphicon-star"></i> Chức năng <span class="caret"></span>
+                        <i class="glyphicon glyphicon-star"></i> Sản phẩm <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
+                        <li><a href="@Url.Action("SanPham","Admin")">Quản lý sản phẩm</a></li>
                         <li class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
+                        <li><a href="@Url.Action("Index","LoaiSP")">Quản lý loại sản phẩm</a></li>
                         <li class="divider"></li>
-                        <li><a href="#">One more separated link</a></li>
+                        <li><a href="@Url.Action("Index","HangSX")">Quản lý hãng sản xuất</a></li>
+                        <li class="divider"></li>
+                        <li><a href="@Url.Action("Index","KhuyenMai")">Quản lý khuyến mãi</a></li>
+
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" data-toggle="dropdown">
+                        <span class="glyphicon glyphicon-user white"></span> Người dùng<span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="@Url.Action("Index","Account")">Danh sách ngươi dùng</a></li>
+                        <li class="divider"></li>
+                        <li><a href="@Url.Action("Index","Roles")">Danh sách chức vụ</a></li>
+
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" data-toggle="dropdown">
+                        <i class="glyphicon glyphicon-star"></i> Nhà cung cấp<span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="@Url.Action("Index","NhaCungCap")">Danh sách nhà cung cấp</a></li>
+                        <li class="divider"></li>
+                        <li>@*<a href="/HopDong">Hợp đồng</a>*@</li>
+                        @*<li class="divider"></li>*@
+                        <li>@*<a href="@Url.Action("Index","SanPhamCanMua")">Đấu giá hợp đồng cung cấp</a>*@</li>
+                        @*<li class="divider"></li>*@
+                        <li>@*<a href="@Url.Action("Index","DanhSachDK")">Danh sách đăng ký cung cấp</a>*@</li>
+
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" data-toggle="dropdown">
+                        <i class="glyphicon glyphicon-star"></i> Đơn hàng<span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="@Url.Action("Index","Donhang")">Đơn hàng khách hàng</a></li>
+                        <li class="divider"></li>
+                        <li>@*<a href="@Url.Action("TinhTrangGiaoHang","HopDong")">Đơn hàng của đối tác</a>*@</li>
+
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" data-toggle="dropdown">
+                        <i class="glyphicon glyphicon-call-redirect white"></i> Chăm sóc khách hàng<span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="@Url.Action("Index", "Comment")">Bình luận của khách</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" data-toggle="dropdown">
+                        <i class="glyphicon glyphicon-star"></i> Thống kê<span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="@Url.Action("ThongKeDoanhThu","ThongKe")">Doanh thu hàng tháng</a></li>
+                    </ul>
+                </li>
+                @*<li class="dropdown">
+                    <a href="#" data-toggle="dropdown">
+                        <i class="glyphicon glyphicon-star"></i> B2B<span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="@Url.Action("GetNhaDoiTac", "AdminB2B")">Danh sách các Nhà Đối Tác</a></li>
+                        <li class="divider"></li>
+                        <li><a href="@Url.Action("Theodoithanhtoan", "AdminB2B")">Quan lí thanh toán</a></li>
+
+                    </ul>
+                </li>*@
+                <li class="dropdown">
+                    <a href="#" data-toggle="dropdown">
+                        <i class="glyphicon glyphicon-star"></i> Cài đặt<span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="@Url.Action("General","GiaoDien")">Cài đặt thông tin web</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Cài đặt giao diện</a></li>
+                        @*<li class="divider"></li>
+                        <li><a href="#">Khác</a></li>*@
                     </ul>
                 </li>
             </ul>
@@ -87,90 +167,6 @@
     <!-- topbar ends -->
     <div class="ch-container">
         <div class="row">
-
-            <!-- left menu starts -->
-            <div class="col-sm-2 col-lg-2">
-                <div class="sidebar-nav" >
-                    <div class="nav-canvas">
-                        <div class="nav-sm nav nav-stacked">
-                        </div>
-                        <ul class="nav nav-pills nav-stacked main-menu">
-                            <li>
-                                <a class="ajax-link" href="@Url.Action("Index","Admin")"><i class="glyphicon glyphicon-home red"></i><span style="font-weight: bold; color:#ff0000"> Dashboard</span></a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="glyphicon glyphicon-gift red"></i><span style="font-weight: bold; color:#ff0000"> Khu vực sản phẩm</span></a>
-                                <ul class="nav nav-pills nav-stacked">
-                                    <li><a href="@Url.Action("SanPham","Admin")">Quản lý sản phẩm</a></li>
-                                    <li><a href="@Url.Action("Index","LoaiSP")">Quản lý loại sản phẩm</a></li>
-                                    <li><a href="@Url.Action("Index","HangSX")">Quản lý hãng sản xuất</a></li>
-                                    <li><a href="@Url.Action("Index","KhuyenMai")">Quản lý khuyến mãi</a></li>
-                                </ul>
-                            </li>
-
-                            <li>
-                                <a href="#"><i class="glyphicon glyphicon-user red"></i><span style="font-weight: bold; color: #ff0000;"> Khu vực thành viên</span></a>
-                                <ul class="nav nav-pills nav-stacked">
-                                    <li><a href="@Url.Action("Index","Account")">Danh sách ngươi dùng</a></li>
-                                    <li><a href="@Url.Action("Index","Roles")">Danh sách chức vụ</a></li>
-                                </ul>
-                            </li>
-
-                            <li>
-                                <a href="#"><i class="glyphicon glyphicon-plus-sign red"></i><span style="font-weight: bold; color: #ff0000;">Nhà cung cấp</span></a>
-                                <ul class="nav nav-pills nav-stacked">
-                                    <li><a href="@Url.Action("Index","NhaCungCap")">Danh sách nhà cung cấp</a></li>
-                                    <li><a href="/HopDong">Hợp đồng</a></li>
-                                    <li><a href="@Url.Action("Index","SanPhamCanMua")">Đấu giá hợp đồng cung cấp</a></li>
-                                    <li><a href="@Url.Action("Index","DanhSachDK")">Danh sách đăng ký cung cấp</a></li>
-                                </ul>
-                            </li>
-
-
-                            <li>
-                                <a href="#"><i class="glyphicon glyphicon-briefcase red"></i><span style="font-weight: bold; color: #ff0000;">Đơn hàng - Hóa đơn</span></a>
-                                <ul class="nav nav-pills nav-stacked">
-                                    <li><a href="@Url.Action("Index","Donhang")">Đơn hàng của khách</a></li>
-                                    <li><a href="@Url.Action("TinhTrangGiaoHang","HopDong")">Đơn hàng của đối tác</a></li>
-                                </ul>
-                            </li>
-
-                            <li>
-                                <a href="#"><i class="glyphicon glyphicon-heart red"></i><span style="font-weight: bold; color: #ff0000;">Chăm sóc khách hàng</span></a>
-                                <ul class="nav nav-pills nav-stacked">
-                                    <li><a href="@Url.Action("Index", "Comment")">Bình luận của khách</a></li>
-                                    <li><a href="@Url.Action("Index", "Comment")">Tư vấn trực tuyến</a></li>
-                                </ul>
-                            </li>
-
-                            <li>
-                                <a href="#"><i class="glyphicon glyphicon-list-alt red"></i><span style="font-weight: bold; color: #ff0000;"> Khu vực thống kê</span></a>
-                                <ul class="nav nav-pills nav-stacked">
-                                    <li><a href="@Url.Action("ThongKeDoanhThu","ThongKe")">Doanh thu hàng tháng</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <!--Them B2B-->
-                                <a href="#"><i class="glyphicon glyphicon-gift red"></i><span style="font-weight: bold; color:#ff0000"> Khu vực B2B</span></a>
-                                <ul class="nav nav-pills nav-stacked">
-                                    <li><a href="@Url.Action("GetNhaDoiTac", "AdminB2B")">Danh sách các Nhà Đối Tác</a></li>
-                                    <li><a href="@Url.Action("Theodoithanhtoan", "AdminB2B")">Quan lí thanh toán</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#"><i class="glyphicon glyphicon-cog red"></i><span style="font-weight: bold; color: #ff0000;">Cài đặt</span></a>
-                                <ul class="nav nav-pills nav-stacked">
-                                    <li><a href="@Url.Action("General","GiaoDien")">Cài đặt thông tin web</a></li>
-                                    <li><a href="#">Cài đặt giao diện</a></li>
-                                    <li><a href="#">Khác</a></li>
-                                </ul>
-                            </li>
-
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!--/span-->
             <!-- left menu ends -->
             <noscript>
                 <div class="alert alert-block col-md-12">
@@ -181,7 +177,7 @@
                     </p>
                 </div>
             </noscript>
-            <div id="content" class="col-lg-10 col-sm-10">
+            <div id="content" class="col-lg-12 col-sm-12">
                 <!-- content starts -->
                 <div>
                     <ul class="breadcrumb">

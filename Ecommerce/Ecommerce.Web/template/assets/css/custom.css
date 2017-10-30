@@ -2,3 +2,12 @@
     width:570px;
     height:243px;
 }
+#checkout-page #your-order .order-item .title a {
+    margin-left:0px;
+}
+#checkout-page #your-order .order-item .brand {
+    margin-left:0px;
+}
+#checkout-page .thumb-holder {
+    border:none;
+}

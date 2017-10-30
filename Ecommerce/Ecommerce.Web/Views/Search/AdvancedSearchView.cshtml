@@ -281,20 +281,16 @@
                     <li class="grid-list-button-item "><a data-toggle="tab" href="#list-view"><i class="fa fa-th-list"></i> Dánh sách</a></li>
                 </ul>
             </div>
-        </div><!-- /.control-bar -->
+        </div>
 
         <div class="tab-content">
             <div id="grid-view" class="products-grid fade tab-pane in active">
                 @Html.Action("AdvancedSearchP", "Search", new { term = ViewBag.Name, loai = ViewBag.loai, hangsx = ViewBag.hangsx, minprice = ViewBag.minprice, maxprice = ViewBag.maxprice, typeview = "grid" })
-
-
-            </div><!-- /.products-grid #grid-view -->
-
-
+            </div>
             <div id="list-view" class="products-grid fade tab-pane ">
                 @Html.Action("AdvancedSearchP", "Search", new { term = ViewBag.Name, loai = ViewBag.loai, hangsx = ViewBag.hangsx, minprice = ViewBag.minprice, maxprice = ViewBag.maxprice, typeview = "list" })
-            </div><!-- /.products-grid #list-view -->
-        </div><!-- /.tab-content -->
-    </div><!-- /.grid-list-products -->
-</section><!-- /#gaming -->
+            </div>
+        </div>
+    </div>
+</section>
 <!-- ========================================= CONTENT : END ========================================= -->

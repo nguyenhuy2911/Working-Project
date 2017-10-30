@@ -27,3 +27,13 @@ E:\Working\Git\working project\Ecommerce\Ecommerce.Domain\bin\Debug\EntityFramew
 E:\Working\Git\working project\Ecommerce\Ecommerce.Domain\obj\Debug\Ecommerce.Domain.csprojResolveAssemblyReference.cache
 E:\Working\Git\working project\Ecommerce\Ecommerce.Domain\obj\Debug\Ecommerce.Domain.dll
 E:\Working\Git\working project\Ecommerce\Ecommerce.Domain\obj\Debug\Ecommerce.Domain.pdb
+E:\lip cms\workingproject\Ecommerce\Ecommerce.Domain\bin\Debug\Ecommerce.Domain.dll.config
+E:\lip cms\workingproject\Ecommerce\Ecommerce.Domain\bin\Debug\Ecommerce.Domain.dll
+E:\lip cms\workingproject\Ecommerce\Ecommerce.Domain\bin\Debug\Ecommerce.Domain.pdb
+E:\lip cms\workingproject\Ecommerce\Ecommerce.Domain\bin\Debug\EntityFramework.dll
+E:\lip cms\workingproject\Ecommerce\Ecommerce.Domain\bin\Debug\EntityFramework.SqlServer.dll
+E:\lip cms\workingproject\Ecommerce\Ecommerce.Domain\bin\Debug\EntityFramework.xml
+E:\lip cms\workingproject\Ecommerce\Ecommerce.Domain\bin\Debug\EntityFramework.SqlServer.xml
+E:\lip cms\workingproject\Ecommerce\Ecommerce.Domain\obj\Debug\Ecommerce.Domain.csprojResolveAssemblyReference.cache
+E:\lip cms\workingproject\Ecommerce\Ecommerce.Domain\obj\Debug\Ecommerce.Domain.dll
+E:\lip cms\workingproject\Ecommerce\Ecommerce.Domain\obj\Debug\Ecommerce.Domain.pdb

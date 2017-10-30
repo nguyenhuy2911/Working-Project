@@ -207,13 +207,15 @@
     <Compile Include="App_Start\Trackingactionfilter.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\Back\AdminController.cs" />
     <Compile Include="Controllers\B2B\AdminB2BController.cs" />
     <Compile Include="Controllers\B2B\AuctionController.cs" />
     <Compile Include="Controllers\B2B\DanhSachDKController.cs" />
     <Compile Include="Controllers\B2B\HopDongController.cs" />
     <Compile Include="Controllers\B2B\NhaCungCapController.cs" />
+    <Compile Include="Controllers\Front\CategoryController.cs" />
     <Compile Include="Controllers\ThongKeController.cs" />
+    <Compile Include="Helper\FriendlyUrlHelper.cs" />
     <Compile Include="Models\Service\B2B\Classsupport.cs" />
     <Compile Include="Models\Service\B2B\ConfigAPIModel.cs" />
     <Compile Include="Models\Service\B2B\DoitacModel.cs" />
@@ -226,12 +228,12 @@
     <Compile Include="Controllers\DonhangController.cs" />
     <Compile Include="Controllers\DisplayController.cs" />
     <Compile Include="Controllers\HangSXController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Front\HomeController.cs" />
     <Compile Include="Controllers\KhuyenMaiController.cs" />
     <Compile Include="Controllers\LoaiSPController.cs" />
     <Compile Include="Controllers\OauthController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
-    <Compile Include="Controllers\RolesController.cs" />
+    <Compile Include="Controllers\Back\RolesController.cs" />
     <Compile Include="Controllers\SanPhamController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\SideBarController.cs" />
@@ -2148,6 +2150,7 @@
     <Content Include="Views\ThongKe\TheoTiTrong.cshtml" />
     <Content Include="Views\Home\_HomeBanner_Partial.cshtml" />
     <Content Include="Views\Account\CreateSupperAdminUser.cshtml" />
+    <Content Include="Views\Front\Category\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

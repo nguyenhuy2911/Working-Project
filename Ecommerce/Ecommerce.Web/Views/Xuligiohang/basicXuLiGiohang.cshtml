@@ -1,10 +1,11 @@
 ﻿@model Ecommerce.Web.Models.Giohang
+@using Ecommerce.Web.Helper
 @{
 <script src="~/template/assets/js/scripts.js"></script>
 }
 <div class="container">
     <!-- ========================================= CONTENT ========================================= -->
-    <div class="col-xs-12 col-md-9 items-holder no-margin">
+    <div class="col-xs-12 col-md-8 items-holder no-margin">
         @for (int i = 0; i < Model.getGiohang().Count; i++)
         {
             <div class="row no-margin cart-item">
@@ -15,7 +16,7 @@
                 </div>
                 <div class="col-xs-12 col-sm-5 ">
                     <div class="title">
-                        <a href="@Url.Action("Index", "SanPham", new { ID = @Model.getGiohang()[i].sanPham.MaSP })">@Model.getGiohang()[i].sanPham.TenSP</a>
+                        <a href="@Url.RouteUrl("ProductDetail", new { id = @Model.getGiohang()[i].sanPham.MaSP, alias= @Model.getGiohang()[i].sanPham.TenSP.GenerateFriendlyName()})">@Model.getGiohang()[i].sanPham.TenSP</a>
                     </div>
                     <div class="brand">@Model.getGiohang()[i].sanPham.HangSX</div>
                 </div>
@@ -41,7 +42,7 @@
     </div>
     <!-- ========================================= CONTENT : END ========================================= -->
     <!-- ========================================= SIDEBAR ========================================= -->
-    <div class="col-xs-12 col-md-3 no-margin sidebar ">
+    <div class="col-xs-12 col-md-4 no-margin sidebar ">
         <div class="widget cart-summary">
             <h1 class="border">Giỏ hàng</h1>
             <div class="body">

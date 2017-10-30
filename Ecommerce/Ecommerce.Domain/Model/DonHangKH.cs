@@ -19,7 +19,6 @@ namespace Ecommerce.Domain.Model
         [StringLength(5)]
         public string MaDH { get; set; }
 
-        [Required]
         [StringLength(128)]
         public string MaKH { get; set; }
 
@@ -45,7 +44,9 @@ namespace Ecommerce.Domain.Model
 
         public virtual AspNetUser AspNetUser { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietDonHang> ChiTietDonHangs { get; set; }
+
+        public string OrderBy { get; set; }
+        public string ReceivedPerson { get; set; }
     }
 }

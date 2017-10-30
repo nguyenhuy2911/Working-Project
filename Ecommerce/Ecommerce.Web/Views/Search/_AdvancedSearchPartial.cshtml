@@ -11,10 +11,10 @@
             {
                 <div class="col-xs-12 col-sm-4 no-margin product-item-holder hover">
                     @Html.Partial("_ProductGridShowPartal", item)
-                </div><!-- /.product-item-holder -->
+                </div>
             }
-        </div><!-- /.row -->
-    </div><!-- /.product-grid-holder -->
+        </div>
+    </div>
     <div class="pagination-holder">
         <div class="row">
             <div class="col-xs-12 col-sm-6 text-left">
@@ -27,8 +27,8 @@
                     Có tât cả <span>@Model.TotalItemCount</span> sản phẩm
                 </div>
             </div>
-        </div><!-- /.row -->
-    </div><!-- /.pagination-holder -->
+        </div>
+    </div>
 }
 else
 {
@@ -37,7 +37,7 @@ else
         {
             @Html.Partial("_ProductListShowPartial", item)
         }
-    </div><!-- /.products-list -->
+    </div>
     <div class="pagination-holder">
         <div class="row">
             <div class="col-xs-12 col-sm-6 text-left">
@@ -50,8 +50,8 @@ else
                     Có tât cả <span>@Model.TotalItemCount</span> sản phẩm
                 </div>
             </div>
-        </div><!-- /.row -->
-    </div><!-- /.pagination-holder -->
+        </div>
+    </div>
 }
 
 

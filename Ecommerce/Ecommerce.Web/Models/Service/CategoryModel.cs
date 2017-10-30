@@ -26,6 +26,22 @@ namespace  Ecommerce.Web.Models
             return db.LoaiSPs.Find(id);
         }
 
+        internal LoaiSP FindByAlias(string alias)
+        {
+            return db.LoaiSPs.Where(p=>p.Alias == alias).FirstOrDefault();
+        }
+
+        public IQueryable<SanPham> GetProducts(string category, string branch)
+        {
+            IQueryable<SanPham> lst = db.SanPhams;
+            
+            if (!string.IsNullOrEmpty(category))
+                lst = from p in lst where p.LoaiSP.Equals(category) select p;
+            if (!string.IsNullOrEmpty(branch))
+                lst = from p in lst where p.HangSX.Equals(branch) select p;            
+            return lst;
+        }
+
         internal void EditLoaiSP(LoaiSP loai)
         {
             LoaiSP lsp = db.LoaiSPs.Find(loai.MaLoai);
