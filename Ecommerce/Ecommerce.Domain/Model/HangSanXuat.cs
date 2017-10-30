@@ -28,6 +28,9 @@ namespace Ecommerce.Domain.Model
         [StringLength(50)]
         public string QuocGia { get; set; }
 
+        [StringLength(50)]
+        public string Alias { get; set; }
+
 
         public virtual ICollection<SanPham> SanPhams { get; set; }
     }

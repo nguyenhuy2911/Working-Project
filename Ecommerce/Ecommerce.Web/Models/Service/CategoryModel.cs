@@ -31,14 +31,14 @@ namespace  Ecommerce.Web.Models
             return db.LoaiSPs.Where(p=>p.Alias == alias).FirstOrDefault();
         }
 
-        public IQueryable<SanPham> GetProducts(string category, string branch)
+        public IQueryable<SanPham> GetProducts(string category, string brand)
         {
             IQueryable<SanPham> lst = db.SanPhams;
             
             if (!string.IsNullOrEmpty(category))
                 lst = from p in lst where p.LoaiSP.Equals(category) select p;
-            if (!string.IsNullOrEmpty(branch))
-                lst = from p in lst where p.HangSX.Equals(branch) select p;            
+            if (!string.IsNullOrEmpty(brand))
+                lst = from p in lst where p.HangSX.Equals(brand) select p;            
             return lst;
         }
 

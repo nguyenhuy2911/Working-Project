@@ -72,7 +72,7 @@
                 </li>
                 <li class="dropdown">
                     <a href="#" data-toggle="dropdown">
-                        <i class="glyphicon glyphicon-star"></i> Sản phẩm <span class="caret"></span>
+                        <i class="glyphicon glyphicon-tasks"></i> Sản phẩm <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="@Url.Action("SanPham","Admin")">Quản lý sản phẩm</a></li>
@@ -102,7 +102,7 @@
                     </a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="@Url.Action("Index","NhaCungCap")">Danh sách nhà cung cấp</a></li>
-                        <li class="divider"></li>
+                        @*<li class="divider"></li>*@
                         <li>@*<a href="/HopDong">Hợp đồng</a>*@</li>
                         @*<li class="divider"></li>*@
                         <li>@*<a href="@Url.Action("Index","SanPhamCanMua")">Đấu giá hợp đồng cung cấp</a>*@</li>
@@ -113,18 +113,18 @@
                 </li>
                 <li class="dropdown">
                     <a href="#" data-toggle="dropdown">
-                        <i class="glyphicon glyphicon-star"></i> Đơn hàng<span class="caret"></span>
+                        <i class="glyphicon glyphicon-list-alt"></i> Đơn hàng<span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="@Url.Action("Index","Donhang")">Đơn hàng khách hàng</a></li>
-                        <li class="divider"></li>
+                        @*<li class="divider"></li>*@
                         <li>@*<a href="@Url.Action("TinhTrangGiaoHang","HopDong")">Đơn hàng của đối tác</a>*@</li>
 
                     </ul>
                 </li>
                 <li class="dropdown">
                     <a href="#" data-toggle="dropdown">
-                        <i class="glyphicon glyphicon-call-redirect white"></i> Chăm sóc khách hàng<span class="caret"></span>
+                        <i class="glyphicon glyphicon-phone-alt"></i> Chăm sóc khách hàng<span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="@Url.Action("Index", "Comment")">Bình luận của khách</a></li>
@@ -132,7 +132,7 @@
                 </li>
                 <li class="dropdown">
                     <a href="#" data-toggle="dropdown">
-                        <i class="glyphicon glyphicon-star"></i> Thống kê<span class="caret"></span>
+                        <i class="glyphicon glyphicon-stats"></i> Thống kê<span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="@Url.Action("ThongKeDoanhThu","ThongKe")">Doanh thu hàng tháng</a></li>
@@ -151,7 +151,7 @@
                 </li>*@
                 <li class="dropdown">
                     <a href="#" data-toggle="dropdown">
-                        <i class="glyphicon glyphicon-star"></i> Cài đặt<span class="caret"></span>
+                        <i class="glyphicon glyphicon-wrench"></i> Cài đặt<span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="@Url.Action("General","GiaoDien")">Cài đặt thông tin web</a></li>

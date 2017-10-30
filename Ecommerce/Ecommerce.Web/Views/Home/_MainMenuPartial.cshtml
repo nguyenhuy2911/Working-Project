@@ -21,7 +21,7 @@
                             <ul class="dropdown-menu">
                                 @foreach (var i in item.HangSX)
                                 {
-                                    <li><a href="@Url.RouteUrl("Category", new { alias = item.LoaiSP.Alias, branch = i.HangSX })" title="@item.LoaiSP.TenLoai">@i.TenHang</a></li>
+                                    <li><a href="@Url.RouteUrl("Category", new { alias = item.LoaiSP.Alias, brandAlias = i.Alias })" title="@item.LoaiSP.TenLoai">@i.TenHang</a></li>
                                 }
                             </ul>
                         </li>

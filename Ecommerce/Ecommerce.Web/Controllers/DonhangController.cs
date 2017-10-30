@@ -50,7 +50,7 @@ namespace  Ecommerce.Web.Controllers
         {
             int pageSize = (pagesize ?? 10);
             int pageNumber = (page ?? 1);
-            return PartialView("DonHangPartial", lst.OrderBy(m => m.TinhTrangDH).ToPagedList(pageNumber, pageSize));
+            return PartialView("DonHangPartial", lst.OrderByDescending(m => m.NgayDatMua).ThenByDescending(p => p.TinhTrangDH).ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Donhang

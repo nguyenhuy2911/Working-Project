@@ -63,26 +63,26 @@ namespace Ecommerce.Domain.Model
 
         public bool? ishot { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
         public virtual ICollection<BinhLuan> BinhLuans { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
         public virtual ICollection<ChiTietDonHang> ChiTietDonHangs { get; set; }
 
         public virtual HangSanXuat HangSanXuat { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
         public virtual ICollection<HopDongNCC> HopDongNCCs { get; set; }
 
         public virtual LoaiSP LoaiSP1 { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
         public virtual ICollection<SanPhamKhuyenMai> SanPhamKhuyenMais { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+ 
         public virtual ICollection<ThongSoKyThuat> ThongSoKyThuats { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
         public virtual ICollection<Sanphamcanmua> Sanphamcanmuas { get; set; }
     }
 }

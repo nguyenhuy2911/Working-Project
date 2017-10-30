@@ -254,7 +254,7 @@
     <Compile Include="Models\Service\Donhang\ChitietdonhangModel.cs" />
     <Compile Include="Models\Service\Donhang\DonhangKHModel.cs" />
     <Compile Include="Models\Service\Donhang\Donhangtongquan.cs" />
-    <Compile Include="Models\Service\Chitietgiohang.cs" />
+    <Compile Include="Models\Service\FrontEnd\Chitietgiohang.cs" />
     <Compile Include="Models\Service\EmailModel.cs" />
     <Compile Include="Models\Service\FrontEnd\DisplayService.cs" />
     <Compile Include="Models\Service\FrontEnd\Giohang.cs" />
@@ -269,6 +269,7 @@
     <Compile Include="Models\Service\Shipping.cs" />
     <Compile Include="Models\Service\Thanhviennhom.cs" />
     <Compile Include="Models\Service\UserModel.cs" />
+    <Compile Include="Models\ViewModel\CategoryViewModel.cs" />
     <Compile Include="Models\ViewModel\Header_ViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Provider\ApplicationOAuthProvider.cs" />

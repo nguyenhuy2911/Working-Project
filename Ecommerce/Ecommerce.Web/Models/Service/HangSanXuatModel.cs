@@ -22,6 +22,11 @@ namespace  Ecommerce.Web.Models
             return db.HangSanXuats.Find(id);
         }
 
+        internal HangSanXuat FindByAlias(string alias)
+        {
+            return db.HangSanXuats.Where(p=> p.Alias == alias).FirstOrDefault();
+        }
+
         internal void EditHangSX(HangSanXuat loai)
         {
             HangSanXuat lsp = db.HangSanXuats.Find(loai.HangSX);

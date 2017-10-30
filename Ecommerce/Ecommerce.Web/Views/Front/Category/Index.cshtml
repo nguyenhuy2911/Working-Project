@@ -1,7 +1,7 @@
-﻿@model List<Ecommerce.Domain.Model.SanPham>
+﻿@model Ecommerce.Web.Models.ViewModel.CategoryViewModel
 @{
-    ViewBag.Title = Model.TenLoai;
-    ViewBag.Keywords = Model.TenLoai;
+    ViewBag.Title = Model.CategoryName;
+    ViewBag.Keywords = Model.CategoryName;
     Layout = "~/Views/Shared/_LayoutFrontEnd.cshtml";
 }
 <div class="container">
@@ -10,8 +10,8 @@
     <div id="grid-view" class="col-xs-12 col-sm-12 col-lg-offset-1 no-margin wide">
         <div class="product-grid-holder">
             <div class="row no-margin">
-                @foreach (var item in Model)
-            {
+                @foreach (var item in Model.Items)
+                {
                     <div class="col-xs-12 col-sm-3 no-margin product-item-holder hover">
                         @Html.Partial("_ProductGridShowPartal", item)
                     </div>
