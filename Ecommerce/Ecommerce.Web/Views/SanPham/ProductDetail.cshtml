@@ -57,14 +57,7 @@
                         <a class="horizontal-thumb" data-target="#owl-single-product" data-slide="2" href="#slide3">
                             <img width="67" alt="" src="@Url.Content("~/template/")assets/images/blank.gif" data-echo="@Url.Content("~/images/products/")@Model.AnhKhac" />
                         </a>
-                    </div><!-- /#owl-single-product-thumbnails -->
-                    @*<div class="nav-holder left hidden-xs">
-                            <a class="prev-btn slider-prev" data-target="#owl-single-product-thumbnails" href="#prev"></a>
-                        </div><!-- /.nav-holder -->
-
-                        <div class="nav-holder right hidden-xs">
-                            <a class="next-btn slider-next" data-target="#owl-single-product-thumbnails" href="#next"></a>
-                        </div><!-- /.nav-holder -->*@
+                    </div>
                 </div>
             </div>
         </div>
@@ -164,7 +157,8 @@
 <!-- ========================================= SINGLE PRODUCT TAB : END ========================================= -->
 <!-- ========================================= SAN PHAM LIEN QUAN ========================================= -->
 
-@Html.Action("Loadsplienquan", "SanPham", new { maloai = @Model.LoaiSP, sl = 6 });
+@Html.Action("Loadsplienquan", "SanPham", new { maloai = @Model.LoaiSP, sl = 6 })
+
 <!--RECENTLY VIEWED  -->
 @Html.Action("ItemsRecentlyView", "Home")
 <!-- RECENTLY VIEWED : END  -->
@@ -172,7 +166,6 @@
 <script type="text/javascript">
     var ProductDetail = function () { }
     ProductDetail.prototype.AddToCart = function (value) {
-        debugger;
         var quantity = $('input[name="quantity"]').val();
         Addcart(value, quantity);
     }

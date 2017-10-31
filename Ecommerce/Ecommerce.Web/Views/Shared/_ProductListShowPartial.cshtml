@@ -17,9 +17,9 @@
     <div class="row">
         <div class="no-margin col-xs-12 col-sm-4 image-holder">
             <div class="image">
-                <img alt="" src="@Url.Content("~/template/assets/images/blank.gif")" data-echo="@Url.Content("~/images/products/")@Model.AnhDaiDien" />
+                <img alt="" src="@Url.Content("~/images/products/")@Model.AnhDaiDien" data-echo="@Url.Content("~/images/products/")@Model.AnhDaiDien" />
             </div>
-        </div><!-- /.image-holder -->
+        </div>
         <div class="no-margin col-xs-12 col-sm-5 body-holder">
             <div class="body">
                 @*<div class="label-discount green">-50% sale</div>*@
@@ -35,19 +35,28 @@
                     <a class="btn-add-to-compare" href="#">So sánh</a>
                 </div>
             </div>
-        </div><!-- /.body-holder -->
+        </div>
         <div class="no-margin col-xs-12 col-sm-3 price-area">
             <div class="right-clmn">
                 <div class="price-current">@string.Format("{0:0,0}", Model.GiaTien) VNĐ</div>
-                
                 @if (Model.GiaTien < Model.GiaGoc)
-                {  <div class="price-prev">@string.Format("{0:0,0}", Model.GiaGoc)  VNĐ</div> }
-                <div class="availability"><label>Tình trạng:</label> @if (@Model.SoLuong > 0) {<span class="available"> Còn hàng </span> }
-                                                                     else
-                                                                     {<span class="not-available">Hết hàng</span> } </div>
+                {
+                    <div class="price-prev">@string.Format("{0:0,0}", Model.GiaGoc)  VNĐ</div>
+                }
+                <div class="availability">
+                    <label>Tình trạng:</label>
+                    @if (@Model.SoLuong > 0)
+                    {
+                        <span class="available"> Còn hàng </span>
+                    }
+                    else
+                    {
+                        <span class="not-available">Hết hàng</span>
+                    }
+                </div>
                 <a class="le-button" href="#">Mua</a>
                 <a class="btn-add-to-wishlist" href="#">Yêu thích</a>
             </div>
-        </div><!-- /.price-area -->
-    </div><!-- /.row -->
-</div><!-- /.product-item -->
+        </div>
+    </div>
+</div>

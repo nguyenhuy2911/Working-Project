@@ -167,14 +167,6 @@
             
         });
 
-        $("#owl-recently-viewed").owlCarousel({
-            stopOnHover: true,
-            rewindNav: true,
-            items: 6,
-            pagination: false,
-            itemsTablet: [768,3]
-        });
-
         $("#owl-recently-viewed-2").owlCarousel({
             stopOnHover: true,
             rewindNav: true,

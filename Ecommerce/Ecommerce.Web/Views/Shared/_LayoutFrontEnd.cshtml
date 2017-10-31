@@ -50,6 +50,7 @@
         <script src="~/template/assets/js/html5shiv.js"></script>
         <script src="~/template/assets/js/respond.min.js"></script>
     <![endif]-->
+
 </head>
 <body>
     @using Microsoft.AspNet.Identity
@@ -205,7 +206,7 @@
                                 <h3>Số điện thoại</h3>
                                 <ul>
                                     <li><a>09998998989</a></li>
-                                  
+
                                 </ul>
                             </div>
                         </div>
@@ -237,11 +238,10 @@
         </footer>
         <!-- ============================================================= FOOTER : END ============================================================= -->
     </div>
-
     <script src="@Url.Content("~/template/assets/js/jquery-1.10.2.min.js")"></script>
     <script src="@Url.Content("~/template/assets/js/jquery-migrate-1.2.1.js")"></script>
     @*<script src="@Url.Content("~/template/assets/js/bootstrap.min.js")"></script>*@
-    <script src="http://maps.google.com/maps/api/js?sensor=false&amp;language=en"></script>
+    @*<script src="http://maps.google.com/maps/api/js?sensor=false&amp;language=en"></script>*@
     <script src="@Url.Content("~/template/assets/js/gmap3.min.js")"></script>
     <script src="@Url.Content("~/template/assets/js/bootstrap-hover-dropdown.min.js")"></script>
     <script src="@Url.Content("~/template/assets/js/owl.carousel.min.js")"></script>
@@ -268,7 +268,6 @@
                 return false;
             });
         });
-
         $(window).bind("load", function () {
             $('.show-theme-options').delay(2000).trigger('click');
         });

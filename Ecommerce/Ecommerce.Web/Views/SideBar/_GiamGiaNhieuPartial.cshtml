@@ -1,11 +1,31 @@
 ﻿@model IQueryable<Ecommerce.Domain.Model.SanPham>
-
+@using Ecommerce.Web.Helper
 <div class="widget">
     <h1 class="border">Giảm giá nhiều</h1>
     <ul class="product-list">
         @foreach (var item in Model)
         {
-            @Html.Partial("_MiniProductPartial", item)
+            <li>
+                <div class="row">
+                    <div class="col-xs-4 col-sm-4 no-margin">
+                        <a href="@Url.RouteUrl("ProductDetail", new { id = item.MaSP, alias =  item.TenSP.GenerateFriendlyName() })" title="@item.TenSP" class="thumb-holder">
+                            <img alt="@item.TenSP" src="@Url.Content("~/images/products/")@item.AnhDaiDien" data-echo="@Url.Content("~/images/products/")@item.AnhDaiDien" width="73" height="73" style="padding:5px" />
+                        </a>
+                    </div>
+                    <div class="col-xs-8 col-sm-8 no-margin">
+                        <a href="@Url.RouteUrl("ProductDetail", new { id = item.MaSP, alias =  item.TenSP.GenerateFriendlyName() })" title="@item.TenSP">
+                            @item.TenSP
+                        </a>
+                        <div class="price">
+                            @if (item.GiaTien < item.GiaGoc)
+                            {
+                                <div class="price-prev">@string.Format("{0:0,0}", item.GiaGoc)  VNĐ</div>
+                            }
+                            <div class="price-current">@string.Format("{0:0,0}", item.GiaTien) VNĐ</div>
+                        </div>
+                    </div>
+                </div>
+            </li>
         }
     </ul>
-</div><!-- /.widget -->
+</div>
