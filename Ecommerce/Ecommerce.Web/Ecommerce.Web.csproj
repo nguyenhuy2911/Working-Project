@@ -226,7 +226,7 @@
     <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\CustomFilterRole.cs" />
     <Compile Include="Controllers\DonhangController.cs" />
-    <Compile Include="Controllers\DisplayController.cs" />
+    <Compile Include="Controllers\Front\DisplayController.cs" />
     <Compile Include="Controllers\HangSXController.cs" />
     <Compile Include="Controllers\Front\HomeController.cs" />
     <Compile Include="Controllers\KhuyenMaiController.cs" />
@@ -1541,7 +1541,6 @@
     <Content Include="templatebackend\img\star-on.png" />
     <Content Include="templatebackend\img\thumb.png" />
     <Content Include="templatebackend\img\uploadify-cancel.png" />
-    <Content Include="template\about.html" />
     <Content Include="template\assets\css\animate.min.css" />
     <Content Include="template\assets\css\blog-single.css" />
     <Content Include="template\assets\css\blue.css" />
@@ -1660,6 +1659,7 @@
     <Content Include="template\assets\images\recent-posts\3.jpg" />
     <Content Include="template\assets\images\recent-posts\4.jpg" />
     <Content Include="template\assets\images\recent-posts\5.jpg" />
+    <Content Include="template\assets\images\Shopping-Cart-icon.png" />
     <Content Include="template\assets\images\sliders\slider01.jpg" />
     <Content Include="template\assets\images\sliders\slider02.jpg" />
     <Content Include="template\assets\images\sliders\slider03.jpg" />
@@ -1695,22 +1695,6 @@
     <Content Include="template\assets\less\bootstrap\print.css" />
     <Content Include="template\assets\less\bootstrap\theme.css" />
     <Content Include="template\assets\less\bootstrap\variables.css" />
-    <Content Include="template\authentication.html" />
-    <Content Include="template\blog-fullwidth.html" />
-    <Content Include="template\blog-post.html" />
-    <Content Include="template\blog.html" />
-    <Content Include="template\cart.html" />
-    <Content Include="template\category-grid-2.html" />
-    <Content Include="template\category-grid.html" />
-    <Content Include="template\checkout.html" />
-    <Content Include="template\contact.html" />
-    <Content Include="template\faq.html" />
-    <Content Include="template\index-2.html" />
-    <Content Include="template\index.html" />
-    <Content Include="template\single-product-sidebar.html" />
-    <Content Include="template\single-product.html" />
-    <Content Include="template\switchstylesheet\switchstylesheet.js" />
-    <Content Include="template\terms.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

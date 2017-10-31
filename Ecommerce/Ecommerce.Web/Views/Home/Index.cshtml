@@ -12,15 +12,12 @@
             <!-- Nav tabs -->
             <ul class="nav nav-tabs">
 
-                <li><a href="#new-arrivals" data-toggle="tab">Sản phẩm mới</a></li>
+                <li class="active"><a href="#new-arrivals" data-toggle="tab">Sản phẩm mới</a></li>
                 <li><a href="#top-sales" data-toggle="tab">Giảm giá</a></li>
             </ul>
-
             <!-- Tab panes -->
             <div class="tab-content">
-               
-
-                <div class="tab-pane" id="new-arrivals">
+                <div class="tab-pane active" id="new-arrivals">
                     <div class="product-grid-holder">
                         <div id="spmoiload">
                             @Html.Action("ItemsNewest", "Home")
@@ -42,7 +39,7 @@
                             @Html.Action("ItemsPromotion", "Home")
                         </div>
                     </div>
-                    <div class="loadmore-holder text-center">
+                    <div class="loadmore-holder text-center clear">
                         <div id="spkmlink">
                             <a class="btn-loadmore" href='javascript:LoadMorePro(4,"SPKhuyenMai","#spkmlink","#spkmload")'>
                                 <i class="fa fa-plus"></i>

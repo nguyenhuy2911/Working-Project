@@ -15,7 +15,7 @@ namespace Ecommerce.Web.Controllers
 
         public static List<Thanhviennhom> Ds_Group;
 
-        [OutputCache(CacheProfile = "SystemCache", Location = System.Web.UI.OutputCacheLocation.Client)]
+       // [OutputCache(CacheProfile = "SystemCache", Location = System.Web.UI.OutputCacheLocation.Client)]
         public ActionResult Index()
         {
             ManagerObiect.getIntance();

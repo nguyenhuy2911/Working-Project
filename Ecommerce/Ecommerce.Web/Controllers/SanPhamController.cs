@@ -42,7 +42,7 @@ namespace  Ecommerce.Web.Controllers
             splist = splist.Take(sl);
             return PartialView("_PartialSanPhamLienQuan", splist);
         }
-        
+
         public ActionResult ThongSoKyThuat(string MaSP)
         {
             SanPhamModel spm = new SanPhamModel();

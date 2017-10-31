@@ -6,24 +6,24 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
-namespace  Ecommerce.Web.Models
+namespace Ecommerce.Web.Models
 {
     public class SanPhamModel
     {
-         EcommerceModel_DbContext db = new EcommerceModel_DbContext();
+        EcommerceModel_DbContext db = new EcommerceModel_DbContext();
         public IQueryable<SanPham> SearchByName(string term)
         {
             IQueryable<SanPham> lst;
             lst = db.SanPhams.Where(u => u.TenSP.Contains(term));
-            return lst ;
+            return lst;
         }
 
         public IQueryable<SanPham> AdvancedSearch(string term, string loai, string hangsx, int? minprice, int? maxprice)
         {
             IQueryable<SanPham> lst = db.SanPhams;
-            if(!string.IsNullOrEmpty(term))
+            if (!string.IsNullOrEmpty(term))
                 lst = SearchByName(term);
-            if(!string.IsNullOrEmpty(loai))
+            if (!string.IsNullOrEmpty(loai))
                 lst = from p in lst where p.LoaiSP.Equals(loai) select p;
             if (!string.IsNullOrEmpty(hangsx))
                 lst = from p in lst where p.HangSX.Equals(hangsx) select p;
@@ -61,7 +61,7 @@ namespace  Ecommerce.Web.Models
             var s = from p in db.ChiTietDonHangs
                     where p.DonHangKH.TinhTrangDH == 3
                     group p by p.MaSP into gro
-                    select new {MaSP = gro.Key,sl = gro.Sum(r => r.SoLuong)};
+                    select new { MaSP = gro.Key, sl = gro.Sum(r => r.SoLuong) };
             var splist = from p in db.SanPhams join ca in s on p.MaSP equals ca.MaSP orderby ca.sl descending select p;
             return splist.Take(takenum);
         }
@@ -104,12 +104,12 @@ namespace  Ecommerce.Web.Models
             db.SaveChanges();
         }
 
-        private decimal? tinhgiatien(string masp,decimal? giagoc)
+        private decimal? tinhgiatien(string masp, decimal? giagoc)
         {
             IQueryable<SanPhamKhuyenMai> s = db.SanPhamKhuyenMais.Where(m => m.MaSP.Equals(masp)).OrderByDescending(m => m.GiamGia);
             if (s.Any())
             {
-                return (giagoc * (100-s.First().GiamGia) / 100);
+                return (giagoc * (100 - s.First().GiamGia) / 100);
             }
             return giagoc;
         }
@@ -151,7 +151,7 @@ namespace  Ecommerce.Web.Models
 
         private bool KiemtraID(string maID)
         {
-            using ( EcommerceModel_DbContext db = new EcommerceModel_DbContext())
+            using (EcommerceModel_DbContext db = new EcommerceModel_DbContext())
             {
                 var temp = db.SanPhams.Find(maID);
                 if (temp == null)
@@ -204,7 +204,7 @@ namespace  Ecommerce.Web.Models
             }
         }
 
-        internal void UpdateSL(string masp,int? sl,bool? loaihd)
+        internal void UpdateSL(string masp, int? sl, bool? loaihd)
         {
             if (sl != null)
             {
@@ -212,7 +212,7 @@ namespace  Ecommerce.Web.Models
                 if (loaihd == true)
                     s.SoLuong += sl;
                 else if (loaihd == false)
-                    s.SoLuong -= sl;                
+                    s.SoLuong -= sl;
                 db.Entry(s).State = EntityState.Modified;
                 db.SaveChanges();
             }

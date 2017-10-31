@@ -71,25 +71,17 @@
                                 <li role="presentation"><a role="menuitem" class="changecolor dark-green-text" tabindex="-1" href="#" title="Darkgreen color">Xanh đậm</a></li>
                             </ul>
                         </li>
-                        @*<li><a href="index.php?page=faq">Hương dẫn</a></li>*@
-                      
                     </ul>
-                </div><!-- /.col -->
+                </div>
                 <div class="col-xs-12 col-sm-6 no-margin">
                     <ul class="right">
                         @if (User.IsInRole("Nhân viên") || User.IsInRole("Quản trị viên"))
                         {
-                            <li><a href="@Url.Action("Index", "Admin")">AdminCP</a></li>
+                            <li><a href="@Url.Action("Index", "Admin")">Quản trị</a></li>
                         }
                         @if (!Request.IsAuthenticated)
                         {
-                            @*<li class="dropdown_">
-                                <a href="@Url.Action("Authentication", "Account")" class="dropdown-toggle" data-toggle="dropdown" href="#user-cp">Đăng ký</a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="@Url.Action("Authentication", "Account")">Đăng kí làm khách hàng </a></li>
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="@Url.Action("RegisterB2B", "Account")">Đăng ký làm nhà cung cấp</a></li>
-                                </ul>
-                            </li>*@
+
                             <li><a href="@Url.Action("Authentication", "Account")">Đăng ký</a></li>
                             <li><a href="@Url.Action("Authentication", "Account")">Đăng nhập</a></li>
                         }
@@ -115,9 +107,9 @@
                             <li><a href="@Url.Action("LogOut", "Account")">Đăng xuất</a></li>
                         }
                     </ul>
-                </div><!-- /.col -->
-            </div><!-- /.container -->
-        </nav><!-- /.top-bar -->
+                </div>
+            </div>
+        </nav>
         <!-- ============================================================= TOP NAVIGATION : END ============================================================= -->
         <!-- ============================================================= HEADER ============================================================= -->
         <header class="no-padding-bottom header-alt">
@@ -132,36 +124,17 @@
                     <div class="container">
                         <div class="breadcrumb-nav-holder minimal">
                             <ul>
-                                @*<li class="dropdown breadcrumb-item">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                            shop by department
-                                        </a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="#">Computer Cases &amp; Accessories</a></li>
-                                            <li><a href="#">CPUs, Processors</a></li>
-                                            <li><a href="#">Fans, Heatsinks &amp; Cooling</a></li>
-                                            <li><a href="#">Graphics, Video Cards</a></li>
-                                            <li><a href="#">Interface, Add-On Cards</a></li>
-                                            <li><a href="#">Laptop Replacement Parts</a></li>
-                                            <li><a href="#">Memory (RAM)</a></li>
-                                            <li><a href="#">Motherboards</a></li>
-                                            <li><a href="#">Motherboard &amp; CPU Combos</a></li>
-                                            <li><a href="#">Motherboard Components</a></li>
-                                        </ul>
-                                    </li>*@
+
                                 <li class="breadcrumb-item">
                                     <a href="#">Trang chủ</a>
                                 </li>
-                                @*@<li class="breadcrumb-item current">
-                                        <a href="#">@ViewBag.Title</a>
-                                    </li>*@
                                 <li class="breadcrumb-item current">
                                     <a href="#">@ViewBag.Title</a>
                                 </li>
                             </ul>
-                        </div><!-- .breadcrumb-nav-holder -->
-                    </div><!-- /.container -->
-                </div><!-- /#breadcrumb-alt -->
+                        </div>
+                    </div>
+                </div>
                 <!-- ========================================= BREADCRUMB : END ========================================= -->
             </div>
         </header>
@@ -176,185 +149,16 @@
             <div class="container">
                 <div class="row no-margin widgets-row">
                     <div class="col-xs-12  col-sm-4 no-margin-left">
-                        <!-- ============================================================= FEATURED PRODUCTS ============================================================= -->
-                        @*<div class="widget">
-                            <h2>Sản phẩm nổi bật</h2>
-                            <div class="body">
-                                <ul>
-                                    <li>
-                                        <div class="row">
-                                            <div class="col-xs-12 col-sm-9 no-margin">
-                                                <a href="single-product.html">Netbook Acer Travel B113-E-10072</a>
-                                                <div class="price">
-                                                    <div class="price-prev">$2000</div>
-                                                    <div class="price-current">$1873</div>
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-12 col-sm-3 no-margin">
-                                                <a href="#" class="thumb-holder">
-                                                    <img alt="" src="@Url.Content("~/template/assets/images/blank.gif")" data-echo="@Url.Content("~/template/assets/images/products/product-small-01.jpg")" />
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="row">
-                                            <div class="col-xs-12 col-sm-9 no-margin">
-                                                <a href="single-product.html">PowerShot Elph 115 16MP Digital Camera</a>
-                                                <div class="price">
-                                                    <div class="price-prev">$2000</div>
-                                                    <div class="price-current">$1873</div>
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-12 col-sm-3 no-margin">
-                                                <a href="#" class="thumb-holder">
-                                                    <img alt="" src="@Url.Content("~/template/assets/images/blank.gif")" data-echo="@Url.Content("~/template/assets/images/products/product-small-02.jpg")" />
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </li>
 
-                                    <li>
-                                        <div class="row">
-                                            <div class="col-xs-12 col-sm-9 no-margin">
-                                                <a href="single-product.html">PowerShot Elph 115 16MP Digital Camera</a>
-                                                <div class="price">
-                                                    <div class="price-prev">$2000</div>
-                                                    <div class="price-current">$1873</div>
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-12 col-sm-3 no-margin">
-                                                <a href="#" class="thumb-holder">
-                                                    <img alt="" src="@Url.Content("~/template/assets/images/blank.gif")" data-echo="@Url.Content("~/template/assets/images/products/product-small-03.jpg")" />
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div><!-- /.body -->
-                        </div> <!-- /.widget -->*@
-                        <!-- ============================================================= FEATURED PRODUCTS : END ============================================================= -->
-                    </div><!-- /.col -->
+                    </div>
                     <div class="col-xs-12 col-sm-4 ">
-                        <!-- ============================================================= ON SALE PRODUCTS ============================================================= -->
-                        @*<div class="widget">
-                            <h2>Sản phẩm bán chạy</h2>
-                            <div class="body">
-                                <ul>
-                                    <li>
-                                        <div class="row">
-                                            <div class="col-xs-12 col-sm-9 no-margin">
-                                                <a href="single-product.html">HP Scanner 2910P</a>
-                                                <div class="price">
-                                                    <div class="price-prev">$2000</div>
-                                                    <div class="price-current">$1873</div>
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-12 col-sm-3 no-margin">
-                                                <a href="#" class="thumb-holder">
-                                                    <img alt="" src="@Url.Content("~/template/assets/images/blank.gif")" data-echo="@Url.Content("~/template/assets/images/products/product-small-04.jpg")" />
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="row">
-                                            <div class="col-xs-12 col-sm-9 no-margin">
-                                                <a href="single-product.html">Galaxy Tab 3 GT-P5210 16GB, Wi-Fi, 10.1in - White</a>
-                                                <div class="price">
-                                                    <div class="price-prev">$2000</div>
-                                                    <div class="price-current">$1873</div>
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-12 col-sm-3 no-margin">
-                                                <a href="#" class="thumb-holder">
-                                                    <img alt="" src="@Url.Content("~/template/assets/images/blank.gif")" data-echo="@Url.Content("~/template/assets/images/products/product-small-05.jpg")" />
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="row">
-                                            <div class="col-xs-12 col-sm-9 no-margin">
-                                                <a href="single-product.html">PowerShot Elph 115 16MP Digital Camera</a>
-                                                <div class="price">
-                                                    <div class="price-prev">$2000</div>
-                                                    <div class="price-current">$1873</div>
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-12 col-sm-3 no-margin">
-                                                <a href="#" class="thumb-holder">
-                                                    <img alt="" src="@Url.Content("~/template/assets/images/blank.gif")" data-echo="@Url.Content("~/template/assets/images/products/product-small-06.jpg")" />
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div><!-- /.body -->
-                        </div> <!-- /.widget -->*@
-                        <!-- ============================================================= ON SALE PRODUCTS : END ============================================================= -->
-                    </div><!-- /.col -->
+
+                    </div>
                     <div class="col-xs-12 col-sm-4 ">
-                        <!-- ============================================================= TOP RATED PRODUCTS ============================================================= -->
-                        @*<div class="widget">
-                            <h2>Sản phẩm đánh giá cao</h2>
-                            <div class="body">
-                                <ul>
-                                    <li>
-                                        <div class="row">
-                                            <div class="col-xs-12 col-sm-9 no-margin">
-                                                <a href="single-product.html">Galaxy Tab GT-P5210, 10" 16GB Wi-Fi</a>
-                                                <div class="price">
-                                                    <div class="price-prev">$2000</div>
-                                                    <div class="price-current">$1873</div>
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-12 col-sm-3 no-margin">
-                                                <a href="#" class="thumb-holder">
-                                                    <img alt="" src="@Url.Content("~/template/assets/images/blank.gif")" data-echo="@Url.Content("~/template/assets/images/products/product-small-07.jpg")" />
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="row">
-                                            <div class="col-xs-12 col-sm-9 no-margin">
-                                                <a href="single-product.html">PowerShot Elph 115 16MP Digital Camera</a>
-                                                <div class="price">
-                                                    <div class="price-prev">$2000</div>
-                                                    <div class="price-current">$1873</div>
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-12 col-sm-3 no-margin">
-                                                <a href="#" class="thumb-holder">
-                                                    <img alt="" src="@Url.Content("~/template/assets/images/blank.gif")" data-echo="@Url.Content("~/template/assets/images/products/product-small-08.jpg")" />
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="row">
-                                            <div class="col-xs-12 col-sm-9 no-margin">
-                                                <a href="single-product.html">Surface RT 64GB, Wi-Fi, 10.6in - Dark Titanium</a>
-                                                <div class="price">
-                                                    <div class="price-prev">$2000</div>
-                                                    <div class="price-current">$1873</div>
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-12 col-sm-3 no-margin">
-                                                <a href="#" class="thumb-holder">
-                                                    <img alt="" src="@Url.Content("~/template/assets/images/blank.gif")" data-echo="@Url.Content("~/template/assets/images/products/product-small-09.jpg")" />
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div><!-- /.body -->
-                        </div><!-- /.widget -->*@
-                        <!-- ============================================================= TOP RATED PRODUCTS : END ============================================================= -->
-                    </div><!-- /.col -->
-                </div><!-- /.widgets-row-->
-            </div><!-- /.container -->
+
+                    </div>
+                </div>
+            </div>
             <div class="sub-form-row">
                 <div class="container">
                     <div class="col-xs-12 col-sm-8 col-sm-offset-2 no-padding">
@@ -363,30 +167,76 @@
                             <button class="le-button">Đăng ký</button>
                         </form>
                     </div>
-                </div><!-- /.container -->
-            </div><!-- /.sub-form-row -->
+                </div>
+            </div>
+            <div class="link-list-row">
+                <div class="container no-padding">
+                    <div class="col-xs-12 col-md-4 ">
+                        <!-- ============================================================= CONTACT INFO ============================================================= -->
+                        <div class="contact-info">
+                            <p class="regular-bold">Địa chỉ:</p>
+                            <p>
+                                17 Princess Road, London, Greater London NW1 8JR, UK
+                                1-888-8MEDIA (1-888-892-9953)
+                            </p>
+                            <div class="social-icons">
+                                <h3>Kết nối</h3>
+                                <ul>
+                                    <li><a href="http://facebook.com/transvelo" class="fa fa-facebook"></a></li>
+                                </ul>
+                            </div><!-- /.social-icons -->
+
+                        </div>
+                        <!-- ============================================================= CONTACT INFO : END ============================================================= -->
+                    </div>
+
+                    <div class="col-xs-12 col-md-8 no-margin">
+                        <!-- ============================================================= LINKS FOOTER ============================================================= -->
+                        <div class="link-widget">
+                            <div class="widget">
+                                <h3>Email:</h3>
+                                <ul>
+                                    <li><a>xxx@gmail.com</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="link-widget">
+                            <div class="widget">
+                                <h3>Số điện thoại</h3>
+                                <ul>
+                                    <li><a>09998998989</a></li>
+                                  
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="link-widget">
+                            <div class="widget">
+                                <h3>Trợ giúp</h3>
+                                <ul>
+                                    <li><a href="#">Giới thiệu</a></li>
+                                    <li><a href="#">Liên hệ</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- ============================================================= LINKS FOOTER : END ============================================================= -->
+                    </div>
+                </div>
+            </div>
+
             <div class="copyright-bar">
                 <div class="container">
                     <div class="col-xs-12 col-sm-6 no-margin">
                         <div class="copyright">
-                            &copy; <a href="home">Media Center</a> - all rights reserved
-                        </div><!-- /.copyright -->
+
+                        </div>
                     </div>
                     <div class="col-xs-12 col-sm-6 no-margin">
-                        <div class="payment-methods ">
-                            <ul>
-                                <li><img alt="" src="@Url.Content("~/template/assets/images/payments/payment-visa.png")"></li>
-                                <li><img alt="" src="@Url.Content("~/template/assets/images/payments/payment-master.png")"></li>
-                                <li><img alt="" src="@Url.Content("~/template/assets/images/payments/payment-paypal.png")"></li>
-                                <li><img alt="" src="@Url.Content("~/template/assets/images/payments/payment-skrill.png")"></li>
-                            </ul>
-                        </div><!-- /.payment-methods -->
                     </div>
-                </div><!-- /.container -->
-            </div><!-- /.copyright-bar -->
-        </footer><!-- /#footer -->
+                </div>
+            </div>
+        </footer>
         <!-- ============================================================= FOOTER : END ============================================================= -->
-    </div><!-- /.wrapper -->
+    </div>
 
     <script src="@Url.Content("~/template/assets/js/jquery-1.10.2.min.js")"></script>
     <script src="@Url.Content("~/template/assets/js/jquery-migrate-1.2.1.js")"></script>
@@ -423,22 +273,6 @@
             $('.show-theme-options').delay(2000).trigger('click');
         });
     </script>
-    <!-- For demo purposes – can be removed on production : End -->
     <script src="http://w.sharethis.com/button/buttons.js"></script>
-
-    @*<script type="text/javascript">
-        $(document).ready(function () {
-            var url = "Xuligiohang/Addcart";
-            $.ajax({
-                url: url,
-                type: 'Get',
-                cache: false,
-                data: { sp: value, quantity: sl },
-                success: function (result) {
-                    $('.basket').html(result);
-                },
-            });
-        });
-    </script>*@
 </body>
 </html>
