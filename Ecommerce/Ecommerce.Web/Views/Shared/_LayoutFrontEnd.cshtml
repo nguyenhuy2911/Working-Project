@@ -11,14 +11,10 @@
     <meta name="robots" content="all">
     <title>@ViewBag.Title</title>
     <link href="~/Content/style.css" rel="stylesheet" />
-
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/jqueryval")
-
     <!-- Bootstrap Core CSS -->
-
-
     <link rel="stylesheet" href="@Url.Content("~/template/assets/css/bootstrap.min.css")">
 
     <!-- Customizable CSS -->
@@ -118,7 +114,6 @@
             <!-- ========================================= NAVIGATION ========================================= -->
             @Html.Action("MainMenu", "Home")
             <!-- ========================================= NAVIGATION : END ========================================= -->
-            <!--Danh dau duong di-->
             <div class="animate-dropdown">
                 <!-- ========================================= BREADCRUMB ========================================= -->
                 <div id="breadcrumb-alt">
@@ -145,97 +140,7 @@
         </div>
 
         <!-- ============================================================= FOOTER ============================================================= -->
-        <footer id="footer" class="color-bg">
-
-            <div class="container">
-                <div class="row no-margin widgets-row">
-                    <div class="col-xs-12  col-sm-4 no-margin-left">
-
-                    </div>
-                    <div class="col-xs-12 col-sm-4 ">
-
-                    </div>
-                    <div class="col-xs-12 col-sm-4 ">
-
-                    </div>
-                </div>
-            </div>
-            <div class="sub-form-row">
-                <div class="container">
-                    <div class="col-xs-12 col-sm-8 col-sm-offset-2 no-padding">
-                        <form role="form">
-                            <input placeholder="Đăng ký email nhận thông tin khuyến mãi">
-                            <button class="le-button">Đăng ký</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="link-list-row">
-                <div class="container no-padding">
-                    <div class="col-xs-12 col-md-4 ">
-                        <!-- ============================================================= CONTACT INFO ============================================================= -->
-                        <div class="contact-info">
-                            <p class="regular-bold">Địa chỉ:</p>
-                            <p>
-                                17 Princess Road, London, Greater London NW1 8JR, UK
-                                1-888-8MEDIA (1-888-892-9953)
-                            </p>
-                            <div class="social-icons">
-                                <h3>Kết nối</h3>
-                                <ul>
-                                    <li><a href="http://facebook.com/transvelo" class="fa fa-facebook"></a></li>
-                                </ul>
-                            </div><!-- /.social-icons -->
-
-                        </div>
-                        <!-- ============================================================= CONTACT INFO : END ============================================================= -->
-                    </div>
-
-                    <div class="col-xs-12 col-md-8 no-margin">
-                        <!-- ============================================================= LINKS FOOTER ============================================================= -->
-                        <div class="link-widget">
-                            <div class="widget">
-                                <h3>Email:</h3>
-                                <ul>
-                                    <li><a>xxx@gmail.com</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="link-widget">
-                            <div class="widget">
-                                <h3>Số điện thoại</h3>
-                                <ul>
-                                    <li><a>09998998989</a></li>
-
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="link-widget">
-                            <div class="widget">
-                                <h3>Trợ giúp</h3>
-                                <ul>
-                                    <li><a href="#">Giới thiệu</a></li>
-                                    <li><a href="#">Liên hệ</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- ============================================================= LINKS FOOTER : END ============================================================= -->
-                    </div>
-                </div>
-            </div>
-
-            <div class="copyright-bar">
-                <div class="container">
-                    <div class="col-xs-12 col-sm-6 no-margin">
-                        <div class="copyright">
-
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 no-margin">
-                    </div>
-                </div>
-            </div>
-        </footer>
+        @Html.Action("Footer", "Display")
         <!-- ============================================================= FOOTER : END ============================================================= -->
     </div>
     <script src="@Url.Content("~/template/assets/js/jquery-1.10.2.min.js")"></script>

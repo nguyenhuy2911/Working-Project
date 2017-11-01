@@ -4,7 +4,9 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web;
+using System.Web.Mvc;
 
 namespace Ecommerce.Web.Models
 {
@@ -86,21 +88,22 @@ namespace Ecommerce.Web.Models
             return db.LoaiSPs;
         }
 
-        internal void EditSP(SanPham sanpham)
+        internal void EditSP(SanPham product)
         {
-            //MaSP,TenSP,LoaiSP,HangSX,XuatXu,GiaTien,MoTa,SoLuong,isnew,ishot
-            SanPham sp = db.SanPhams.Find(sanpham.MaSP);
-            sp.TenSP = sanpham.TenSP;
-            sp.LoaiSP = sanpham.LoaiSP;
-            sp.HangSX = sanpham.HangSX;
-            sp.XuatXu = sanpham.XuatXu;
-            sp.GiaGoc = sanpham.GiaGoc;
-            sp.GiaTien = tinhgiatien(sp.MaSP, sp.GiaGoc);
-            sp.MoTa = sanpham.MoTa;
-            sp.SoLuong = sanpham.SoLuong;
-            sp.isnew = sanpham.isnew;
-            sp.ishot = sanpham.ishot;
-            db.Entry(sp).State = EntityState.Modified;
+
+            SanPham _productUpdate = db.SanPhams.Find(product.MaSP);
+            _productUpdate.TenSP = product.TenSP;
+            _productUpdate.LoaiSP = product.LoaiSP;
+            _productUpdate.HangSX = product.HangSX;
+            _productUpdate.XuatXu = product.XuatXu;
+            _productUpdate.GiaGoc = product.GiaGoc;
+            _productUpdate.GiaTien = tinhgiatien(_productUpdate.MaSP, _productUpdate.GiaGoc);
+            _productUpdate.MoTa = WebUtility.HtmlEncode(product.MoTa);
+            _productUpdate.SoLuong = product.SoLuong;
+            _productUpdate.isnew = product.isnew;
+            _productUpdate.ishot = product.ishot;
+            product.ModifyDate = DateTime.Now;
+            db.Entry(_productUpdate).State = EntityState.Modified;
             db.SaveChanges();
         }
 
@@ -121,16 +124,19 @@ namespace Ecommerce.Web.Models
             db.SaveChanges();
         }
 
-        internal string ThemSP(SanPham sanpham)
+        internal string AddProduct(SanPham product)
         {
-            sanpham.MaSP = TaoMa();
-            sanpham.GiaTien = sanpham.GiaGoc;
-            sanpham.AnhDaiDien = sanpham.MaSP + "1.jpg";
-            sanpham.AnhNen = sanpham.MaSP + "2.jpg";
-            sanpham.AnhKhac = sanpham.MaSP + "3.jpg";
-            db.SanPhams.Add(sanpham);
+            product.MaSP = TaoMa();
+            product.MoTa = WebUtility.HtmlEncode(product.MoTa);
+            product.GiaTien = product.GiaGoc;
+            product.AnhDaiDien = product.MaSP + "1.jpg";
+            product.AnhNen = product.MaSP + "2.jpg";
+            product.AnhKhac = product.MaSP + "3.jpg";
+            product.CreateDate = DateTime.Now;
+            product.ModifyDate = DateTime.Now;
+            db.SanPhams.Add(product);
             db.SaveChanges();
-            return sanpham.MaSP;
+            return product.MaSP;
         }
 
         private string TaoMa()
@@ -203,7 +209,6 @@ namespace Ecommerce.Web.Models
                 db.SaveChanges();
             }
         }
-
         internal void UpdateSL(string masp, int? sl, bool? loaihd)
         {
             if (sl != null)

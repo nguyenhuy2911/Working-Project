@@ -1,0 +1,174 @@
+﻿@model Ecommerce.Domain.Model.SanPham
+@{
+    ViewBag.Title = ViewBag.Title;
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<script src="~/ckeditor/ckeditor.js"></script>
+<div class="row">
+    <div class="box col-md-12">
+        <div class="box-inner">
+            <div class="box-header well" data-original-title="">
+                <h2><i class="glyphicon glyphicon-user"></i>Thêm @ViewBag.Title</h2>
+                <div class="box-icon">
+                    <a href="#" class="btn btn-setting btn-round btn-default"><i class="glyphicon glyphicon-cog"></i></a>
+                    <a href="#" class="btn btn-minimize btn-round btn-default">
+                        <i class="glyphicon glyphicon-chevron-up"></i>
+                    </a>
+                    <a href="#" class="btn btn-close btn-round btn-default"><i class="glyphicon glyphicon-remove"></i></a>
+                </div>
+            </div>
+            <div class="box-content">
+
+                @using (Html.BeginForm("SaveProduct", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <div class="form-horizontal">
+                        <div class="alert alert-info">
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary()
+                            @Html.HiddenFor(model => model.MaSP)
+                        </div>
+                        <div class="col-xs-12 col-md-12 col-sm-12">
+                            <div class="col-xs-12 col-md-3 col-lg-3 col-sm-12">
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.TenSP, "Tên sản phẩm"):
+                                    @Html.TextBoxFor(model => model.TenSP, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.TenSP)
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-1 col-lg-1 col-sm-12">
+                            </div>
+                            <div class="col-xs-12 col-md-3 col-lg-3 col-sm-12">
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.LoaiSP, "Loại sản phẩm")
+                                    @Html.DropDownListFor(model => model.LoaiSP, (SelectList)ViewBag.LoaiSP, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.LoaiSP)
+
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-1 col-lg-1 col-sm-12">
+                            </div>
+                            <div class="col-xs-12 col-md-3 col-lg-3 col-sm-12">
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.HangSX, "Hãng sản xuất")
+                                    @Html.DropDownListFor(model => model.HangSX, (SelectList)ViewBag.HangSX, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.HangSX)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-12 col-sm-12">
+                            <div class="col-xs-12 col-md-3 col-lg-3 col-sm-12">
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.XuatXu, "Xuất xứ")
+                                    @Html.TextBoxFor(model => model.XuatXu, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.XuatXu)
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-1 col-lg-1 col-sm-12">
+                            </div>
+                            <div class="col-xs-12 col-md-3 col-lg-3 col-sm-12">
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.GiaGoc, "Giá gốc")
+                                    @Html.EditorFor(model => model.GiaGoc, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.GiaGoc)
+
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-1 col-lg-1 col-sm-12">
+                            </div>
+                            <div class="col-xs-12 col-md-3 col-lg-3 col-sm-12">
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.SoLuong, "Số lượng")
+                                    @Html.EditorFor(model => model.SoLuong, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.SoLuong)
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-10 col-xs-10 col-sm-12">
+                            <div class="col-xs-12 col-md-10 col-xs-10 col-sm-12">
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.MoTa, "Mô tả")
+                                    @Html.TextAreaFor(model => model.MoTa, "Mô tả")
+                                    @Html.ValidationMessageFor(model => model.MoTa)
+                                    <script>
+                                        CKEDITOR.replace('MoTa');
+                                    </script>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-12 col-xs-12 col-sm-12">
+                            <div class="col-xs-12 col-md-2 col-lg-2 col-sm-12">
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.AnhDaiDien, "Ảnh đại diện")
+                                    <img id="anhdaidien" src="@Url.Content("~/template/")assets/images/blank.gif" alt="your image" />
+                                    <input type="file" name="file1" accept=".jpg" class="form-control" onchange="readURL(this, '#anhdaidien');" />
+
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-1 col-lg-1 col-sm-12">
+                            </div>
+                            <div class="col-xs-12 col-md-2 col-lg-2 col-sm-12">
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.AnhNen, "Ảnh nền")
+                                    <img id="anhnen" src="@Url.Content("~/template/")assets/images/blank.gif" alt="your image" />
+                                    <input type="file" name="file2" accept=".jpg" class="form-control" onchange="readURL(this, '#anhnen');" />
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-1 col-lg-1 col-sm-12">
+                            </div>
+                            <div class="col-xs-12 col-md-2 col-lg-2 col-sm-12">
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.AnhKhac, "Ảnh khác")
+                                    <img id="anhkhac" src="@Url.Content("~/template/")assets/images/blank.gif" alt="your image" />
+                                    <input type="file" name="file3" accept=".jpg" class="form-control" onchange="readURL(this, '#anhkhac');" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-12 col-lg-12 col-sm-12">
+                            <div class="col-xs-12 col-md-2 col-lg-2 col-sm-12">
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.isnew, "Hàng mới")
+                                    @Html.EditorFor(model => model.isnew, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.isnew)
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-1 col-lg-1 col-sm-12">
+                            </div>
+                            <div class="col-xs-12 col-md-2 col-lg-2 col-sm-12">
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.ishot, "Hàng hot")
+                                    @Html.EditorFor(model => model.ishot, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.ishot)
+                                </div>
+                            </div>
+                        </div>
+                        @if (!string.IsNullOrEmpty(Model.MaSP))
+                        {
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <a class="btn btn-danger" href="@Url.Action("SuaThongSoKT", "Admin", new { masp = Model.MaSP })">
+                                        <i class="glyphicon glyphicon-wrench icon-white"></i>
+                                        Sửa thông số kỹ thuật
+                                    </a>
+                                    <input type="submit" value="Cập nhật" class="btn btn-primary" />
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="Thêm mới" class="btn btn-primary" />
+                                </div>
+                            </div>
+                        }
+                    </div>
+                }
+
+            </div>
+
+        </div>
+    </div>
+    <!--/span-->
+</div><!--/row-->

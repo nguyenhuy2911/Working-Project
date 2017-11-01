@@ -33,43 +33,7 @@ namespace  Ecommerce.Web.Controllers
             return View();
         }
 
-        [AuthLog(Roles = "Quản trị viên,Nhân viên")]
-        public ActionResult EditSP(string id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            SanPhamModel spm = new SanPhamModel();
-            SanPham sp = spm.FindById(id);
-            if (sp == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.HangSX = new SelectList(spm.GetAllHangSX().ToList(), "HangSX", "TenHang", sp.HangSX);
-            ViewBag.LoaiSP = new SelectList(spm.GetAllLoaiSP().ToList(), "MaLoai", "TenLoai", sp.LoaiSP);
-            return View(sp);
-        }
-
-        [AuthLog(Roles = "Quản trị viên,Nhân viên")]
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult EditSP([Bind(Include = "MaSP,TenSP,LoaiSP,HangSX,XuatXu,GiaGoc,MoTa,SoLuong,isnew,ishot")] SanPham sanpham, HttpPostedFileBase ad, HttpPostedFileBase an, HttpPostedFileBase ak)
-        {
-            SanPhamModel spm = new SanPhamModel();
-            if (ModelState.IsValid)
-            {
-                spm.EditSP(sanpham);
-                UploadAnh(ad,sanpham.MaSP + "1");
-                UploadAnh(an, sanpham.MaSP + "2");
-                UploadAnh(ak, sanpham.MaSP + "3");
-                return RedirectToAction("SanPham");
-            }
-            ViewBag.HangSX = new SelectList(spm.GetAllHangSX(), "HangSX", "TenHang", sanpham.HangSX);
-            ViewBag.LoaiSP = new SelectList(spm.GetAllLoaiSP(), "MaLoai", "TenLoai", sanpham.LoaiSP);            
-            return View(sanpham);
-        }
-
+       
         [AuthLog(Roles = "Quản trị viên")]
         public ActionResult DeleteSP(string id)
         {
@@ -106,28 +70,7 @@ namespace  Ecommerce.Web.Controllers
             return false;
         }
 
-        [AuthLog(Roles = "Quản trị viên,Nhân viên")]
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult ThemSP([Bind(Include = "TenSP,LoaiSP,HangSX,XuatXu,GiaGoc,MoTa,SoLuong,isnew,ishot")] SanPham sanpham, HttpPostedFileBase ad, HttpPostedFileBase an, HttpPostedFileBase ak)
-        {
-            SanPhamModel spm = new SanPhamModel();
-            if (ModelState.IsValid)
-            {
-                string masp = spm.ThemSP(sanpham);
-                UploadAnh(ad, masp + "1");
-                UploadAnh(an, masp + "2");
-                UploadAnh(ak, masp + "3");
-                ThongSoKyThuat ts = new ThongSoKyThuat();
-                ts.MaSP = masp;
-                List<ThongSoKyThuat> lst = new List<ThongSoKyThuat>();
-                lst.Add(ts);
-                return View("ThemThongSoKT", lst);
-            }
-            ViewBag.HangSX = new SelectList(spm.GetAllHangSX(), "HangSX", "TenHang", sanpham.HangSX);
-            ViewBag.LoaiSP = new SelectList(spm.GetAllLoaiSP(), "MaLoai", "TenLoai", sanpham.LoaiSP);
-            return View("SanPham",sanpham);
-        }
+        
 
         [AuthLog(Roles = "Quản trị viên,Nhân viên")]
         public ActionResult SPDetail(string id)
@@ -219,7 +162,7 @@ namespace  Ecommerce.Web.Controllers
         {
             int pageSize = (pagesize ?? 10);
             int pageNumber = (page ?? 1);
-            return PartialView("SanPhamPartial", lst.OrderBy(m => m.MaSP).ToPagedList(pageNumber, pageSize));
+            return PartialView("SanPhamPartial", lst.OrderByDescending(m => m.CreateDate).ThenByDescending(p=>p.ModifyDate).ToPagedList(pageNumber, pageSize));
         }
 
         [AuthLog(Roles = "Quản trị viên")]

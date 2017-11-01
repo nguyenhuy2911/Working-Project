@@ -1,20 +1,7 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <!--
-        ===
-        This comment should NOT be removed.
 
-        Charisma v2.0.0
-
-        Copyright 2012-2014 Muhammad Usman
-        Licensed under the Apache License v2.0
-        http://www.apache.org/licenses/LICENSE-2.0
-
-        http://usman.it
-        http://twitter.com/halalit_usman
-        ===
-    -->
     <meta charset="utf-8">
     <title>@ViewBag.Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -59,29 +46,29 @@
                     <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu">
-                    <li><a href="@Url.Action("EditInfo", "Account")">Profile</a></li>
+                    <li><a href="/Account/EditInfo">Profile</a></li>
                     <li class="divider"></li>
-                    <li><a href="@Url.Action("LogOut", "Account")">Logout</a></li>
+                    <li><a href="/Account/LogOut">Logout</a></li>
                 </ul>
             </div>
             <!-- user dropdown ends -->
             <ul class="collapse navbar-collapse nav navbar-nav top-menu">
-                <li><a href="@Url.Action("Index", "Home")"><i class="glyphicon glyphicon-globe"></i></a></li>
+                <li><a href="/Home/Index"><i class="glyphicon glyphicon-globe"></i></a></li>
                 <li>
-                    <a class="ajax-link" href="@Url.Action("Index","Admin")"><i class="glyphicon glyphicon-home"></i></a>
+                    <a class="ajax-link" href="/Admin/Index"><i class="glyphicon glyphicon-home"></i></a>
                 </li>
                 <li class="dropdown">
                     <a href="#" data-toggle="dropdown">
                         <i class="glyphicon glyphicon-tasks"></i> Sản phẩm <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="@Url.Action("SanPham","Admin")">Quản lý sản phẩm</a></li>
+                        <li><a href="/Admin/SanPham">Quản lý sản phẩm</a></li>
                         <li class="divider"></li>
-                        <li><a href="@Url.Action("Index","LoaiSP")">Quản lý loại sản phẩm</a></li>
+                        <li><a href="/LoaiSP/Index">Quản lý loại sản phẩm</a></li>
                         <li class="divider"></li>
-                        <li><a href="@Url.Action("Index","HangSX")">Quản lý hãng sản xuất</a></li>
+                        <li><a href="/HangSX/Index">Quản lý hãng sản xuất</a></li>
                         <li class="divider"></li>
-                        <li><a href="@Url.Action("Index","KhuyenMai")">Quản lý khuyến mãi</a></li>
+                        <li><a href="/KhuyenMai/Index">Quản lý khuyến mãi</a></li>
 
                     </ul>
                 </li>
@@ -90,9 +77,9 @@
                         <span class="glyphicon glyphicon-user white"></span> Người dùng<span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="@Url.Action("Index","Account")">Danh sách ngươi dùng</a></li>
+                        <li><a href="/Account/Index">Danh sách ngươi dùng</a></li>
                         <li class="divider"></li>
-                        <li><a href="@Url.Action("Index","Roles")">Danh sách chức vụ</a></li>
+                        <li><a href="/Roles/Index">Danh sách chức vụ</a></li>
 
                     </ul>
                 </li>
@@ -101,7 +88,7 @@
                         <i class="glyphicon glyphicon-star"></i> Nhà cung cấp<span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="@Url.Action("Index","NhaCungCap")">Danh sách nhà cung cấp</a></li>
+                        <li><a href="/NhaCungCap/Index">Danh sách nhà cung cấp</a></li>
                         @*<li class="divider"></li>*@
                         <li>@*<a href="/HopDong">Hợp đồng</a>*@</li>
                         @*<li class="divider"></li>*@
@@ -116,7 +103,7 @@
                         <i class="glyphicon glyphicon-list-alt"></i> Đơn hàng<span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="@Url.Action("Index","Donhang")">Đơn hàng khách hàng</a></li>
+                        <li><a href="/Donhang/Index">Đơn hàng khách hàng</a></li>
                         @*<li class="divider"></li>*@
                         <li>@*<a href="@Url.Action("TinhTrangGiaoHang","HopDong")">Đơn hàng của đối tác</a>*@</li>
 
@@ -127,7 +114,7 @@
                         <i class="glyphicon glyphicon-phone-alt"></i> Chăm sóc khách hàng<span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="@Url.Action("Index", "Comment")">Bình luận của khách</a></li>
+                        <li><a href="/Comment/Index">Bình luận của khách</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -135,30 +122,29 @@
                         <i class="glyphicon glyphicon-stats"></i> Thống kê<span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="@Url.Action("ThongKeDoanhThu","ThongKe")">Doanh thu hàng tháng</a></li>
+                        <li><a href="/ThongKe/ThongKeDoanhThu">Doanh thu hàng tháng</a></li>
                     </ul>
                 </li>
                 @*<li class="dropdown">
-                    <a href="#" data-toggle="dropdown">
-                        <i class="glyphicon glyphicon-star"></i> B2B<span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="@Url.Action("GetNhaDoiTac", "AdminB2B")">Danh sách các Nhà Đối Tác</a></li>
-                        <li class="divider"></li>
-                        <li><a href="@Url.Action("Theodoithanhtoan", "AdminB2B")">Quan lí thanh toán</a></li>
+                        <a href="#" data-toggle="dropdown">
+                            <i class="glyphicon glyphicon-star"></i> B2B<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="@Url.Action("GetNhaDoiTac", "AdminB2B")">Danh sách các Nhà Đối Tác</a></li>
+                            <li class="divider"></li>
+                            <li><a href="@Url.Action("Theodoithanhtoan", "AdminB2B")">Quan lí thanh toán</a></li>
 
-                    </ul>
-                </li>*@
+                        </ul>
+                    </li>*@
                 <li class="dropdown">
                     <a href="#" data-toggle="dropdown">
                         <i class="glyphicon glyphicon-wrench"></i> Cài đặt<span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="@Url.Action("General","GiaoDien")">Cài đặt thông tin web</a></li>
+                        <li><a href="GiaoDien/General">Cài đặt thông tin web</a></li>
                         <li class="divider"></li>
                         <li><a href="#">Cài đặt giao diện</a></li>
-                        @*<li class="divider"></li>
-                        <li><a href="#">Khác</a></li>*@
+
                     </ul>
                 </li>
             </ul>
@@ -170,10 +156,9 @@
             <!-- left menu ends -->
             <noscript>
                 <div class="alert alert-block col-md-12">
-                    <h4 class="alert-heading">Warning!</h4>
+                    <h4 class="alert-heading"></h4>
                     <p>
-                        You need to have <a href="http://en.wikipedia.org/wiki/JavaScript" target="_blank">JavaScript</a>
-                        enabled to use this site.
+
                     </p>
                 </div>
             </noscript>
@@ -191,8 +176,8 @@
                 </div>
                 @RenderBody()
                 <!-- content ends -->
-            </div><!--/#content.col-md-0-->
-        </div><!--/fluid-row-->
+            </div>
+        </div>
         <hr>
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
              aria-hidden="true">
@@ -214,13 +199,10 @@
         </div>
         <footer class="row">
             <p class="col-md-9 col-sm-9 col-xs-12 copyright">
-                &copy; <a href="http://usman.it" target="_blank">
-                    Muhammad
-                    Usman
-                </a> 2012 - 2015
+
             </p>
             <p class="col-md-3 col-sm-3 col-xs-12 powered-by">
-                Powered by: <a href="http://usman.it/free-responsive-admin-template">Charisma</a>
+
             </p>
         </footer>
     </div><!--/.fluid-container-->

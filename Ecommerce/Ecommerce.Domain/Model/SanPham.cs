@@ -5,6 +5,7 @@ namespace Ecommerce.Domain.Model
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using System.Web.Mvc;
 
     [Table("SanPham")]
     public partial class SanPham
@@ -45,6 +46,7 @@ namespace Ecommerce.Domain.Model
 
         public decimal? GiaTien { get; set; }
 
+        [AllowHtml]
         [Column(TypeName = "ntext")]
         public string MoTa { get; set; }
 
@@ -62,6 +64,9 @@ namespace Ecommerce.Domain.Model
         public bool? isnew { get; set; }
 
         public bool? ishot { get; set; }
+
+        public DateTime? CreateDate { get; set; }
+        public DateTime? ModifyDate { get; set; }
 
 
         public virtual ICollection<BinhLuan> BinhLuans { get; set; }

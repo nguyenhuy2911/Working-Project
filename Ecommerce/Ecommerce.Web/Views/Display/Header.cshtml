@@ -6,7 +6,7 @@
         <div class="logo">
             <a href="@Url.Action("Index", "Home")">
 
-                <img alt="logo" src="@Url.Content(Model.Logo)" width="233" height="54" />
+                <img alt="logo" src="@Url.Content(Model.Settings.Logo)" width="233" height="54" />
             </a>
         </div>
         <!-- ============================================================= LOGO : END ============================================================= -->
@@ -14,7 +14,7 @@
     <div class="col-xs-12 col-md-6 top-search-holder no-margin">
         <div class="contact-row">
             <div class="phone inline">
-                <i class="fa fa-phone"></i> @Model.PhonNumber
+                <i class="fa fa-phone"></i> @Model.Settings.PhoneNumber
             </div>
         </div>
         <!-- ============================================================= SEARCH AREA ============================================================= -->

@@ -7,8 +7,9 @@ using Ecommerce.Domain.Model;
 using Ecommerce.Web.Models;
 using Ecommerce.Web.Models.ViewModel;
 using Ecommerce.Web.Models.Service;
+using Ecommerce.Web.common;
 
-namespace  Ecommerce.Web.Controllers
+namespace Ecommerce.Web.Controllers
 {
 
     public class DisplayController : Controller
@@ -17,16 +18,18 @@ namespace  Ecommerce.Web.Controllers
         public ActionResult Header()
         {
             var model = new Header_ViewModel();
-            var disPlayService =  new DisplayService();
-            List<Display> listItems = disPlayService.GetDisPlays().ToList();
-            if (listItems != null)
-            {
-                model.Logo = listItems.Where(p => p.Type == "Logo")?.FirstOrDefault()?.Value;
-                model.FaceBook = listItems.Where(p => p.Type == "Facebook")?.FirstOrDefault()?.Value;
-                model.PhonNumber = listItems.Where(p => p.Type == "Phone")?.FirstOrDefault()?.Value;
-                model.WebsiteName = listItems.Where(p => p.Type == "WebsiteName")?.FirstOrDefault()?.Value;
-            }
+            var disPlayService = new DisplayService();
+            model.Settings = ConfigSetting.SystemConfig;
             return View(model);
+        }
+
+        [OutputCache(CacheProfile = "SystemCache", Location = System.Web.UI.OutputCacheLocation.Client)]
+        public ActionResult Footer()
+        {
+            var model = new Footer_ViewModel();
+            var disPlayService = new DisplayService();
+            model.Settings = ConfigSetting.SystemConfig;
+            return View("~/Views/Shared/_Footer.cshtml", model);
         }
 
         [AuthLog(Roles = "Quản trị viên,Nhân viên")]
