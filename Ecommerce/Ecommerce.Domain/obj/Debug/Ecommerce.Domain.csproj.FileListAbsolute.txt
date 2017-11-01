@@ -60,3 +60,16 @@ E:\lip cms\workingproject\Ecommerce\Ecommerce.Domain\bin\Debug\System.Web.Razor.
 E:\lip cms\workingproject\Ecommerce\Ecommerce.Domain\bin\Debug\System.Web.WebPages.xml
 E:\lip cms\workingproject\Ecommerce\Ecommerce.Domain\bin\Debug\System.Web.WebPages.Deployment.xml
 E:\lip cms\workingproject\Ecommerce\Ecommerce.Domain\bin\Debug\System.Web.WebPages.Razor.xml
+E:\Working\Git\working-project\Ecommerce\Ecommerce.Domain\bin\Debug\Microsoft.Web.Infrastructure.dll
+E:\Working\Git\working-project\Ecommerce\Ecommerce.Domain\bin\Debug\System.Web.Helpers.dll
+E:\Working\Git\working-project\Ecommerce\Ecommerce.Domain\bin\Debug\System.Web.Mvc.dll
+E:\Working\Git\working-project\Ecommerce\Ecommerce.Domain\bin\Debug\System.Web.Razor.dll
+E:\Working\Git\working-project\Ecommerce\Ecommerce.Domain\bin\Debug\System.Web.WebPages.Deployment.dll
+E:\Working\Git\working-project\Ecommerce\Ecommerce.Domain\bin\Debug\System.Web.WebPages.dll
+E:\Working\Git\working-project\Ecommerce\Ecommerce.Domain\bin\Debug\System.Web.WebPages.Razor.dll
+E:\Working\Git\working-project\Ecommerce\Ecommerce.Domain\bin\Debug\System.Web.Helpers.xml
+E:\Working\Git\working-project\Ecommerce\Ecommerce.Domain\bin\Debug\System.Web.Mvc.xml
+E:\Working\Git\working-project\Ecommerce\Ecommerce.Domain\bin\Debug\System.Web.Razor.xml
+E:\Working\Git\working-project\Ecommerce\Ecommerce.Domain\bin\Debug\System.Web.WebPages.xml
+E:\Working\Git\working-project\Ecommerce\Ecommerce.Domain\bin\Debug\System.Web.WebPages.Deployment.xml
+E:\Working\Git\working-project\Ecommerce\Ecommerce.Domain\bin\Debug\System.Web.WebPages.Razor.xml

@@ -17,7 +17,7 @@
                     @foreach (var item in Model)
                     {
                         <li class="dropdown">
-                            <a href="@Url.RouteUrl("Category",new { alias= item.LoaiSP.Alias})" onclick="window.location.href= '@Url.RouteUrl("Category",new { alias= item.LoaiSP.Alias })'" title="@item.LoaiSP.TenLoai" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">@item.LoaiSP.TenLoai</a>
+                            <a href="@Url.RouteUrl("Category",new { alias= item.LoaiSP.Alias, brandAlias=""})" onclick="window.location.href= '@Url.RouteUrl("Category",new { alias= item.LoaiSP.Alias, brandAlias="" })'" title="@item.LoaiSP.TenLoai" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">@item.LoaiSP.TenLoai</a>
                             <ul class="dropdown-menu">
                                 @foreach (var i in item.HangSX)
                                 {

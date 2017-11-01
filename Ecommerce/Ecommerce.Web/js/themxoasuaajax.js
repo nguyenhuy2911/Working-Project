@@ -56,17 +56,14 @@ function readURL(input, id) {
 }
 
 //Xoa item ajax
-function XoaItem(Url, value) {
-    if (confirm("Bạn có chắc muốn xóa dữ liệu?") == true) {
+function DeleteProduct(Url, id) {
+    if (confirm("Bạn có chắc muốn xóa sản phẩm này") == true) {
         $.ajax({
             url: Url,
             type: 'POST',
-            data: { id: value },
+            data: { id: id },
             success: function (result) {
-                $('.Ajax-Table').html(result);
-                $('#alert-info').html("Xóa dữ liệu thành công");
-                $('#alert-info').fadeIn(1000);
-                $('#alert-info').fadeOut(3000);
+                window.location.href = "/Admin/SanPham";
             },
         });
     }

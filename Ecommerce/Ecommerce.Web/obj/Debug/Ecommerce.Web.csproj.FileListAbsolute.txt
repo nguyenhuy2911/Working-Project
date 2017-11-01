@@ -295,3 +295,4 @@ E:\Working\Git\working-project\Ecommerce\Ecommerce.Web\obj\Debug\Ecommerce.Web.c
 E:\Working\Git\working-project\Ecommerce\Ecommerce.Web\obj\Debug\EC-TH2012-J.dll
 E:\Working\Git\working-project\Ecommerce\Ecommerce.Web\obj\Debug\EC-TH2012-J.pdb
 E:\lip cms\workingproject\Ecommerce\Ecommerce.Web\bin\WebActivatorEx.dll
+E:\Working\Git\working-project\Ecommerce\Ecommerce.Web\bin\WebActivatorEx.dll

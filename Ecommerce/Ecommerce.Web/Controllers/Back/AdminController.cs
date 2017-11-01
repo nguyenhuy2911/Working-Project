@@ -33,70 +33,13 @@ namespace  Ecommerce.Web.Controllers
             return View();
         }
 
-       
-        [AuthLog(Roles = "Quản trị viên")]
-        public ActionResult DeleteSP(string id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            SanPhamModel spm = new SanPhamModel();
-            DeleteAnh(spm.FindById(id).AnhDaiDien);
-            DeleteAnh(spm.FindById(id).AnhNen);
-            DeleteAnh(spm.FindById(id).AnhKhac);
-            spm.DeleteSP(id);
-            return TimSP(null,null,null);
-        }
-
-        [AuthLog(Roles = "Quản trị viên,Nhân viên")]
-        public bool UploadAnh(HttpPostedFileBase file,string tenfile)
-        {
-            // Verify that the user selected a file
-            if (file != null && file.ContentLength > 0)
-            {
-                var name = Path.GetExtension(file.FileName);
-                // extract only the filename
-                if (!Path.GetExtension(file.FileName).Equals(".jpg"))
-                {
-                    return false;
-                }
-                // store the file inside ~/App_Data/uploads folder
-                var path = Path.Combine(Server.MapPath("~/images/products"), tenfile + ".jpg");
-                file.SaveAs(path);
-                return true;
-            }
-            // redirect back to the index action to show the form once again
-            return false;
-        }
-
-        
-
         [AuthLog(Roles = "Quản trị viên,Nhân viên")]
         public ActionResult SPDetail(string id)
         {
             SanPhamModel sp = new SanPhamModel();
             return PartialView("SPDetail", sp.FindById(id));
         }
-
-        [AuthLog(Roles = "Quản trị viên")]
-        [HttpPost]
-        public ActionResult MultibleDel(List<string> lstdel)
-        {
-            if (lstdel == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            foreach (var item in lstdel)
-            {
-                SanPhamModel spm = new SanPhamModel();
-                DeleteAnh(spm.FindById(item).AnhDaiDien);
-                DeleteAnh(spm.FindById(item).AnhNen);
-                DeleteAnh(spm.FindById(item).AnhKhac);
-                spm.DeleteSP(item);
-            } 
-            return TimSP(null,null,null);
-        }
+        
 
         [AuthLog(Roles = "Quản trị viên,Nhân viên")]
         [HttpPost]
@@ -164,18 +107,5 @@ namespace  Ecommerce.Web.Controllers
             int pageNumber = (page ?? 1);
             return PartialView("SanPhamPartial", lst.OrderByDescending(m => m.CreateDate).ThenByDescending(p=>p.ModifyDate).ToPagedList(pageNumber, pageSize));
         }
-
-        [AuthLog(Roles = "Quản trị viên")]
-        public bool DeleteAnh(string filename)
-        {
-            string fullPath = Request.MapPath("~/images/products/" + filename);
-            if (System.IO.File.Exists(fullPath))
-            {
-                System.IO.File.Delete(fullPath);
-                return true;
-            }
-            return false;
-        }
-
     }
 }

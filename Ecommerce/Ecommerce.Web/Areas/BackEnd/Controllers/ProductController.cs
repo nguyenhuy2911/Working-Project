@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -64,7 +65,7 @@ namespace EC_TH2012_J.Areas.BackEnd.Controllers
         [AuthLog(Roles = "Quản trị viên,Nhân viên")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult SaveProduct([Bind(Include = "TenSP,LoaiSP,HangSX,XuatXu,GiaGoc,MoTa,SoLuong,isnew,ishot")] SanPham model, HttpPostedFileBase file1, HttpPostedFileBase file2, HttpPostedFileBase file3)
+        public ActionResult SaveProduct(SanPham model, HttpPostedFileBase file1, HttpPostedFileBase file2, HttpPostedFileBase file3)
         {
             SanPhamModel spm = new SanPhamModel();
             if (ModelState.IsValid)
@@ -77,7 +78,7 @@ namespace EC_TH2012_J.Areas.BackEnd.Controllers
             return RedirectToAction("SanPham", "Admin", new { Area = "" });
         }
 
-        private ActionResult AddProduct([Bind(Include = "TenSP,LoaiSP,HangSX,XuatXu,GiaGoc,MoTa,SoLuong,isnew,ishot")] SanPham sanpham, HttpPostedFileBase file1, HttpPostedFileBase file2, HttpPostedFileBase file3)
+        private ActionResult AddProduct(SanPham sanpham, HttpPostedFileBase file1, HttpPostedFileBase file2, HttpPostedFileBase file3)
         {
             SanPhamModel spm = new SanPhamModel();
             if (ModelState.IsValid)
@@ -95,7 +96,7 @@ namespace EC_TH2012_J.Areas.BackEnd.Controllers
             return RedirectToAction("SanPham", "Admin", new { Area = "" });
         }
 
-        private ActionResult EditProduct([Bind(Include = "MaSP,TenSP,LoaiSP,HangSX,XuatXu,GiaGoc,MoTa,SoLuong,isnew,ishot")] SanPham sanpham, HttpPostedFileBase file1, HttpPostedFileBase file2, HttpPostedFileBase file3)
+        private ActionResult EditProduct(SanPham sanpham, HttpPostedFileBase file1, HttpPostedFileBase file2, HttpPostedFileBase file3)
         {
             SanPhamModel spm = new SanPhamModel();
             if (ModelState.IsValid)
@@ -109,6 +110,21 @@ namespace EC_TH2012_J.Areas.BackEnd.Controllers
             return CrudProduct_View(sanpham.MaSP);
         }
 
+        [HttpPost]
+        [AuthLog(Roles = "Quản trị viên,Nhân viên")]
+        public ActionResult DeleteProduct(string id)
+        {
+            if (string.IsNullOrEmpty(id))
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            SanPhamModel model = new SanPhamModel();
+            DeleteProductImg(model.FindById(id).AnhDaiDien);
+            DeleteProductImg(model.FindById(id).AnhNen);
+            DeleteProductImg(model.FindById(id).AnhKhac);
+            model.DeleteProduct(id);
+            return RedirectToAction("SanPham", "Admin", new { Area = "" });
+        }
 
         [AuthLog(Roles = "Quản trị viên,Nhân viên")]
         public bool UploaProductImg(HttpPostedFileBase file, string fileName)
@@ -122,6 +138,18 @@ namespace EC_TH2012_J.Areas.BackEnd.Controllers
                 }
                 var path = Path.Combine(Server.MapPath("~/images/products"), fileName + ".jpg");
                 file.SaveAs(path);
+                return true;
+            }
+            return false;
+        }
+
+        [AuthLog(Roles = "Quản trị viên")]
+        public bool DeleteProductImg(string filename)
+        {
+            string fullPath = Request.MapPath("~/images/products/" + filename);
+            if (System.IO.File.Exists(fullPath))
+            {
+                System.IO.File.Delete(fullPath);
                 return true;
             }
             return false;

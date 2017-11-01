@@ -63,7 +63,7 @@
         </div>
         <div class="no-margin col-xs-12 col-sm-7 body-holder">
             <div class="body">
-               
+
                 <div class="availability">
                     <label>Tình trạng:</label> @if (@Model.SoLuong > 0)
                     {<span class="available"> Còn hàng </span> }
@@ -120,7 +120,7 @@
             </ul>
             <div class="tab-content">
                 <div class="tab-pane active" id="description">
-                    @Html.Raw(@Model.MoTa)
+                    @Html.Raw(@WebUtility.HtmlDecode(Model.MoTa))
                     <div class="meta-row">
                         <div class="inline">
                             <label>Loại:</label>

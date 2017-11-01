@@ -15,7 +15,7 @@ namespace Ecommerce.Web.Controllers
 
         public static List<Thanhviennhom> Ds_Group;
 
-       // [OutputCache(CacheProfile = "SystemCache", Location = System.Web.UI.OutputCacheLocation.Client)]
+        // [OutputCache(CacheProfile = "SystemCache", Location = System.Web.UI.OutputCacheLocation.Client)]
         public ActionResult Index()
         {
             ManagerObiect.getIntance();
@@ -36,7 +36,7 @@ namespace Ecommerce.Web.Controllers
             return View();
         }
 
-        
+
         public ActionResult Cart()
         {
             return View(ManagerObiect.getIntance().giohang);
@@ -81,7 +81,7 @@ namespace Ecommerce.Web.Controllers
                     Address = dh.nguoiMua.DiaChi
                 };
             }
-            
+
             return View(model);
 
         }
@@ -92,7 +92,7 @@ namespace Ecommerce.Web.Controllers
         {
 
             DonhangKHModel dhmodel = new DonhangKHModel();
-            dhmodel.Luudonhang(dh, !string.IsNullOrEmpty(User.Identity.GetUserId())? User.Identity.GetUserId() : "customer", ManagerObiect.getIntance().giohang);
+            dhmodel.Luudonhang(dh, !string.IsNullOrEmpty(User.Identity.GetUserId()) ? User.Identity.GetUserId() : "customer", ManagerObiect.getIntance().giohang);
             ManagerObiect.getIntance().giohang.EmptyCart();
             return RedirectToAction("Index", "Home");
 
@@ -108,9 +108,7 @@ namespace Ecommerce.Web.Controllers
         public ActionResult ItemsNewest(int? skip)
         {
             SanPhamModel sp = new SanPhamModel();
-            int skipnum = (skip ?? 0);
-            IQueryable<SanPham> splist = sp.SPMoiNhap();
-            splist = splist.OrderBy(r => r.MaSP).Skip(skipnum).Take(4);
+            IQueryable<SanPham> splist = sp.NewestProduct(skip ?? 0);
             if (splist.Any())
                 return PartialView("_ProductTabLoadMorePartial", splist);
             else

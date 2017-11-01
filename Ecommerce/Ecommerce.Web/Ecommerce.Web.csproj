@@ -214,6 +214,7 @@
     <Compile Include="Areas\BackEnd\Controllers\ProductController.cs" />
     <Compile Include="common\ConfigModel.cs" />
     <Compile Include="common\ConfigSetting.cs" />
+    <Compile Include="common\Helper\Utility.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Back\AdminController.cs" />
     <Compile Include="Controllers\B2B\AdminB2BController.cs" />
@@ -223,7 +224,7 @@
     <Compile Include="Controllers\B2B\NhaCungCapController.cs" />
     <Compile Include="Controllers\Front\CategoryController.cs" />
     <Compile Include="Controllers\ThongKeController.cs" />
-    <Compile Include="Helper\FriendlyUrlHelper.cs" />
+    <Compile Include="common\Helper\FriendlyUrlHelper.cs" />
     <Compile Include="Models\Service\B2B\Classsupport.cs" />
     <Compile Include="Models\Service\B2B\ConfigAPIModel.cs" />
     <Compile Include="Models\Service\B2B\DoitacModel.cs" />

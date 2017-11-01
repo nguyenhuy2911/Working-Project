@@ -41,11 +41,9 @@ namespace Ecommerce.Web.Models
             return splist;
         }
 
-
-
-        internal IQueryable<SanPham> SPMoiNhap()
+        internal IQueryable<SanPham> NewestProduct(int skip)
         {
-            var splist = db.SanPhams.Where(s => s.isnew == true);
+            var splist = db.SanPhams.Where(s => s.isnew == true).OrderByDescending(p => p.CreateDate).ThenByDescending(p => p.ModifyDate).Take(4).Skip(skip);
             return splist;
         }
 
@@ -117,10 +115,10 @@ namespace Ecommerce.Web.Models
             return giagoc;
         }
 
-        internal void DeleteSP(string id)
+        internal void DeleteProduct(string id)
         {
-            SanPham sanpham = db.SanPhams.Find(id);
-            db.SanPhams.Remove(sanpham);
+            SanPham product = db.SanPhams.Find(id);
+            db.SanPhams.Remove(product);
             db.SaveChanges();
         }
 
