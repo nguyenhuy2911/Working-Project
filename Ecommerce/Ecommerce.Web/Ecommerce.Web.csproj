@@ -210,8 +210,11 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\Trackingactionfilter.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Areas\BackEnd\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\BackEnd\BachEndAreaRegistration.cs" />
+    <Compile Include="Areas\BackEnd\Controllers\ManufacturerController.cs" />
     <Compile Include="Areas\BackEnd\Controllers\ProductController.cs" />
+    <Compile Include="Areas\BackEnd\Controllers\ProductTypeController.cs" />
+    <Compile Include="Areas\BackEnd\Controllers\PromotionController.cs" />
     <Compile Include="common\ConfigModel.cs" />
     <Compile Include="common\ConfigSetting.cs" />
     <Compile Include="common\Helper\Utility.cs" />
@@ -236,10 +239,8 @@
     <Compile Include="Controllers\CustomFilterRole.cs" />
     <Compile Include="Controllers\DonhangController.cs" />
     <Compile Include="Controllers\Front\DisplayController.cs" />
-    <Compile Include="Controllers\HangSXController.cs" />
     <Compile Include="Controllers\Front\HomeController.cs" />
     <Compile Include="Controllers\KhuyenMaiController.cs" />
-    <Compile Include="Controllers\LoaiSPController.cs" />
     <Compile Include="Controllers\OauthController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\Back\RolesController.cs" />
@@ -582,6 +583,7 @@
     <Content Include="ckeditor\skins\moono\images\refresh.png" />
     <Content Include="ckeditor\skins\moono\images\spinner.gif" />
     <Content Include="ckeditor\styles.js" />
+    <Content Include="Scripts\bootstrap-datepicker.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -595,6 +597,7 @@
     <Content Include="Content\css\morris.css" />
     <Content Include="Content\css\sb-admin-rtl.css" />
     <Content Include="Content\css\sb-admin.css" />
+    <Content Include="Content\datepicker.css" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\Site.css" />
@@ -694,6 +697,17 @@
     <Content Include="ckeditor\skins\moono\readme.md" />
     <Content Include="Areas\BackEnd\Views\web.config" />
     <Content Include="Areas\BackEnd\Views\Product\CrudProduct.cshtml" />
+    <Content Include="Areas\BackEnd\Views\ProductType\CrudProductType_View.cshtml" />
+    <Content Include="Areas\BackEnd\Views\ProductType\Index.cshtml" />
+    <Content Include="Areas\BackEnd\Views\ProductType\_ListProductType.cshtml" />
+    <Content Include="Areas\BackEnd\Views\Manufacturer\CrudManufacturer_View.cshtml" />
+    <Content Include="Areas\BackEnd\Views\Manufacturer\Index.cshtml" />
+    <Content Include="Areas\BackEnd\Views\Manufacturer\_ListManufacture.cshtml" />
+    <Content Include="Areas\BackEnd\Views\Promotion\Index.cshtml" />
+    <Content Include="Areas\BackEnd\Views\Promotion\_ListPromotion.cshtml" />
+    <Content Include="Areas\BackEnd\Views\Promotion\CrudPromotion_View.cshtml" />
+    <Content Include="Areas\BackEnd\Views\Product\_ListProduct.cshtml" />
+    <Content Include="Areas\BackEnd\Views\Product\Index.cshtml" />
     <None Include="Properties\PublishProfiles\NhanNguyenThanh.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
@@ -702,6 +716,7 @@
     <Content Include="Scripts\jquery-2.1.4.min.js" />
     <Content Include="Scripts\jquery-2.1.4.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-confirm.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
@@ -1525,6 +1540,7 @@
     <Content Include="templatebackend\css\charisma-app.css" />
     <Content Include="templatebackend\css\elfinder.min.css" />
     <Content Include="templatebackend\css\elfinder.theme.css" />
+    <Content Include="Content\css\jquery-confirm.css" />
     <Content Include="templatebackend\css\jquery-ui-1.8.21.custom.css" />
     <Content Include="templatebackend\css\jquery.iphone.toggle.css" />
     <Content Include="templatebackend\css\jquery.noty.css" />
@@ -2057,19 +2073,11 @@
     <Content Include="Views\Account\Authentication.cshtml" />
     <Content Include="Views\Account\EditInfo.cshtml" />
     <Content Include="Views\SideBar\_GiamGiaNhieuPartial.cshtml" />
-    <Content Include="Views\Admin\SanPham.cshtml" />
-    <Content Include="Views\Admin\SanPhamPartial.cshtml" />
     <Content Include="Views\Home\_RecentlyViewPartial.cshtml" />
     <Content Include="Views\Admin\SPDetail.cshtml" />
     <Content Include="Views\Admin\ThemThongSoKT.cshtml" />
     <Content Include="Views\Admin\SuaThongSoKT.cshtml" />
     <Content Include="Views\Shared\_LayoutStock.cshtml" />
-    <Content Include="Views\LoaiSP\Index.cshtml" />
-    <Content Include="Views\LoaiSP\LoaiSPPartial.cshtml" />
-    <Content Include="Views\LoaiSP\EditLoaiSP.cshtml" />
-    <Content Include="Views\HangSX\EditHangSX.cshtml" />
-    <Content Include="Views\HangSX\Index.cshtml" />
-    <Content Include="Views\HangSX\HangSXPartial.cshtml" />
     <Content Include="Views\KhuyenMai\EditKhuyenMai.cshtml" />
     <Content Include="Views\KhuyenMai\KhuyenMaiPartial.cshtml" />
     <Content Include="Views\KhuyenMai\Index.cshtml" />
@@ -2147,6 +2155,7 @@
     <Content Include="Views\Account\CreateSupperAdminUser.cshtml" />
     <Content Include="Views\Front\Category\Index.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Content\css\jquery-confirm.less" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -2160,7 +2169,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\BackEnd\Models\" />
-    <Folder Include="Areas\BackEnd\Views\Shared\" />
     <Folder Include="images\khuyenmai\" />
     <Folder Include="templatebackend\bower_components\bootstrap-tour\build\" />
   </ItemGroup>

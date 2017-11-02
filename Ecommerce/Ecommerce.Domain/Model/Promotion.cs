@@ -1,10 +1,12 @@
-namespace Ecommerce.Domain.Model
+﻿namespace Ecommerce.Domain.Model
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using System.Web.Mvc;
 
     [Table("Promotion")]
     public partial class Promotion
@@ -20,22 +22,27 @@ namespace Ecommerce.Domain.Model
         public string MaKM { get; set; }
 
         [Column(TypeName = "date")]
+        [DisplayName("Ngày bắt đầu")]
         public DateTime? NgayBatDau { get; set; }
 
         [Column(TypeName = "date")]
+        [DisplayName("Ngày kết thúc")]
         public DateTime? NgayKetThuc { get; set; }
 
+        [AllowHtml]
         [Column(TypeName = "ntext")]
+        [DisplayName("Nội dung")]
         public string NoiDung { get; set; }
 
         [Required]
         [StringLength(128)]
+        [DisplayName("Tên chương trình")]
         public string TenCT { get; set; }
 
         [Column(TypeName = "text")]
+        [DisplayName("Hình ảnh")]
         public string AnhCT { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SanPhamKhuyenMai> SanPhamKhuyenMais { get; set; }
     }
 }

@@ -90,22 +90,6 @@ namespace  Ecommerce.Web.Controllers
             }
             return View("SuaThongSoKT",spm.GetTSKT(masp).ToList());
         }
-
-        [AuthLog(Roles = "Quản trị viên,Nhân viên")]
-        public ActionResult TimSP(string key,string maloai,int? page)
-        {
-            SanPhamModel spm = new SanPhamModel();
-            ViewBag.key = key;
-            ViewBag.maloai = maloai;
-            return PhanTrangSP(spm.AdvancedSearch(key, maloai, null, null, null),page,null);
-        }
-
-        [AuthLog(Roles = "Quản trị viên,Nhân viên")]
-        public ActionResult PhanTrangSP(IQueryable<SanPham> lst,int? page, int? pagesize)
-        {
-            int pageSize = (pagesize ?? 10);
-            int pageNumber = (page ?? 1);
-            return PartialView("SanPhamPartial", lst.OrderByDescending(m => m.CreateDate).ThenByDescending(p=>p.ModifyDate).ToPagedList(pageNumber, pageSize));
-        }
+        
     }
 }

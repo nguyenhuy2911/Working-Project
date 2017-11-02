@@ -1,5 +1,6 @@
 ﻿using Ecommerce.Domain.Infrastructure;
 using Ecommerce.Domain.Model;
+using Ecommerce.Web.Helper;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -46,6 +47,7 @@ namespace  Ecommerce.Web.Models
         {
             LoaiSP lsp = db.LoaiSPs.Find(loai.MaLoai);
             lsp.TenLoai = loai.TenLoai;
+            lsp.Alias = loai.TenLoai.GenerateFriendlyName();
             db.Entry(lsp).State = EntityState.Modified;
             db.SaveChanges();
         }
@@ -60,6 +62,7 @@ namespace  Ecommerce.Web.Models
         internal string ThemLoaiSP(LoaiSP loai)
         {
             loai.MaLoai = TaoMa();
+            loai.Alias = loai.TenLoai.GenerateFriendlyName();
             db.LoaiSPs.Add(loai);
             db.SaveChanges();
             return loai.MaLoai;

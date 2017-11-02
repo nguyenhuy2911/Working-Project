@@ -1,0 +1,77 @@
+﻿@model Ecommerce.Domain.Model.HangSanXuat
+@{
+    ViewBag.Title = "Hãng sản xuất";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="row">
+    <div class="box col-md-12">
+        <div class="box-inner">
+            <div class="box-header well" data-original-title="">
+                <h2><i class="glyphicon glyphicon-user"></i>@ViewBag.Title</h2>
+                <div class="box-icon">
+                    <a href="#" class="btn btn-setting btn-round btn-default"><i class="glyphicon glyphicon-cog"></i></a>
+                    <a href="#" class="btn btn-minimize btn-round btn-default">
+                        <i class="glyphicon glyphicon-chevron-up"></i>
+                    </a>
+                    <a href="#" class="btn btn-close btn-round btn-default"><i class="glyphicon glyphicon-remove"></i></a>
+                </div>
+            </div>
+            <div class="box-content">
+                <div class="alert alert-info" id="alert-info" style="display:none"></div>
+                <div class="form-inline text-right" style="padding: 10px">
+                    <a href="@Url.Action("CrudManufacturer_View","Manufacturer",new { Area = "BackEnd" })" class="btn btn-info">Thêm mới</a>
+                </div>
+                <div class="form-inline" style="text-align: right; padding: 10px">
+
+                    <div class="input-group">
+                        <input id="inputIcon" type="text" class="form-control" placeholder="Nhập tên hãng" oninput="timkiemHangSX()">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-search red"></i></span>
+                    </div>
+                </div>
+                <div class="Ajax-Table">
+                    @Html.Action("GetManufacturer", "Manufacturer")
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function DeleteManufacture(Url, id) {
+        $.confirm({
+            title: 'Xác nhận',
+            content: 'Bạn có chắc muốn xóa sản phẩm này',
+            buttons: {
+                delete: {
+                    text: 'Ok',
+                    action: function () {
+                        $.ajax({
+                            url: Url,
+                            type: 'POST',
+                            data: { id: id },
+                            success: function (result) {
+                                window.location.href = "/Backend/Manufacturer";
+                            },
+                        });
+                    }
+                },
+                cancelAction: {
+                    text: 'Hủy'
+                }
+            }
+        });
+    }
+
+    function timkiemHangSX() {
+        var key = $('#inputIcon').val();
+        $.ajax({
+            url: "/Manufacturer/GetManufacturer",
+            type: 'GET',
+            data: { key: key },
+            success: function (result) {
+                $('.Ajax-Table').html(result);
+            },
+        });
+    }
+</script>

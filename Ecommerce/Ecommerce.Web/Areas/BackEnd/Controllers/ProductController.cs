@@ -12,34 +12,33 @@ using System.Web.Mvc;
 
 namespace EC_TH2012_J.Areas.BackEnd.Controllers
 {
+    [AuthLog(Roles = "Quản trị viên,Nhân viên")]
     public class ProductController : Controller
     {
-        [AuthLog(Roles = "Quản trị viên,Nhân viên")]
-        public ActionResult Product()
+        SanPhamModel _service = new SanPhamModel();
+        public ActionResult Index()
         {
-            SanPhamModel spm = new SanPhamModel();
-            ViewBag.LoaiSP = new SelectList(spm.GetAllLoaiSP(), "MaLoai", "TenLoai");
+
+            ViewBag.LoaiSP = new SelectList(_service.GetAllLoaiSP(), "MaLoai", "TenLoai");
             return View();
         }
 
-        //[AuthLog(Roles = "Quản trị viên,Nhân viên")]
-        //public ActionResult GetProduct(string key, string maloai, int? page)
-        //{
-        //    SanPhamModel spm = new SanPhamModel();
-        //    ViewBag.key = key;
-        //    ViewBag.maloai = maloai;
-        //    return ProductsPagination(spm.AdvancedSearch(key, maloai, null, null, null), page, null);
-        //}
 
-        //[AuthLog(Roles = "Quản trị viên,Nhân viên")]
-        //public ActionResult ProductsPagination(IQueryable<SanPham> lst, int? page, int? pagesize)
-        //{
-        //    int pageSize = (pagesize ?? 10);
-        //    int pageNumber = (page ?? 1);
-        //    return PartialView("SanPhamPartial", lst.OrderBy(m => m.MaSP).ToPagedList(pageNumber, pageSize));
-        //}
+        public ActionResult GetProduct(string key, string maloai, int? page)
+        {
 
-        [AuthLog(Roles = "Quản trị viên,Nhân viên")]
+            ViewBag.key = key;
+            ViewBag.maloai = maloai;
+            var listProduct = _service.AdvancedSearch(key, maloai, null, null, null)
+                                      .OrderByDescending(m => m.CreateDate)
+                                      //.ThenByDescending(p => p.ModifyDate)
+                                      .ToPagedList(page ?? 1, 10);
+
+            return PartialView("_ListProduct", listProduct);
+        }
+
+
+
         public ActionResult CrudProduct_View(string id)
         {
             SanPhamModel spm = new SanPhamModel();
@@ -62,7 +61,6 @@ namespace EC_TH2012_J.Areas.BackEnd.Controllers
             return View("~/Areas/BackEnd/Views/Product/CrudProduct.cshtml", model);
         }
 
-        [AuthLog(Roles = "Quản trị viên,Nhân viên")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult SaveProduct(SanPham model, HttpPostedFileBase file1, HttpPostedFileBase file2, HttpPostedFileBase file3)
@@ -111,7 +109,6 @@ namespace EC_TH2012_J.Areas.BackEnd.Controllers
         }
 
         [HttpPost]
-        [AuthLog(Roles = "Quản trị viên,Nhân viên")]
         public ActionResult DeleteProduct(string id)
         {
             if (string.IsNullOrEmpty(id))
@@ -126,7 +123,6 @@ namespace EC_TH2012_J.Areas.BackEnd.Controllers
             return RedirectToAction("SanPham", "Admin", new { Area = "" });
         }
 
-        [AuthLog(Roles = "Quản trị viên,Nhân viên")]
         public bool UploaProductImg(HttpPostedFileBase file, string fileName)
         {
             if (file != null && file.ContentLength > 0)
@@ -143,7 +139,6 @@ namespace EC_TH2012_J.Areas.BackEnd.Controllers
             return false;
         }
 
-        [AuthLog(Roles = "Quản trị viên")]
         public bool DeleteProductImg(string filename)
         {
             string fullPath = Request.MapPath("~/images/products/" + filename);
@@ -155,7 +150,6 @@ namespace EC_TH2012_J.Areas.BackEnd.Controllers
             return false;
         }
 
-        [AuthLog(Roles = "Quản trị viên,Nhân viên")]
         [HttpPost]
         public ActionResult AddProductTechnique(List<ThongSoKyThuat> productTechniques)
         {
@@ -172,7 +166,6 @@ namespace EC_TH2012_J.Areas.BackEnd.Controllers
             return RedirectToAction("SanPham", "Admin", new { Area = "" });
         }
 
-        [AuthLog(Roles = "Quản trị viên,Nhân viên")]
         public ActionResult EditProductTechnique(string masp)
         {
             SanPhamModel spm = new SanPhamModel();

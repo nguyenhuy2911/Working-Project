@@ -21,13 +21,15 @@
     <link href='@Url.Content("~/templatebackend/")css/jquery.iphone.toggle.css' rel='stylesheet'>
     <link href='@Url.Content("~/templatebackend/")css/uploadify.css' rel='stylesheet'>
     <link href='@Url.Content("~/templatebackend/")css/animate.min.css' rel='stylesheet'>
+    <link href="~/Content/css/jquery-confirm.css" rel="stylesheet" />
+    <link href="~/Content/datepicker.css" rel="stylesheet" />
     <!-- jQuery -->
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/jqueryval")
     <script src="@Url.Content("~/js/themxoasuaajax.js")"></script>
     <script src="~/js/B2BAdmin.js"></script>
-
+    <script src="~/Scripts/jquery-confirm.js"></script>
     <!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -62,14 +64,14 @@
                         <i class="glyphicon glyphicon-tasks"></i> Sản phẩm <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="/Admin/SanPham">Quản lý sản phẩm</a></li>
+                        <li><a href="@Url.Action("Index", "Product", new { Area = "BackEnd" })">Quản lý sản phẩm</a></li>
                         <li class="divider"></li>
-                        <li><a href="/LoaiSP/Index">Quản lý loại sản phẩm</a></li>
+                        <li><a href="@Url.Action("Index", "ProductType", new { Area = "BackEnd" })">Quản lý loại sản phẩm</a></li>
                         <li class="divider"></li>
-                        <li><a href="/HangSX/Index">Quản lý hãng sản xuất</a></li>
+                        <li><a href="@Url.Action("Index", "Manufacturer", new { Area = "BackEnd" })">Quản lý hãng sản xuất</a></li>
                         <li class="divider"></li>
-                        <li><a href="/KhuyenMai/Index">Quản lý khuyến mãi</a></li>
-
+                       
+                        <li><a href="@Url.Action("Index", "Promotion", new { Area = "BackEnd" })">Quản lý khuyến mãi</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">

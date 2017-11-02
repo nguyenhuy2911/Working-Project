@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
-
+using Ecommerce.Web.Helper;
 namespace  Ecommerce.Web.Models
 {
     public class HangSanXuatModel
@@ -29,11 +29,12 @@ namespace  Ecommerce.Web.Models
 
         internal void EditHangSX(HangSanXuat loai)
         {
-            HangSanXuat lsp = db.HangSanXuats.Find(loai.HangSX);
-            lsp.TenHang = loai.TenHang;
-            lsp.TruSoChinh = loai.TruSoChinh;
-            lsp.QuocGia = loai.QuocGia;
-            db.Entry(lsp).State = EntityState.Modified;
+            HangSanXuat _updateItem = db.HangSanXuats.Find(loai.HangSX);
+            _updateItem.TenHang = loai.TenHang;
+            _updateItem.Alias = loai.TenHang.GenerateFriendlyName();
+            _updateItem.TruSoChinh = loai.TruSoChinh;
+            _updateItem.QuocGia = loai.QuocGia;
+            db.Entry(_updateItem).State = EntityState.Modified;
             db.SaveChanges();
         }
 
@@ -55,6 +56,7 @@ namespace  Ecommerce.Web.Models
         internal string ThemHangSX(HangSanXuat loai)
         {
             loai.HangSX = TaoMa();
+            loai.Alias = loai.TenHang.GenerateFriendlyName();
             db.HangSanXuats.Add(loai);
             db.SaveChanges();
             return loai.HangSX;

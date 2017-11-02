@@ -1,0 +1,113 @@
+﻿@model Ecommerce.Domain.Model.Promotion
+@{
+    ViewBag.Title = ViewBag.Title;
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<script src="~/ckeditor/ckeditor.js"></script>
+<div class="row">
+    <div class="box col-md-12">
+        <div class="box-inner">
+            <div class="box-header well" data-original-title="">
+                <h2><i class="glyphicon glyphicon-user"></i>@ViewBag.Title</h2>
+                <div class="box-icon">
+                    <a href="#" class="btn btn-setting btn-round btn-default"><i class="glyphicon glyphicon-cog"></i></a>
+                    <a href="#" class="btn btn-minimize btn-round btn-default">
+                        <i class="glyphicon glyphicon-chevron-up"></i>
+                    </a>
+                    <a href="#" class="btn btn-close btn-round btn-default"><i class="glyphicon glyphicon-remove"></i></a>
+                </div>
+            </div>
+
+            <div class="box-content">
+
+                @using (Html.BeginForm("SavePromotion", "Promotion", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <div class="form-horizontal">
+                        <div class="alert alert-info" style="display:none">
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary()
+                            @Html.HiddenFor(p => p.MaKM)
+                            <span id="kiemtratrung"></span>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => model.TenCT):
+                                @Html.TextBoxFor(model => model.TenCT, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.TenCT)
+                                <span id="loaiisok"></span>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="form-group">
+                            <div class="col-md-3">
+                                @Html.LabelFor(model => model.NgayBatDau):
+                                @Html.TextBoxFor(model => model.NgayBatDau, new { @class = "form-control datepicker" })
+                                @Html.ValidationMessageFor(model => model.NgayBatDau)
+                            </div>
+                            <div class="col-md-3">
+                                @Html.LabelFor(model => model.NgayKetThuc):
+                                @Html.TextBoxFor(model => model.NgayKetThuc, new { @class = "form-control datepicker" })
+                                @Html.ValidationMessageFor(model => model.NgayKetThuc)
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                <img id="anhdaidien" src="@Url.Content("~/images/khuyenmai/")@Model.AnhCT" alt="your image" width="360" height="250" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-3">
+                                @Html.LabelFor(model => model.AnhCT):
+                                <input type="file" name="file" accept=".jpg" class="form-control" onchange="readURL(this, '#anhdaidien');" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.LabelFor(model => model.NoiDung)
+                                @Html.TextArea("NoiDung", WebUtility.HtmlDecode(Model.NoiDung))
+                                <script>
+                                    CKEDITOR.replace('NoiDung');
+                                </script>
+                            </div>
+                        </div>
+                        @if (string.IsNullOrEmpty(Model.MaKM))
+                        {
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="Thêm mới" class="btn btn-info" />
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <a class="btn btn-danger" href="@Url.Action("SuaCTKhuyenMai", "KhuyenMai", new { Area = "", MaKM = Model.MaKM })">
+                                        <i class="glyphicon glyphicon-wrench icon-white"></i>
+                                        Sửa danh sách sản phẩm
+                                    </a>
+                                    <button type="submit" class="btn btn-info">
+                                        <i class="glyphicon glyphicon-wrench icon-white"></i>
+                                        Cập nhật
+                                    </button>
+                                </div>
+                            </div>
+                        }
+                    </div>
+
+                }
+            </div>
+
+        </div>
+    </div>
+    <!--/span-->
+</div>
+<script>
+    $(function () {
+        $('.datepicker').datepicker({
+            format: 'mm/dd/yyyy'
+        });
+    })
+
+</script>

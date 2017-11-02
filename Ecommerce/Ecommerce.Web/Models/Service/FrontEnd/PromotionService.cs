@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web;
 
 namespace  Ecommerce.Web.Models
@@ -18,14 +19,14 @@ namespace  Ecommerce.Web.Models
             return dataContext.Promotions.Find(id);
         }
 
-        internal void EditPromotion(Promotion loai)
+        internal void EditPromotion(Promotion promotion)
         {
-            Promotion lsp = dataContext.Promotions.Find(loai.MaKM);
-            lsp.TenCT = loai.TenCT;
-            lsp.NgayBatDau = loai.NgayBatDau;
-            lsp.NgayKetThuc = loai.NgayKetThuc;
-            lsp.NoiDung = loai.NoiDung;
-            dataContext.Entry(lsp).State = EntityState.Modified;
+            Promotion _editPromotion = dataContext.Promotions.Find(promotion.MaKM);
+            _editPromotion.TenCT = promotion.TenCT;
+            _editPromotion.NgayBatDau = promotion.NgayBatDau;
+            _editPromotion.NgayKetThuc = promotion.NgayKetThuc;
+            _editPromotion.NoiDung = WebUtility.HtmlEncode(promotion.NoiDung);
+            dataContext.Entry(_editPromotion).State = EntityState.Modified;
             dataContext.SaveChanges();
         }
 
@@ -41,13 +42,14 @@ namespace  Ecommerce.Web.Models
             dataContext.SaveChanges();
         }
 
-        internal string AddPromotion(Promotion loai)
+        internal string AddPromotion(Promotion promotion)
         {
-            loai.MaKM = TaoMa();
-            loai.AnhCT = loai.MaKM + "1.jpg";
-            dataContext.Promotions.Add(loai);
+            promotion.MaKM = TaoMa();
+            promotion.AnhCT = promotion.MaKM + "1.jpg";
+            promotion.NoiDung = WebUtility.HtmlEncode(promotion.NoiDung);
+            dataContext.Promotions.Add(promotion);
             dataContext.SaveChanges();
-            return loai.MaKM;
+            return promotion.MaKM;
         }
 
         private string TaoMa()

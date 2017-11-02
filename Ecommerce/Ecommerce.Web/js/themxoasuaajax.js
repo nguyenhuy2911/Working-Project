@@ -55,23 +55,6 @@ function readURL(input, id) {
     }
 }
 
-//Xoa item ajax
-function DeleteProduct(Url, id) {
-    if (confirm("Bạn có chắc muốn xóa sản phẩm này") == true) {
-        $.ajax({
-            url: Url,
-            type: 'POST',
-            data: { id: id },
-            success: function (result) {
-                window.location.href = "/Admin/SanPham";
-            },
-        });
-    }
-
-
-}
-
-
 //ChiTietItemajax
 function ChiTietItem(Url, value) {
     $.ajax({
@@ -81,7 +64,6 @@ function ChiTietItem(Url, value) {
         success: function (result) {
             $('#show-dialog-detail').html(result);
             $('#show-dialog-detail').fadeIn(500);
-            //$('#alert-info').fadeOut(3000);
         },
     });
 }
@@ -157,11 +139,6 @@ function multibleupdate(Url) {
             },
         });
     }
-}
-
-//Submit form by id of form
-function submitform(id) {
-    document.forms[id].submit();
 }
 
 //them thong so kt moi
@@ -345,18 +322,7 @@ function timkiemDSSanPham(value) {
 }
 
 
-function timkiemajax() {
-    var key = $('#inputIcon').val();
-    var maloai = $('#maloaisearch').val();
-    $.ajax({
-        url: "/Admin/TimSP",
-        type: 'GET',
-        data: { key: key, maloai: maloai },
-        success: function (result) {
-            $('.Ajax-Table').html(result);
-        },
-    });
-}
+
 
 function timkiemkhachhang() {
     var key = $('#tendangnhaps').val();
@@ -387,80 +353,10 @@ function timkiemloaiSP() {
     });
 }
 
-function timkiemHangSX() {
-    var key = $('#inputIcon').val();
-    $.ajax({
-        url: "/HangSX/TimHangSX",
-        type: 'GET',
-        data: { key: key },
-        success: function (result) {
-            $('.Ajax-Table').html(result);
-        },
-    });
-}
-
-function timkiemKhuyenMai() {
-    var key = $('#inputIcon').val();
-    var start = $('#startday').val();
-    var end = $('#endday').val();
-    $.ajax({
-        url: "/KhuyenMai/TimKhuyenMai",
-        type: 'GET',
-        data: { key: key, start: start, end: end },
-        success: function (result) {
-            $('.Ajax-Table').html(result);
-        },
-    });
-}
-////////////////////////////////////
-
-function kiemgiatritrung(value, Url, id) {
-    if (value)
-        $.ajax({
-            url: Url,
-            data: { key: value },
-            success: function (result) {
-                var s = $(id).parent();
-                if (result) {
-                    $('#kiemtratrung').html("Ok");
-                    s.find("input").css({ "border": "2px solid green" });
-                    $('.alert-info').fadeOut(500);
-                }
-                else {
-                    $('#kiemtratrung').html("Đã được sử dụng");
-                    s.find("input").css({ "border": "2px solid red" });
-                    $('.alert-info').fadeIn(500);
-                }
-
-            },
-        });
-    else {
-        var s = $(id).parent();
-        $('#kiemtratrung').html("Không được để trống");
-        s.find("input").css({ "border": "2px solid red" });
-        $('.alert-info').fadeIn(500);
-    }
-}
 
 
-//Start SanPhamKhuyenMai///////////////////////////////
 
 
-function XoaSPKhuyenMai(Url, value1, value2) {
-    if (confirm("Bạn có chắc muốn xóa dữ liệu?") == true) {
-        $.ajax({
-            url: Url,
-            type: 'POST',
-            data: { makm: value1, masp: value2 },
-            success: function (result) {
-                $('.Ajax-Table').html(result);
-                timkiemDSSanPhamKhuyenMai(value1);
-            },
-        });
-    }
-
-
-}
 //End SanPhamKhuyenMai
 
 //START BINHLUAN

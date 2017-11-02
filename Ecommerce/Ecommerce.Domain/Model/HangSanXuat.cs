@@ -1,7 +1,8 @@
-namespace Ecommerce.Domain.Model
+﻿namespace Ecommerce.Domain.Model
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
@@ -20,12 +21,15 @@ namespace Ecommerce.Domain.Model
         public string HangSX { get; set; }
 
         [StringLength(50)]
+        [DisplayName("Tên hãng")]
         public string TenHang { get; set; }
 
         [StringLength(200)]
+        [DisplayName("Trụ sở chính")]
         public string TruSoChinh { get; set; }
 
         [StringLength(50)]
+        [DisplayName("Quốc gia")]
         public string QuocGia { get; set; }
 
         [StringLength(50)]

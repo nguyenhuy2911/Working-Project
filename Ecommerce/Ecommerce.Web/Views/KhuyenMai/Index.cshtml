@@ -132,6 +132,22 @@
 
         </div>
     </div>
-    <!--/span-->
-</div><!--/row-->
+</div>
+<script>
+    function XoaSPKhuyenMai(Url, value1, value2) {
+        if (confirm("Bạn có chắc muốn xóa dữ liệu?") == true) {
+            $.ajax({
+                url: Url,
+                type: 'POST',
+                data: { makm: value1, masp: value2 },
+                success: function (result) {
+                    $('.Ajax-Table').html(result);
+                    timkiemDSSanPhamKhuyenMai(value1);
+                },
+            });
+        }
+
+
+    }
+</script>
 

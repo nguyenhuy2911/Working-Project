@@ -90,11 +90,7 @@
                             <div class="col-xs-12 col-md-10 col-xs-10 col-sm-12">
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.MoTa, "Mô tả")
-                                    @*@Html.TextAreaFor(model => model.MoTa, "Mô tả")*@
                                     @Html.TextArea("MoTa", WebUtility.HtmlDecode(Model.MoTa))
-                                    @*<textarea id="MoTa">
-                                            @WebUtility.HtmlDecode(Model.MoTa);
-                                        </textarea>*@
                                     @Html.ValidationMessageFor(model => model.MoTa)
                                     <script>
                                         CKEDITOR.replace('MoTa');

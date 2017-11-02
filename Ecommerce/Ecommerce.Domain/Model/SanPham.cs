@@ -1,7 +1,8 @@
-namespace Ecommerce.Domain.Model
+﻿namespace Ecommerce.Domain.Model
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
@@ -26,6 +27,7 @@ namespace Ecommerce.Domain.Model
         public string MaSP { get; set; }
 
         [Required]
+        [DisplayName("Tên SP")]
         [StringLength(50)]
         public string TenSP { get; set; }
 
@@ -44,12 +46,14 @@ namespace Ecommerce.Domain.Model
 
         public decimal? GiaGoc { get; set; }
 
+        [DisplayName("Giá bán")]
         public decimal? GiaTien { get; set; }
 
         [AllowHtml]
         [Column(TypeName = "ntext")]
         public string MoTa { get; set; }
 
+        [DisplayName("Ảnh")]
         [Column(TypeName = "ntext")]
         public string AnhDaiDien { get; set; }
 
@@ -59,6 +63,7 @@ namespace Ecommerce.Domain.Model
         [Column(TypeName = "ntext")]
         public string AnhKhac { get; set; }
 
+        [DisplayName("Số lượng")]
         public int? SoLuong { get; set; }
 
         public bool? isnew { get; set; }

@@ -1,0 +1,67 @@
+﻿@model Ecommerce.Domain.Model.LoaiSP
+@{
+    ViewBag.Title = "Loại sản phẩm";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="row">
+    <div class="box col-md-12">
+        <div class="box-inner">
+            <div class="box-header well" data-original-title="">
+                <h2><i class="glyphicon glyphicon-user"></i>@ViewBag.Title</h2>
+
+                <div class="box-icon">
+                    <a href="#" class="btn btn-setting btn-round btn-default"><i class="glyphicon glyphicon-cog"></i></a>
+                    <a href="#" class="btn btn-minimize btn-round btn-default">
+                        <i class="glyphicon glyphicon-chevron-up"></i>
+                    </a>
+                    <a href="#" class="btn btn-close btn-round btn-default"><i class="glyphicon glyphicon-remove"></i></a>
+                </div>
+            </div>
+            <div class="box-content">
+                <div class="form-inline text-right" style="padding: 10px">
+                    <a href="@Url.Action("CrudProductType_View","ProductType")" class="btn btn-info">Thêm mới</a>
+                </div>
+                <div class="alert alert-info" id="alert-info" style="display:none"></div>
+                <div class="form-inline" style="text-align: right; padding: 10px">
+
+                    <div class="input-group">
+                        <input id="inputIcon" type="text" class="form-control" placeholder="Nhập tên loại" oninput="timkiemloaiSP()">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-search red"></i></span>
+                    </div>
+
+                </div>
+                <div class="Ajax-Table">
+                    @Html.Action("GetProductType", "ProductType")
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function DeleteProductType(Url, id) {
+        $.confirm({
+            title: 'Xác nhận',
+            content: 'Bạn có chắc muốn xóa sản phẩm này',
+            buttons: {
+                delete: {
+                    text: 'Ok',
+                    action: function () {
+                        $.ajax({
+                            url: Url,
+                            type: 'POST',
+                            data: { id: id },
+                            success: function (result) {
+                                window.location.href = "/BackEnd/ProductType";
+                            },
+                        });
+                    }
+                },
+                cancelAction: {
+                    text: 'Hủy'
+                }
+            }
+        });
+    }
+</script>

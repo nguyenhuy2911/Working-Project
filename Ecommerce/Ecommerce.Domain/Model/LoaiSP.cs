@@ -1,7 +1,8 @@
-namespace Ecommerce.Domain.Model
+﻿namespace Ecommerce.Domain.Model
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
@@ -20,6 +21,7 @@ namespace Ecommerce.Domain.Model
         public string MaLoai { get; set; }
 
         [Required]
+        [DisplayName("Loại SP")]
         [StringLength(50)]
         public string TenLoai { get; set; }
 
