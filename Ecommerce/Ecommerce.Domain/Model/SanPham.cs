@@ -23,7 +23,11 @@
         }
 
         [Key]
+        public int Id { get; set; }
+
+        [Required]
         [StringLength(5)]
+        [Index(IsUnique = true)]
         public string MaSP { get; set; }
 
         [Required]

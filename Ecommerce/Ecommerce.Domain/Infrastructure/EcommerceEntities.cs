@@ -6,7 +6,7 @@ namespace Ecommerce.Domain.Infrastructure
 
     public partial class EcommerceModel_DbContext : DbContext
     {
-        public EcommerceModel_DbContext(): base("name=Ecommerce")
+        public EcommerceModel_DbContext(): base("name=SellOnline")
         {
             Database.SetInitializer(new CreateDatabaseIfNotExists<EcommerceModel_DbContext>());
         }

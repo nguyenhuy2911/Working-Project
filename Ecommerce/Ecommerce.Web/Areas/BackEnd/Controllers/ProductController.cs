@@ -37,8 +37,6 @@ namespace EC_TH2012_J.Areas.BackEnd.Controllers
             return PartialView("_ListProduct", listProduct);
         }
 
-
-
         public ActionResult CrudProduct_View(string id)
         {
             SanPhamModel spm = new SanPhamModel();
@@ -73,7 +71,7 @@ namespace EC_TH2012_J.Areas.BackEnd.Controllers
                 else
                     return EditProduct(model, file1, file2, file3);
             }
-            return RedirectToAction("SanPham", "Admin", new { Area = "" });
+            return RedirectToAction("Index");
         }
 
         private ActionResult AddProduct(SanPham sanpham, HttpPostedFileBase file1, HttpPostedFileBase file2, HttpPostedFileBase file3)
@@ -91,7 +89,7 @@ namespace EC_TH2012_J.Areas.BackEnd.Controllers
                 productTechniques.Add(_techniqueInfo);
                 return AddProductTechnique(productTechniques);
             }
-            return RedirectToAction("SanPham", "Admin", new { Area = "" });
+            return RedirectToAction("Index");
         }
 
         private ActionResult EditProduct(SanPham sanpham, HttpPostedFileBase file1, HttpPostedFileBase file2, HttpPostedFileBase file3)
@@ -103,7 +101,7 @@ namespace EC_TH2012_J.Areas.BackEnd.Controllers
                 UploaProductImg(file1, sanpham.MaSP + "1");
                 UploaProductImg(file2, sanpham.MaSP + "2");
                 UploaProductImg(file3, sanpham.MaSP + "3");
-                return RedirectToAction("SanPham", "Admin", new { Area = "" });
+                return RedirectToAction("Index");
             }
             return CrudProduct_View(sanpham.MaSP);
         }
@@ -120,7 +118,7 @@ namespace EC_TH2012_J.Areas.BackEnd.Controllers
             DeleteProductImg(model.FindById(id).AnhNen);
             DeleteProductImg(model.FindById(id).AnhKhac);
             model.DeleteProduct(id);
-            return RedirectToAction("SanPham", "Admin", new { Area = "" });
+            return RedirectToAction("Index");
         }
 
         public bool UploaProductImg(HttpPostedFileBase file, string fileName)
@@ -155,7 +153,7 @@ namespace EC_TH2012_J.Areas.BackEnd.Controllers
         {
             if (productTechniques.Count == 0)
             {
-                return RedirectToAction("SanPham", "Admin", new { Area = "" });
+                return RedirectToAction("Index");
             }
             SanPhamModel spm = new SanPhamModel();
             foreach (var item in productTechniques)
@@ -163,7 +161,7 @@ namespace EC_TH2012_J.Areas.BackEnd.Controllers
                 if (!string.IsNullOrEmpty(item.ThuocTinh))
                     spm.ThemTSKT(item);
             }
-            return RedirectToAction("SanPham", "Admin", new { Area = "" });
+            return RedirectToAction("Index");
         }
 
         public ActionResult EditProductTechnique(string masp)

@@ -6,7 +6,7 @@
         <div class="logo">
             <a href="@Url.Action("Index", "Home")">
 
-                <img alt="logo" src="@Url.Content(Model.Settings.Logo)" width="233" height="54" />
+                <img alt="logo" src="@Model.Settings.Logo" width="233" height="54" />
             </a>
         </div>
         <!-- ============================================================= LOGO : END ============================================================= -->
@@ -37,7 +37,7 @@
             <div class="top-cart-holder dropdown animate-dropdown">
 
                 <div class="basket">
-                    @Html.Action("CartTitle", "Xuligiohang")
+                    @*@Html.Action("CartTitle", "Xuligiohang")*@
                 </div>
             </div>
         </div>

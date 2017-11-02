@@ -14,7 +14,7 @@ namespace Ecommerce.Web.Controllers
 
     public class DisplayController : Controller
     {
-        [OutputCache(CacheProfile = "SystemCache", Location = System.Web.UI.OutputCacheLocation.Client)]
+       // [OutputCache(CacheProfile = "SystemCache", Location = System.Web.UI.OutputCacheLocation.Client)]
         public ActionResult Header()
         {
             var model = new Header_ViewModel();
@@ -23,7 +23,7 @@ namespace Ecommerce.Web.Controllers
             return View(model);
         }
 
-        [OutputCache(CacheProfile = "SystemCache", Location = System.Web.UI.OutputCacheLocation.Client)]
+       // [OutputCache(CacheProfile = "SystemCache", Location = System.Web.UI.OutputCacheLocation.Client)]
         public ActionResult Footer()
         {
             var model = new Footer_ViewModel();
