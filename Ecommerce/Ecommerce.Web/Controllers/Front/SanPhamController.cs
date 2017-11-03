@@ -16,6 +16,7 @@ namespace Ecommerce.Web.Controllers
     {
         private EcommerceModel_DbContext db = new EcommerceModel_DbContext();
         private SanPhamModel _service = new SanPhamModel();
+        HangSanXuatModel _brandService = new HangSanXuatModel();
         // GET: SanPham
         [Trackingactionfilter]
         public ActionResult Index(string id)
@@ -71,9 +72,8 @@ namespace Ecommerce.Web.Controllers
             if (listItems.Any())
                 return PartialView("_NewestItems", listItems);
             else
-                return null;            
+                return null;
         }
-
 
         public ActionResult ThongSoKyThuat(string MaSP)
         {
@@ -85,6 +85,12 @@ namespace Ecommerce.Web.Controllers
         {
             var model = ManagerObiect.getIntance().Laydanhsachsanphammoixem();
             return PartialView("_RecentlyViewPartial", model);
+        }
+
+        public ActionResult ProductsByBrand()
+        {
+            var model = _brandService.GetHangSX().ToList();
+            return PartialView("_ProductsByBrand", model);
         }
 
 

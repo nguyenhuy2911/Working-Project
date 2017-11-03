@@ -75,7 +75,7 @@ function ResetPass(value) {
         type: 'POST',
         data: { userId: value },
         success: function (result) {
-           
+
         },
     });
 }
@@ -220,7 +220,7 @@ function timkiemhopdong1() {
     $.ajax({
         url: "/HopDong/TTGiaoHang",
         type: 'get',
-        data: { key: key, tensp: tensp, loaihd: loaihd, tt:tt },
+        data: { key: key, tensp: tensp, loaihd: loaihd, tt: tt },
         success: function (result) {
             $('.Ajax-Table').html(result);
         },
@@ -272,7 +272,7 @@ function timkiemncc() {
     $.ajax({
         url: "/NhaCungCap/TimNCC",
         type: 'GET',
-        data: { key: key},
+        data: { key: key },
         success: function (result) {
             $('.Ajax-Table').html(result);
         },
@@ -288,7 +288,7 @@ function timkiemdhncc() {
     $.ajax({
         url: "/DonHangNCC/TimDonHang",
         type: 'GET',
-        data: { key: key, ncc: ncc, ngaylap: ngaylap, ngaytt:ngaytt, status: status },
+        data: { key: key, ncc: ncc, ngaylap: ngaylap, ngaytt: ngaytt, status: status },
         success: function (result) {
             $('.Ajax-Table').html(result);
         },
@@ -333,7 +333,7 @@ function timkiemkhachhang() {
     $.ajax({
         url: "/Account/TimUser",
         type: 'GET',
-        data: { key: key, email: email, hoten:hoten, phone:phone, quyen:quyen },
+        data: { key: key, email: email, hoten: hoten, phone: phone, quyen: quyen },
         success: function (result) {
             $('.Ajax-Table').html(result);
         },
@@ -374,7 +374,7 @@ function ThemTraLoi(Url, masp, parent) {
 //END BINH LUAN
 
 //STAR PHANQUYEN
-function phanquyens(Url,QuyenName) {
+function phanquyens(Url, QuyenName) {
     checkboxes = document.getElementsByName('lstdel');
     var lst = new Array();
     for (var i = 0, n = checkboxes.length; i < n; i++) {
@@ -388,7 +388,7 @@ function phanquyens(Url,QuyenName) {
         $.ajax({
             url: Url,
             type: 'POST',
-            data: { lstu: lst, quyen:QuyenName },
+            data: { lstu: lst, quyen: QuyenName },
             success: function (result) {
                 $('.Ajax-Table').html(result);
                 $('#alert-info').html("Cập nhật thành công");
@@ -410,19 +410,33 @@ function SetStatus(Url) {
         }
     }
     var tt = $('#setstatus').val();
-    if (confirm("Dữ liệu quan trọng sắp được thay đổi, bạn có muốn tiếp tục?") == true) {
-        $.ajax({
-            url: Url,
-            type: 'POST',
-            data: { lst: lst, tt: tt },
-            success: function (result) {
-                $('.Ajax-Table').html(result);
-                $('#alert-info').html("Cập nhật thành công");
-                $('#alert-info').fadeIn(1000);
-                $('#alert-info').fadeOut(3000);
+    $.confirm({
+        title: 'Xác nhận',
+        content: 'Bạn có chắc muốn cập nhật trạng thái?',
+        buttons: {
+            delete: {
+                text: 'Ok',
+                action: function () {
+                    $.ajax({
+                        url: Url,
+                        type: 'POST',
+                        data: { lst: lst, tt: tt },
+                        success: function (result) {
+                            $('.Ajax-Table').html(result);
+                            $('#alert-info').html("Cập nhật thành công");
+                            $('#alert-info').fadeIn(1000);
+                            $('#alert-info').fadeOut(3000);
+                        },
+                    });
+                }
             },
-        });
-    }
+            cancelAction: {
+                text: 'Hủy'
+            }
+        }
+    });
+
+
 }
 //END UPDATE DON HANG STATUS
 

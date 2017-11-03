@@ -245,7 +245,7 @@
     <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\Back\RolesController.cs" />
     <Compile Include="Controllers\Front\SanPhamController.cs" />
-    <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Controllers\Front\SearchController.cs" />
     <Compile Include="Controllers\SideBarController.cs" />
     <Compile Include="Controllers\XacthucController.cs" />
     <Compile Include="Controllers\Front\XuligiohangController.cs" />
@@ -2156,6 +2156,7 @@
     <Content Include="Views\Front\Category\Index.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
     <Content Include="Content\css\jquery-confirm.less" />
+    <Content Include="Views\SanPham\_ProductsByBrand.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
