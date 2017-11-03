@@ -3,15 +3,15 @@
 
 <section id="bestsellers" class="color-bg wow fadeInUp">
     <div class="container">
-        <h1 class="section-title">Bán chạy nhất</h1>
+        <h1 class="section-title">Sản phẩm mới</h1>
         <div class="product-grid-holder medium">
 
             <div class="col-xs-12 col-md-12 no-margin">
                 <div class="row no-margin">
-                    @for (int i = 1; i < Model.Count; ++i)
+                    @foreach (var item in Model)
                     {
                         <div class="col-xs-12 col-sm-2 no-margin product-item-holder size-medium hover">
-                            @Html.Partial("_ProductGridShowPartal", Model[i])
+                            @Html.Partial("_ProductGridShowPartal", item)
                         </div>
                     }
                 </div>

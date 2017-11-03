@@ -6,10 +6,11 @@ namespace Ecommerce.Domain.Infrastructure
 
     public partial class EcommerceModel_DbContext : DbContext
     {
-        public EcommerceModel_DbContext(): base("name=SellOnline")
+        public EcommerceModel_DbContext(): base("name=" + ConfigConfig.ConnectionStringName)
         {
-            Database.SetInitializer(new CreateDatabaseIfNotExists<EcommerceModel_DbContext>());
+            Database.SetInitializer(new DBInitializer());
         }
+
 
         public virtual DbSet<AspNetRole> AspNetRoles { get; set; }
         public virtual DbSet<AspNetUserClaim> AspNetUserClaims { get; set; }
@@ -123,10 +124,6 @@ namespace Ecommerce.Domain.Infrastructure
                 .HasMany(e => e.Sanphamcanmuas)
                 .WithRequired(e => e.SanPham)
                 .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Sanphamcanmua>()
-                .Property(e => e.MaSP)
-                .IsFixedLength();
 
             modelBuilder.Entity<Sanphamcanmua>()
                 .HasMany(e => e.DanhsachdangkisanphamNCCs)

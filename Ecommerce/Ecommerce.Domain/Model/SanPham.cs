@@ -35,13 +35,11 @@
         [StringLength(50)]
         public string TenSP { get; set; }
 
-        [Required]
         [StringLength(5)]
         public string LoaiSP { get; set; }
 
         public int? SoLuotXemSP { get; set; }
 
-        [Required]
         [StringLength(5)]
         public string HangSX { get; set; }
 

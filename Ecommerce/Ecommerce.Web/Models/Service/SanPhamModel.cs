@@ -41,10 +41,12 @@ namespace Ecommerce.Web.Models
             return splist;
         }
 
-        internal IQueryable<SanPham> NewestProduct(int skip)
+        internal List<SanPham> NewestProduct(int skip)
         {
-            var splist = db.SanPhams.Where(s => s.isnew == true).OrderByDescending(p => p.CreateDate).ThenByDescending(p => p.ModifyDate).Take(4).Skip(skip);
-            return splist;
+            var _listItems = db.SanPhams.OrderByDescending(p => p.Id)
+                                    .ThenByDescending(p => p.CreateDate)
+                                    .Take(8).Skip(skip).ToList();
+            return _listItems;
         }
 
         internal IQueryable<SanPham> SPKhuyenMai()
@@ -73,7 +75,7 @@ namespace Ecommerce.Web.Models
 
         internal SanPham FindById(string id)
         {
-            return db.SanPhams.Find(id);
+            return db.SanPhams.Where(p =>p.MaSP == id)?.FirstOrDefault();
         }
 
         internal IQueryable<HangSanXuat> GetAllHangSX()
@@ -157,7 +159,7 @@ namespace Ecommerce.Web.Models
         {
             using (EcommerceModel_DbContext db = new EcommerceModel_DbContext())
             {
-                var temp = db.SanPhams.Find(maID);
+                var temp = db.SanPhams.Where(p=> p.MaSP == maID)?.FirstOrDefault();
                 if (temp == null)
                     return true;
                 return false;

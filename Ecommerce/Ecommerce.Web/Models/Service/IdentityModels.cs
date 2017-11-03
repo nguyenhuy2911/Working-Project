@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNet.Identity;
+﻿using Ecommerce.Domain.Infrastructure;
+using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Security.Claims;
@@ -28,7 +29,7 @@ namespace Ecommerce.Web.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public ApplicationDbContext() : base("Ecommerce", throwIfV1Schema: false)
+        public ApplicationDbContext() : base(ConfigConfig.ConnectionStringName, throwIfV1Schema: false)
         {
         }
 

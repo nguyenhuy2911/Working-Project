@@ -10,12 +10,12 @@ namespace  Ecommerce.Web.Controllers
 {
     public class XuligiohangController : Controller
     {
-        private static EcommerceModel_DbContext db = new EcommerceModel_DbContext();
+        private SanPhamModel _productService = new SanPhamModel();
         public ActionResult Addcart(string sp, int quantity)
         {
             try
             {
-                var temp = db.SanPhams.Find(sp);
+                var temp = _productService.FindById(sp);
                 int index = Kiemtratontai(sp);
                 if(index == -1)
                 {

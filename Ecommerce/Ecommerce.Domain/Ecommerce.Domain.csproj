@@ -79,7 +79,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constant\RoleName.cs" />
+    <Compile Include="Infrastructure\ConfigConfig.cs" />
     <Compile Include="Infrastructure\DatabaseFactory.cs" />
+    <Compile Include="Infrastructure\DBInitializer.cs" />
     <Compile Include="Infrastructure\EcommerceEntities.cs" />
     <Compile Include="Infrastructure\IDatabaseFactory.cs" />
     <Compile Include="Model\AspNetRole.cs" />

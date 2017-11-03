@@ -12,7 +12,7 @@ using System.Web.Mvc;
 
 namespace EC_TH2012_J.Areas.BackEnd.Controllers
 {
-    [AuthLog(Roles = "Quản trị viên,Nhân viên")]
+    [AuthLog(Roles = "Quản trị viên, Nhân viên")]
     public class ProductController : Controller
     {
         SanPhamModel _service = new SanPhamModel();
@@ -30,8 +30,8 @@ namespace EC_TH2012_J.Areas.BackEnd.Controllers
             ViewBag.key = key;
             ViewBag.maloai = maloai;
             var listProduct = _service.AdvancedSearch(key, maloai, null, null, null)
-                                      .OrderByDescending(m => m.CreateDate)
-                                      //.ThenByDescending(p => p.ModifyDate)
+                                      .OrderByDescending(m => m.Id)
+                                      .ThenByDescending(p => p.CreateDate)
                                       .ToPagedList(page ?? 1, 10);
 
             return PartialView("_ListProduct", listProduct);
@@ -64,31 +64,28 @@ namespace EC_TH2012_J.Areas.BackEnd.Controllers
         public ActionResult SaveProduct(SanPham model, HttpPostedFileBase file1, HttpPostedFileBase file2, HttpPostedFileBase file3)
         {
             SanPhamModel spm = new SanPhamModel();
-            if (ModelState.IsValid)
-            {
-                if (string.IsNullOrEmpty(model.MaSP))
-                    return AddProduct(model, file1, file2, file3);
-                else
-                    return EditProduct(model, file1, file2, file3);
-            }
-            return RedirectToAction("Index");
+
+            if (string.IsNullOrEmpty(model.MaSP))
+                return AddProduct(model, file1, file2, file3);
+            else
+                return EditProduct(model, file1, file2, file3);
+
+
         }
 
         private ActionResult AddProduct(SanPham sanpham, HttpPostedFileBase file1, HttpPostedFileBase file2, HttpPostedFileBase file3)
         {
             SanPhamModel spm = new SanPhamModel();
-            if (ModelState.IsValid)
-            {
-                string _productCode = spm.AddProduct(sanpham);
-                UploaProductImg(file1, _productCode + "1");
-                UploaProductImg(file2, _productCode + "2");
-                UploaProductImg(file3, _productCode + "3");
-                ThongSoKyThuat _techniqueInfo = new ThongSoKyThuat();
-                _techniqueInfo.MaSP = _productCode;
-                List<ThongSoKyThuat> productTechniques = new List<ThongSoKyThuat>();
-                productTechniques.Add(_techniqueInfo);
-                return AddProductTechnique(productTechniques);
-            }
+            string _productCode = spm.AddProduct(sanpham);
+            UploaProductImg(file1, _productCode + "1");
+            UploaProductImg(file2, _productCode + "2");
+            UploaProductImg(file3, _productCode + "3");
+            ThongSoKyThuat _techniqueInfo = new ThongSoKyThuat();
+            _techniqueInfo.MaSP = _productCode;
+            List<ThongSoKyThuat> productTechniques = new List<ThongSoKyThuat>();
+            productTechniques.Add(_techniqueInfo);
+            AddProductTechnique(productTechniques);
+
             return RedirectToAction("Index");
         }
 

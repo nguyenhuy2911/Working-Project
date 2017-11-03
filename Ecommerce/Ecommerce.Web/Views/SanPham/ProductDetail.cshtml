@@ -157,10 +157,10 @@
 <!-- ========================================= SINGLE PRODUCT TAB : END ========================================= -->
 <!-- ========================================= SAN PHAM LIEN QUAN ========================================= -->
 
-@Html.Action("Loadsplienquan", "SanPham", new { maloai = @Model.LoaiSP, sl = 6 })
+@Html.Action("RelateProducs", "SanPham", new { maloai = @Model.LoaiSP, sl = 6 })
 
 <!--RECENTLY VIEWED  -->
-@Html.Action("ItemsRecentlyView", "Home")
+@Html.Action("ItemsRecentlyView", "SanPham")
 <!-- RECENTLY VIEWED : END  -->
 <!-- ========================================= RECENTLY VIEWED : END ========================================= -->
 <script type="text/javascript">

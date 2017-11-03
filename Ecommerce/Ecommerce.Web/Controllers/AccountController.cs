@@ -1,20 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using System.Web;
-using System.Web.Mvc;
+﻿using Ecommerce.Domain.Constant;
+using Ecommerce.Domain.Model;
+using Ecommerce.Web.Models;
+using Ecommerce.Web.Models.ViewModel;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
-using Ecommerce.Web.Models;
-using Ecommerce.Web.Models.B2B;
-using System.IO;
 using PagedList;
-using PagedList.Mvc;
-using Ecommerce.Domain.Model;
-using Ecommerce.Web.Models.ViewModel;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Web;
+using System.Web.Mvc;
 
 namespace Ecommerce.Web.Controllers
 {
@@ -558,7 +555,7 @@ namespace Ecommerce.Web.Controllers
 
 
         //Phần back-end. Bao gồm thêm user mới, chỉnh quyền user, xem  thông tin user
-        [AuthLog(Roles = "Quản trị viên")]
+        [AuthLog(Roles = RoleName.Admin)]
         public ActionResult Index()
         {
             UserModel us = new UserModel();
@@ -567,7 +564,7 @@ namespace Ecommerce.Web.Controllers
             return View();
         }
 
-        [AuthLog(Roles = "Quản trị viên")]
+        [AuthLog(Roles = RoleName.Admin)]
         [HttpPost]
         public ActionResult PhanQuyen(List<string> lstu, string quyen)
         {
@@ -583,14 +580,14 @@ namespace Ecommerce.Web.Controllers
             return TimUser(null, null, null, null, null, null);
         }
 
-        [AuthLog(Roles = "Quản trị viên")]
+        [AuthLog(Roles = RoleName.Admin)]
         public ActionResult UserDetail(string id)
         {
             UserModel usm = new UserModel();
             return PartialView("UserDetail", usm.FindById(id));
         }
 
-        [AuthLog(Roles = "Quản trị viên")]
+        [AuthLog(Roles = RoleName.Admin)]
         public ActionResult TimUser(string key, string email, string hoten, string phone, string quyen, int? page)
         {
             UserModel spm = new UserModel();
@@ -602,7 +599,7 @@ namespace Ecommerce.Web.Controllers
             return PhanTrangUser(spm.SearchUser(key, email, hoten, phone, quyen), page, null);
         }
 
-        [AuthLog(Roles = "Quản trị viên")]
+        [AuthLog(Roles = RoleName.Admin)]
         public ActionResult PhanTrangUser(IQueryable<AspNetUser> lst, int? page, int? pagesize)
         {
             int pageSize = (pagesize ?? 10);
@@ -618,7 +615,6 @@ namespace Ecommerce.Web.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        [AuthLog(Roles = "Quản trị viên")]
         public async Task<ActionResult> GenerateSupperAdminUser()
         {
             var user = new ApplicationUser()
@@ -642,7 +638,7 @@ namespace Ecommerce.Web.Controllers
             var result = await UserManager.CreateAsync(user, "SupperAdmin@123");
             if (result.Succeeded)
             {
-                UserManager.AddToRole(user.Id, "Quản trị viên");
+                UserManager.AddToRole(user.Id, RoleName.Admin);
                 await SignInAsync(user, isPersistent: false);
                 ManagerObiect.getIntance().userName = "SuperAdmin";
             }
@@ -650,7 +646,7 @@ namespace Ecommerce.Web.Controllers
         }
 
         [HttpPost]
-        [AuthLog(Roles = "Quản trị viên")]
+        [AuthLog(Roles = RoleName.Admin)]
         public bool ResetPass(string userId)
         {
             ApplicationUser user = UserManager.FindByName(userId);

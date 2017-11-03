@@ -8,7 +8,7 @@ namespace Ecommerce.Domain.Model
 
     public partial class AspNetUser
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+       
         public AspNetUser()
         {
             AspNetUserClaims = new HashSet<AspNetUserClaim>();
@@ -67,22 +67,21 @@ namespace Ecommerce.Domain.Model
         [Column(TypeName = "text")]
         public string Avatar { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+      
         public virtual ICollection<AspNetUserClaim> AspNetUserClaims { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AspNetUserLogin> AspNetUserLogins { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
         public virtual ICollection<BinhLuan> BinhLuans { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
         public virtual ICollection<DonHangKH> DonHangKHs { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
         public virtual ICollection<NhaCungCap> NhaCungCaps { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+ 
         public virtual ICollection<AspNetRole> AspNetRoles { get; set; }
     }
 }

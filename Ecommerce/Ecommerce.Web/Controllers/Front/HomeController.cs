@@ -105,43 +105,7 @@ namespace Ecommerce.Web.Controllers
             return PartialView("_MainMenuPartial", menulist);
         }
 
-        public ActionResult ItemsNewest(int? skip)
-        {
-            SanPhamModel sp = new SanPhamModel();
-            IQueryable<SanPham> splist = sp.NewestProduct(skip ?? 0);
-            if (splist.Any())
-                return PartialView("_ProductTabLoadMorePartial", splist);
-            else
-                return null;
-        }
-
-        public ActionResult ItemsPromotion(int? skip)
-        {
-            SanPhamModel sp = new SanPhamModel();
-            int skipnum = (skip ?? 0);
-            IQueryable<SanPham> splist = sp.SPKhuyenMai();
-            splist = splist.OrderBy(r => r.MaSP).Skip(skipnum).Take(4);
-            if (splist.Any())
-                return PartialView("_ProductTabLoadMorePartial", splist);
-            else
-                return null;
-        }
-
-        public ActionResult ItemsBestSeller()
-        {
-            SanPhamModel sp = new SanPhamModel();
-            IQueryable<SanPham> splist = sp.SPBanChay(7);
-            if (splist.Any())
-                return PartialView("_BestSellerPartial", splist.ToList());
-            else
-                return null;
-        }
-
-        public ActionResult ItemsRecentlyView()
-        {
-            var model = ManagerObiect.getIntance().Laydanhsachsanphammoixem();
-            return PartialView("_RecentlyViewPartial", model);
-        }
+        
 
     }
 }

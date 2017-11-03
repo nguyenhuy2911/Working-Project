@@ -12,7 +12,7 @@
             <!-- Nav tabs -->
             <ul class="nav nav-tabs">
 
-                <li class="active"><a href="#new-arrivals" data-toggle="tab">Sản phẩm mới</a></li>
+                <li class="active"><a href="#new-arrivals" data-toggle="tab">Sản phẩm bán chạy</a></li>
                 <li><a href="#top-sales" data-toggle="tab">Giảm giá</a></li>
             </ul>
             <!-- Tab panes -->
@@ -20,7 +20,7 @@
                 <div class="tab-pane active" id="new-arrivals">
                     <div class="product-grid-holder">
                         <div id="spmoiload">
-                            @Html.Action("ItemsNewest", "Home")
+                            @Html.Action("ItemsBestSeller", "SanPham")
                         </div>
                     </div>
                     <div class="loadmore-holder text-center">
@@ -36,7 +36,7 @@
                 <div class="tab-pane" id="top-sales">
                     <div class="product-grid-holder">
                         <div id="spkmload">
-                            @Html.Action("ItemsPromotion", "Home")
+                            @Html.Action("ItemsPromotion", "SanPham")
                         </div>
                     </div>
                     <div class="loadmore-holder text-center clear">
@@ -52,10 +52,7 @@
         </div>
     </div>
 </div>
-<!--  BEST SELLERS -->
-@Html.Action("ItemsBestSeller", "Home")
 
-<!-- BEST SELLERS : END-->
-<!--RECENTLY VIEWED  -->
-@Html.Action("ItemsRecentlyView", "Home")
-<!-- RECENTLY VIEWED : END  -->
+@Html.Action("ItemsNewest", "SanPham")
+
+@Html.Action("ItemsRecentlyView", "SanPham")

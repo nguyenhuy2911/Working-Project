@@ -31,7 +31,6 @@ namespace Ecommerce.Domain.Model
         [Column(TypeName = "ntext")]
         public string Mota { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DanhsachdangkisanphamNCC> DanhsachdangkisanphamNCCs { get; set; }
 
         public virtual SanPham SanPham { get; set; }

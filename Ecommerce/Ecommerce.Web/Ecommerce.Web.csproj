@@ -244,11 +244,11 @@
     <Compile Include="Controllers\OauthController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\Back\RolesController.cs" />
-    <Compile Include="Controllers\SanPhamController.cs" />
+    <Compile Include="Controllers\Front\SanPhamController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\SideBarController.cs" />
     <Compile Include="Controllers\XacthucController.cs" />
-    <Compile Include="Controllers\XuligiohangController.cs" />
+    <Compile Include="Controllers\Front\XuligiohangController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -1872,8 +1872,8 @@
     <Content Include="Views\Home\Checkout.cshtml" />
     <Content Include="Views\Shared\Ordercheckout.cshtml" />
     <Content Include="Views\Home\_MainMenuPartial.cshtml" />
-    <Content Include="Views\Home\_ProductTabLoadMorePartial.cshtml" />
-    <Content Include="Views\Home\_BestSellerPartial.cshtml" />
+    <Content Include="Views\SanPham\_ProductTabLoadMorePartial.cshtml" />
+    <Content Include="Views\SanPham\_NewestItems.cshtml" />
     <Content Include="templatebackend\.gitignore" />
     <Content Include="templatebackend\bower_components\bootstrap-tour\.bower.json" />
     <Content Include="templatebackend\bower_components\bootstrap-tour\.gitignore" />
@@ -2073,7 +2073,7 @@
     <Content Include="Views\Account\Authentication.cshtml" />
     <Content Include="Views\Account\EditInfo.cshtml" />
     <Content Include="Views\SideBar\_GiamGiaNhieuPartial.cshtml" />
-    <Content Include="Views\Home\_RecentlyViewPartial.cshtml" />
+    <Content Include="Views\SanPham\_RecentlyViewPartial.cshtml" />
     <Content Include="Views\Admin\SPDetail.cshtml" />
     <Content Include="Views\Admin\ThemThongSoKT.cshtml" />
     <Content Include="Views\Admin\SuaThongSoKT.cshtml" />
@@ -2092,7 +2092,7 @@
     <Content Include="Views\Display\Header.cshtml" />
     <Content Include="Views\Display\General.cshtml" />
     <Content Include="Views\SanPham\ThongSoKyThuatPartial.cshtml" />
-    <Content Include="Views\SanPham\_PartialSanPhamLienQuan.cshtml" />
+    <Content Include="Views\SanPham\_RelateProducts.cshtml" />
     <Content Include="Views\Comment\_ChilComment.cshtml" />
     <Content Include="Views\Auction\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutB2B.cshtml" />
