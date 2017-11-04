@@ -40,7 +40,9 @@
 
         public int? SoLuotXemSP { get; set; }
 
+       
         [StringLength(5)]
+        [DisplayName("Hãng")]
         public string HangSX { get; set; }
 
         [StringLength(50)]

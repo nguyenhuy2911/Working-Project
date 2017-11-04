@@ -1,11 +1,12 @@
 ﻿@using Ecommerce.Web.Models;
 @model List<Ecommerce.Domain.Model.SanPham>
 
-<section id="bestsellers" class="color-bg wow fadeInUp">
+<section id="bestsellers" class="color-bg wow fadeInUp items-section">
     <div class="container">
-        <h1 class="section-title">Sản phẩm mới</h1>
+        <div class="title">
+            <h1 class="section-title">Sản phẩm mới</h1>
+        </div>
         <div class="product-grid-holder medium">
-
             <div class="col-xs-12 col-md-12 no-margin">
                 <div class="row no-margin">
                     @foreach (var item in Model)

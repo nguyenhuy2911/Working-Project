@@ -8,7 +8,8 @@ namespace Ecommerce.Domain.Infrastructure
     {
         public EcommerceModel_DbContext(): base("name=" + ConfigConfig.ConnectionStringName)
         {
-            Database.SetInitializer(new DBInitializer());
+            //  Database.SetInitializer(new DBInitializer());
+            Database.SetInitializer<EcommerceModel_DbContext>(null);
         }
 
 
@@ -37,12 +38,11 @@ namespace Ecommerce.Domain.Infrastructure
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+
             modelBuilder.Entity<AspNetRole>()
                 .HasMany(e => e.AspNetUsers)
                 .WithMany(e => e.AspNetRoles)
-                .Map(m => m.ToTable("AspNetUserRoles").MapLeftKey("RoleId").MapRightKey("UserId"));
-
-            
+                .Map(m => m.ToTable("AspNetUserRoles").MapLeftKey("RoleId").MapRightKey("UserId"));            
 
             modelBuilder.Entity<AspNetUser>()
                 .HasMany(e => e.AspNetUserClaims)
@@ -71,44 +71,21 @@ namespace Ecommerce.Domain.Infrastructure
                 .WithOptional(e => e.AspNetUser)
                 .HasForeignKey(e => e.Net_user)
                 .WillCascadeOnDelete();
-
-            
-
-           
-
-           
-
-            
-
            
             modelBuilder.Entity<HangSanXuat>()
                 .HasMany(e => e.SanPhams)
                 .WithRequired(e => e.HangSanXuat)
                 .WillCascadeOnDelete(false);
-
-          
-          
-
-           
-
-           
-
             modelBuilder.Entity<LoaiSP>()
                 .HasMany(e => e.SanPhams)
                 .WithRequired(e => e.LoaiSP1)
                 .HasForeignKey(e => e.LoaiSP)
                 .WillCascadeOnDelete(false);
 
-           
-
             modelBuilder.Entity<NhaCungCap>()
                 .HasMany(e => e.HopDongNCCs)
                 .WithOptional(e => e.NhaCungCap)
                 .WillCascadeOnDelete();
-
-           
-
-           
 
             modelBuilder.Entity<SanPham>()
                 .HasMany(e => e.BinhLuans)
@@ -130,8 +107,7 @@ namespace Ecommerce.Domain.Infrastructure
                 .WithOptional(e => e.Sanphamcanmua)
                 .HasForeignKey(e => e.MaSPCanMua)
                 .WillCascadeOnDelete();
-
-          
+            
         }
     }
 }

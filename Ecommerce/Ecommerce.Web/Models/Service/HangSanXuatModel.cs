@@ -17,6 +17,13 @@ namespace  Ecommerce.Web.Models
             return lst;
         }
 
+        public IQueryable<HangSanXuat> GetShowHomeBrand()
+        {
+            IQueryable<HangSanXuat> lst = db.HangSanXuats
+                                            .Where(p => p.IsHomePage == true);
+            return lst;
+        }
+
         internal HangSanXuat FindById(string id)
         {
             return db.HangSanXuats.Find(id);
@@ -34,6 +41,7 @@ namespace  Ecommerce.Web.Models
             _updateItem.Alias = loai.TenHang.GenerateFriendlyName();
             _updateItem.TruSoChinh = loai.TruSoChinh;
             _updateItem.QuocGia = loai.QuocGia;
+            _updateItem.IsHomePage = loai.IsHomePage;
             db.Entry(_updateItem).State = EntityState.Modified;
             db.SaveChanges();
         }

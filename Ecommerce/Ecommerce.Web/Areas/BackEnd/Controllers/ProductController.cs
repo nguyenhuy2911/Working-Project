@@ -1,5 +1,6 @@
 ﻿using Ecommerce.Domain.Model;
 using Ecommerce.Web.Controllers;
+using Ecommerce.Web.Helper;
 using Ecommerce.Web.Models;
 using PagedList;
 using System;
@@ -51,10 +52,24 @@ namespace EC_TH2012_J.Areas.BackEnd.Controllers
                 model = spm.FindById(id);
                 if (model == null)
                     model = new SanPham();
-
             }
-            ViewBag.HangSX = new SelectList(spm.GetAllHangSX(), "HangSX", "TenHang", model.HangSX);
-            ViewBag.LoaiSP = new SelectList(spm.GetAllLoaiSP(), "MaLoai", "TenLoai", model.LoaiSP);
+            List<SelectListItem> listBrand = spm.GetAllHangSX()?.ToList()?.Select(p =>
+               new SelectListItem()
+               {
+                   Value = p.HangSX,
+                   Text = p.TenHang,
+                   Selected = p.HangSX.Equals(model.HangSX)
+               }).ToList();
+            List<SelectListItem> listProductType = spm.GetAllLoaiSP()?.ToList()?.Select(p =>
+               new SelectListItem()
+               {
+                   Value = p.MaLoai,
+                   Text = p.TenLoai,
+                   Selected = p.MaLoai.Equals(model.LoaiSP)
+               }).ToList();
+
+            ViewBag.Brands = listBrand;
+            ViewBag.ProductTypes = listProductType;
 
             return View("~/Areas/BackEnd/Views/Product/CrudProduct.cshtml", model);
         }
@@ -77,9 +92,9 @@ namespace EC_TH2012_J.Areas.BackEnd.Controllers
         {
             SanPhamModel spm = new SanPhamModel();
             string _productCode = spm.AddProduct(sanpham);
-            UploaProductImg(file1, _productCode + "1");
-            UploaProductImg(file2, _productCode + "2");
-            UploaProductImg(file3, _productCode + "3");
+            UploaProductImg(file1, string.Format("{0}-{1}-{2}", sanpham.TenSP.GenerateFriendlyName(), _productCode, "1"));
+            UploaProductImg(file2, string.Format("{0}-{1}-{2}", sanpham.TenSP.GenerateFriendlyName(), _productCode, "2"));
+            UploaProductImg(file3, string.Format("{0}-{1}-{2}", sanpham.TenSP.GenerateFriendlyName(), _productCode, "3"));
             ThongSoKyThuat _techniqueInfo = new ThongSoKyThuat();
             _techniqueInfo.MaSP = _productCode;
             List<ThongSoKyThuat> productTechniques = new List<ThongSoKyThuat>();
@@ -95,9 +110,9 @@ namespace EC_TH2012_J.Areas.BackEnd.Controllers
             if (ModelState.IsValid)
             {
                 spm.EditSP(sanpham);
-                UploaProductImg(file1, sanpham.MaSP + "1");
-                UploaProductImg(file2, sanpham.MaSP + "2");
-                UploaProductImg(file3, sanpham.MaSP + "3");
+                UploaProductImg(file1, string.Format("{0}-{1}-{2}", sanpham.TenSP.GenerateFriendlyName(), sanpham.MaSP, "1"));
+                UploaProductImg(file2, string.Format("{0}-{1}-{2}", sanpham.TenSP.GenerateFriendlyName(), sanpham.MaSP, "2"));
+                UploaProductImg(file3, string.Format("{0}-{1}-{2}", sanpham.TenSP.GenerateFriendlyName(), sanpham.MaSP, "3"));
                 return RedirectToAction("Index");
             }
             return CrudProduct_View(sanpham.MaSP);
@@ -123,7 +138,7 @@ namespace EC_TH2012_J.Areas.BackEnd.Controllers
             if (file != null && file.ContentLength > 0)
             {
                 var name = Path.GetExtension(file.FileName);
-                if (!Path.GetExtension(file.FileName).Equals(".jpg"))
+                if (!Path.GetExtension(file.FileName).Equals(".jpg") && !Path.GetExtension(file.FileName).Equals(".png"))
                 {
                     return false;
                 }

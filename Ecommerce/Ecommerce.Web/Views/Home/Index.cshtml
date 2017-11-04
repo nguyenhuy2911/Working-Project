@@ -11,7 +11,6 @@
         <div class="tab-holder">
             <!-- Nav tabs -->
             <ul class="nav nav-tabs">
-
                 <li class="active"><a href="#new-arrivals" data-toggle="tab">Sản phẩm bán chạy</a></li>
                 <li><a href="#top-sales" data-toggle="tab">Giảm giá</a></li>
             </ul>
@@ -23,30 +22,15 @@
                             @Html.Action("ItemsBestSeller", "SanPham")
                         </div>
                     </div>
-                    <div class="loadmore-holder text-center">
-                        <div id="spmoilink">
-                            <a class="btn-loadmore" href='javascript:LoadMorePro(4,"SPMoiNhap","#spmoilink","#spmoiload")'>
-                                <i class="fa fa-plus"></i>
-                                Tải thêm
-                            </a>
-                        </div>
-                    </div>
+                   
                 </div>
-
                 <div class="tab-pane" id="top-sales">
                     <div class="product-grid-holder">
                         <div id="spkmload">
                             @Html.Action("ItemsPromotion", "SanPham")
                         </div>
                     </div>
-                    <div class="loadmore-holder text-center clear">
-                        <div id="spkmlink">
-                            <a class="btn-loadmore" href='javascript:LoadMorePro(4,"SPKhuyenMai","#spkmlink","#spkmload")'>
-                                <i class="fa fa-plus"></i>
-                                Tải thêm
-                            </a>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </div>

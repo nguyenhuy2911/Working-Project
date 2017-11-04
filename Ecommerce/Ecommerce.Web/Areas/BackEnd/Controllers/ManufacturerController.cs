@@ -50,7 +50,6 @@ namespace EC_TH2012_J.Areas.BackEnd.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult SaveManufacturer(HangSanXuat model)
         {
-            SanPhamModel spm = new SanPhamModel();
             bool isSuccess = false;
             if (ModelState.IsValid)
             {

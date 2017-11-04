@@ -1538,6 +1538,7 @@
     <Content Include="templatebackend\css\bootstrap-spacelab.min.css" />
     <Content Include="templatebackend\css\bootstrap-united.min.css" />
     <Content Include="templatebackend\css\charisma-app.css" />
+    <Content Include="templatebackend\css\custom.css" />
     <Content Include="templatebackend\css\elfinder.min.css" />
     <Content Include="templatebackend\css\elfinder.theme.css" />
     <Content Include="Content\css\jquery-confirm.css" />

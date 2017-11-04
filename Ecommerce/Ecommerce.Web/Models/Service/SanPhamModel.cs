@@ -1,5 +1,6 @@
 ﻿using Ecommerce.Domain.Infrastructure;
 using Ecommerce.Domain.Model;
+using Ecommerce.Web.Helper;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -45,7 +46,7 @@ namespace Ecommerce.Web.Models
         {
             var _listItems = db.SanPhams.OrderByDescending(p => p.Id)
                                     .ThenByDescending(p => p.CreateDate)
-                                    .Take(8).Skip(skip).ToList();
+                                    .Take(12).Skip(skip).ToList();
             return _listItems;
         }
 
@@ -61,7 +62,6 @@ namespace Ecommerce.Web.Models
         internal IQueryable<SanPham> SPBanChay(int takenum)
         {
             var s = from p in db.ChiTietDonHangs
-                    where p.DonHangKH.TinhTrangDH == 3
                     group p by p.MaSP into gro
                     select new { MaSP = gro.Key, sl = gro.Sum(r => r.SoLuong) };
             var splist = from p in db.SanPhams join ca in s on p.MaSP equals ca.MaSP orderby ca.sl descending select p;
@@ -75,7 +75,7 @@ namespace Ecommerce.Web.Models
 
         internal SanPham FindById(string id)
         {
-            return db.SanPhams.Where(p =>p.MaSP == id)?.FirstOrDefault();
+            return db.SanPhams.Where(p => p.MaSP == id)?.FirstOrDefault();
         }
 
         internal IQueryable<HangSanXuat> GetAllHangSX()
@@ -91,12 +91,15 @@ namespace Ecommerce.Web.Models
         internal void EditSP(SanPham product)
         {
 
-            SanPham _productUpdate = db.SanPhams.Find(product.MaSP);
+            SanPham _productUpdate = this.FindById(product.MaSP);
             _productUpdate.TenSP = product.TenSP;
             _productUpdate.LoaiSP = product.LoaiSP;
             _productUpdate.HangSX = product.HangSX;
             _productUpdate.XuatXu = product.XuatXu;
             _productUpdate.GiaGoc = product.GiaGoc;
+            _productUpdate.AnhDaiDien = string.Format("{0}-{1}-{2}", product.TenSP.GenerateFriendlyName(), product.MaSP, "1.jpg");
+            _productUpdate.AnhNen = string.Format("{0}-{1}-{2}", product.TenSP.GenerateFriendlyName(), product.MaSP, "2.jpg");
+            _productUpdate.AnhKhac = string.Format("{0}-{1}-{2}", product.TenSP.GenerateFriendlyName(), product.MaSP, "3.jpg");
             _productUpdate.GiaTien = tinhgiatien(_productUpdate.MaSP, _productUpdate.GiaGoc);
             _productUpdate.MoTa = WebUtility.HtmlEncode(product.MoTa);
             _productUpdate.SoLuong = product.SoLuong;
@@ -129,9 +132,9 @@ namespace Ecommerce.Web.Models
             product.MaSP = TaoMa();
             product.MoTa = WebUtility.HtmlEncode(product.MoTa);
             product.GiaTien = product.GiaGoc;
-            product.AnhDaiDien = product.MaSP + "1.jpg";
-            product.AnhNen = product.MaSP + "2.jpg";
-            product.AnhKhac = product.MaSP + "3.jpg";
+            product.AnhDaiDien = string.Format("{0}-{1}-{2}", product.TenSP.GenerateFriendlyName(), product.MaSP, "1.jpg");
+            product.AnhNen = string.Format("{0}-{1}-{2}", product.TenSP.GenerateFriendlyName(), product.MaSP, "2.jpg");
+            product.AnhKhac = string.Format("{0}-{1}-{2}", product.TenSP.GenerateFriendlyName(), product.MaSP, "3.jpg");
             product.CreateDate = DateTime.Now;
             product.ModifyDate = DateTime.Now;
             db.SanPhams.Add(product);
@@ -159,7 +162,7 @@ namespace Ecommerce.Web.Models
         {
             using (EcommerceModel_DbContext db = new EcommerceModel_DbContext())
             {
-                var temp = db.SanPhams.Where(p=> p.MaSP == maID)?.FirstOrDefault();
+                var temp = db.SanPhams.Where(p => p.MaSP == maID)?.FirstOrDefault();
                 if (temp == null)
                     return true;
                 return false;

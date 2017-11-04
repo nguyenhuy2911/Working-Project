@@ -1,13 +1,37 @@
 ﻿.banner-holder img.banner-image {
-    width:570px;
-    height:243px;
+    width: 570px;
+    height: 243px;
 }
+
 #checkout-page #your-order .order-item .title a {
-    margin-left:0px;
+    margin-left: 0px;
 }
+
 #checkout-page #your-order .order-item .brand {
-    margin-left:0px;
+    margin-left: 0px;
 }
+
 #checkout-page .thumb-holder {
-    border:none;
+    border: none;
+}
+.items-section .best-seller-big-item {
+        border-left: 1px solid #ececec;
+}
+.single-product-slider .single-product-gallery-item img {
+    width: 433px;
+    height: 325px;
+}
+
+.gallery-thumbs .horizontal-thumb img {
+    width: 67px;
+    height: 60px;
+}
+.items-section div.title {
+    border-bottom:1px solid #59b210;
+}
+.nav-tabs > li > a {
+    border-radius:0;
+}
+.product-grid-holder .product-item-holder.size-medium .image {
+ overflow:hidden;
 }

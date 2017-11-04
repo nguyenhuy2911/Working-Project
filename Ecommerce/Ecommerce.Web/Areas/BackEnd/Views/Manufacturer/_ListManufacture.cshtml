@@ -12,8 +12,8 @@
             </th>
             <th class="text-center">@Html.DisplayNameFor(model => model.First().TenHang)</th>
             <th class="text-center">@Html.DisplayNameFor(model => model.First().Alias)</th>
-            <th class="text-center">@Html.DisplayNameFor(model => model.First().TruSoChinh)</th>
-            <th class="text-center">@Html.DisplayNameFor(model => model.First().QuocGia)</th>
+            <th class="text-center">@Html.DisplayNameFor(model => model.First().IsHomePage)</th>
+
             <th class="text-center">Thao tác</th>
         </tr>
     </thead>
@@ -26,15 +26,18 @@
                 </td>
                 <td class="center">@item.TenHang</td>
                 <td class="center">@item.Alias</td>
-                <td class="center">@item.TruSoChinh</td>
-                <td class="center">@item.QuocGia</td>
+                <td>
+                    <div class="material-switch">
+                        <input name="IsHomePage" type="checkbox" checked="@item.IsHomePage">
+                        <label for="IsHomePage" class="label-success"></label>
+                    </div>
+                </td>
                 <td class="center">
                     <a class="btn btn-info" href="@Url.Action("CrudManufacturer_View", "Manufacturer", new {Area= "BackEnd", id = item.HangSX.Trim() })">
                         <i class="glyphicon glyphicon-edit icon-white"></i>
                         Sửa
                     </a>
                     <a class="btn btn-danger" href='javascript:DeleteManufacture("@Url.Action("DeleteManufacturer", "Manufacturer", new {Area= "BackEnd" })","@item.HangSX.Trim()")'>
-     
                         <i class="glyphicon glyphicon-trash icon-white"></i>
                         Xóa
                     </a>

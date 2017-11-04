@@ -11,14 +11,17 @@
                     <a href="#next" data-target="#owl-recently-viewed" class="slider-next btn-next fa fa-angle-right"></a>
                 </div>
             </div>
-
-            <div id="owl-recently-viewed" class="owl-carousel product-grid-holder">
-               @foreach (var temp in Model)
-               {
-                <div class="no-margin carousel-item product-item-holder size-small hover">
-                    @Html.Partial("_ProductGridShowPartal", temp)
+            <div class="product-grid-holder medium">
+                <div class="col-xs-12 col-md-12 no-margin">
+                    <div id="owl-recently-viewed" class="row no-margin owl-carousel owl-viewed">
+                        @foreach (var item in Model)
+                        {
+                            <div class="carousel-item product-item-holder size-medium hover">
+                                @Html.Partial("_ProductGridShowPartal", item)
+                            </div>
+                        }
+                    </div>
                 </div>
-               }
             </div>
 
         </div>
@@ -29,9 +32,13 @@
         $("#owl-recently-viewed").owlCarousel({
             stopOnHover: true,
             rewindNav: true,
-            items: 6,
+           
             pagination: false,
-            itemsTablet: [768, 3]
+            items: 5, //10 items above 1000px browser width
+            itemsDesktop: [1000, 5], //5 items between 1000px and 901px
+            itemsDesktopSmall: [900, 3], // betweem 900px and 601px
+            itemsTablet: [600, 2], //2 items between 600 and 0;
+            itemsMobile: false // itemsMobile disabled - inherit from itemsTablet option
         });
     })
 </script>

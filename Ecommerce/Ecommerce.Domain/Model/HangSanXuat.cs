@@ -10,7 +10,9 @@
     [Table("HangSanXuat")]
     public partial class HangSanXuat
     {
-       
+        private bool? _IsHomePage;
+
+
         public HangSanXuat()
         {
             SanPhams = new HashSet<SanPham>();
@@ -20,6 +22,7 @@
         [StringLength(5)]
         public string HangSX { get; set; }
 
+        [Required]
         [StringLength(50)]
         [DisplayName("Tên hãng")]
         public string TenHang { get; set; }
@@ -35,6 +38,17 @@
         [StringLength(50)]
         public string Alias { get; set; }
 
+        [DisplayName("Hiện trên trang chủ")]
+        public bool? IsHomePage {
+            get
+            {
+                return _IsHomePage?? false;
+            }
+            set
+            {
+                _IsHomePage = value;
+            }
+        }
 
         public virtual ICollection<SanPham> SanPhams { get; set; }
     }

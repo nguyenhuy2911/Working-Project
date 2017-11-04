@@ -89,10 +89,8 @@ namespace Ecommerce.Web.Controllers
 
         public ActionResult ProductsByBrand()
         {
-            var model = _brandService.GetHangSX().ToList();
+            var model = _brandService.GetShowHomeBrand().ToList();
             return PartialView("_ProductsByBrand", model);
         }
-
-
     }
 }
