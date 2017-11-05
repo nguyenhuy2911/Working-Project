@@ -23,7 +23,7 @@ namespace Ecommerce.Web.Controllers
             return View(model);
         }
 
-       // [OutputCache(CacheProfile = "SystemCache", Location = System.Web.UI.OutputCacheLocation.Client)]
+       [OutputCache(CacheProfile = "SystemCache", Location = System.Web.UI.OutputCacheLocation.Client)]
         public ActionResult Footer()
         {
             var model = new Footer_ViewModel();
@@ -56,6 +56,13 @@ namespace Ecommerce.Web.Controllers
         }
 
         public ActionResult SlideShow()
+        {
+            Link link = new Link();
+            link.Group = "SlideShow";
+            return View(link);
+        }
+
+        public ActionResult Breadcrumb(string title1, string title2, string title3, string title4)
         {
             Link link = new Link();
             link.Group = "SlideShow";
