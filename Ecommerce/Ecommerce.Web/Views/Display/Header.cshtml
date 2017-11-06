@@ -1,15 +1,12 @@
 ﻿@model Ecommerce.Web.Models.ViewModel.Header_ViewModel
 <div class="container no-padding">
-
     <div class="col-xs-12 col-md-3 logo-holder">
-        <!-- ============================================================= LOGO ============================================================= -->
         <div class="logo">
             <a href="@Url.Action("Index", "Home")">
 
-                <img alt="logo" src="@Model.Settings.Logo" width="233" height="54" />
+                <img alt="logo" src="@Url.Content(Model.Settings.Logo)" width="233" height="54" />
             </a>
         </div>
-        <!-- ============================================================= LOGO : END ============================================================= -->
     </div>
     <div class="col-xs-12 col-md-6 top-search-holder no-margin">
         <div class="contact-row">
@@ -17,11 +14,9 @@
                 <i class="fa fa-phone"></i> @Model.Settings.PhoneNumber
             </div>
         </div>
-        <!-- ============================================================= SEARCH AREA ============================================================= -->
         <div class="search-area">
             @Html.Action("SearchForm", "Search")
         </div>
-        <!-- ============================================================= SEARCH AREA : END ============================================================= -->
     </div>
     <div class="col-xs-12 col-md-3 top-cart-row no-margin">
         <div class="top-cart-row-container">
@@ -32,15 +27,13 @@
                     <div class="compare">
                         <a href="#"><i class="fa fa-exchange"></i> so sánh <span class="value">(2)</span> </a>
                     </div>
-                </div>*@
-            <!-- ============================================================= SHOPPING CART DROPDOWN ============================================================= -->
+                </div>*@         
             <div class="top-cart-holder dropdown animate-dropdown">
 
                 <div class="basket">
-                    @*@Html.Action("CartTitle", "Xuligiohang")*@
+                    @Html.Action("CartTitle", "Xuligiohang")
                 </div>
             </div>
-        </div>
-        <!-- ============================================================= SHOPPING CART DROPDOWN : END ============================================================= -->
+        </div>       
     </div>
 </div>

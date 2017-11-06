@@ -1,14 +1,14 @@
 ﻿@model Ecommerce.Web.Areas.BackEnd.Models.CrudSetting_ViewModel
 
 @{
-    ViewBag.Title = "CrudSetting_View";
+    ViewBag.Title = ViewBag.Title;
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 <div class="row">
     <div class="box col-md-12">
         <div class="box-inner">
             <div class="box-content">
-                @using (Html.BeginForm("SaveSetting", "Setting", FormMethod.Post, new { Area = "BackEnd" }))
+                @using (Html.BeginForm("SaveSetting", "Setting", FormMethod.Post, new { Area = "BackEnd" , enctype = "multipart/form-data" }))
                 {
                     <div class="form-horizontal">
                         <div class="alert alert-info" style="display:none">
@@ -25,13 +25,21 @@
                               
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group text-value">
                             @Html.LabelFor(model => model.Value, new { @class = "control-label col-md-2" })
                             <div class="col-md-4">
                                 @Html.TextBoxFor(model => model.Value, new { @class = "form-control", })
                                 @Html.ValidationMessageFor(model => model.Value)
                             </div>
                         </div>
+                        <div class="form-group img-value">
+                            @Html.Label("Hình ảnh", new { @class = "control-label col-md-2" })
+                            <div class="col-md-4">
+                                <img id="seting_image" src="@Url.Content(Model.Value)" alt="your image" width="233" height="54"/>
+                                <input type="file" name="file" accept=".jpg,.png" class="form-control" onchange="readURL(this, '#seting_image');" />
+                            </div>
+                        </div>
+                        
                         @if (string.IsNullOrEmpty(Model.Id.ToString()) && Model.Id > 0)
                         {
                             <div class="form-group">
@@ -57,5 +65,20 @@
         </div>
     </div>
 </div>
+<script>
+    $(function () {
+        $("#Type").change(function () {
+            $('.img-value').hide();
+            $('.text-value').hide();
+            if ($("#Type").val() == "Logo") {
+                $('.img-value').show();
+            }
+            else {
+                $('.text-value').show();
+            }
+        });
+        $("#Type").change();
+    });
+</script>
 
 

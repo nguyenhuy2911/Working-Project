@@ -14,9 +14,11 @@
 #checkout-page .thumb-holder {
     border: none;
 }
+
 .items-section .best-seller-big-item {
-        border-left: 1px solid #ececec;
+    border-left: 1px solid #ececec;
 }
+
 .single-product-slider .single-product-gallery-item img {
     width: 433px;
     height: 325px;
@@ -26,12 +28,38 @@
     width: 67px;
     height: 60px;
 }
+
 .items-section div.title {
-    border-bottom:1px solid #59b210;
+    border-bottom: 1px solid #59b210;
 }
+
 .nav-tabs > li > a {
-    border-radius:0;
+    border-radius: 0;
 }
+
 .product-grid-holder .product-item-holder.size-medium .image {
- overflow:hidden;
+    overflow: hidden;
+}
+
+header .top-search-holder .search-area {
+    border-radius: 0px;
+}
+
+    header .top-search-holder .search-area .search-field {
+        padding: 14px;
+    }
+
+    header .top-search-holder .search-area .search-button {
+        border-radius: 0px;
+    }
+
+.le-button {
+    border-radius: 0px;
+}
+
+.inline-input .le-button {
+    border-radius: 0px;
+}
+#footer .sub-form-row button{
+    border-radius: 0px;
 }

@@ -2095,7 +2095,6 @@
     <Content Include="Views\Comment\RepComment.cshtml" />
     <Content Include="Views\Comment\Index.cshtml" />
     <Content Include="Views\Comment\BinhLuanPartial.cshtml" />
-    <Content Include="Views\Home\_MiniBannerPartial.cshtml" />
     <Content Include="Views\Display\Header.cshtml" />
     <Content Include="Views\Display\General.cshtml" />
     <Content Include="Views\SanPham\ThongSoKyThuatPartial.cshtml" />
@@ -2161,7 +2160,7 @@
     <Content Include="Views\Home\_HomeBanner_Partial.cshtml" />
     <Content Include="Views\Account\CreateSupperAdminUser.cshtml" />
     <Content Include="Views\Front\Category\Index.cshtml" />
-    <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\Display\_Footer.cshtml" />
     <Content Include="Content\css\jquery-confirm.less" />
     <Content Include="Views\SanPham\_ProductsByBrand.cshtml" />
     <Content Include="Views\Display\Breadcrumb.cshtml" />

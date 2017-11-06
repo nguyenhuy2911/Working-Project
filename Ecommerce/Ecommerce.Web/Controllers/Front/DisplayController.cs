@@ -30,7 +30,7 @@ namespace Ecommerce.Web.Controllers
             var model = new Footer_ViewModel();
             var disPlayService = new DisplayService();
             model.Settings = ConfigSetting.SystemConfig;
-            return View("~/Views/Shared/_Footer.cshtml", model);
+            return PartialView("~/Views/Display/_Footer.cshtml", model);
         }
 
         [OutputCache(CacheProfile = "SystemCache", Location = System.Web.UI.OutputCacheLocation.Client)]

@@ -96,7 +96,7 @@
                                     @Html.LabelFor(model => model.AnhDaiDien, "Ảnh đại diện")
                                     <img id="anhdaidien" src="@Url.Content("~/images/products/")@Model.AnhDaiDien" alt="your image" height="200" width="200" />
 
-                                    <input type="file" name="file1" accept=".jpg" class="form-control" onchange="readURL(this, '#anhdaidien');" />
+                                    <input type="file" name="file1" accept=".jpg,.png" class="form-control" onchange="readURL(this, '#anhdaidien');" />
 
                                 </div>
                             </div>
@@ -106,7 +106,7 @@
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.AnhNen, "Ảnh nền")
                                     <img id="anhnen" src="@Url.Content("~/images/products/")@Model.AnhNen" alt="your image" height="200" width="200" />
-                                    <input type="file" name="file2" accept=".jpg" class="form-control" onchange="readURL(this, '#anhnen');" />
+                                    <input type="file" name="file2" accept=".jpg,.png" class="form-control" onchange="readURL(this, '#anhnen');" />
                                 </div>
                             </div>
                             <div class="col-xs-12 col-md-1 col-lg-1 col-sm-12">
@@ -116,7 +116,7 @@
                                     @Html.LabelFor(model => model.AnhKhac, "Ảnh khác")
                                     <img id="anhkhac" src="@Url.Content("~/images/products/")@Model.AnhKhac" alt="your image" height="200" width="200" />
 
-                                    <input type="file" name="file3" accept=".jpg" class="form-control" onchange="readURL(this, '#anhkhac');" />
+                                    <input type="file" name="file3" accept=".jpg,.png" class="form-control" onchange="readURL(this, '#anhkhac');" />
                                 </div>
                             </div>
                         </div>

@@ -215,9 +215,6 @@ E:\lip cms\workingproject\Ecommerce\Ecommerce.Web\bin\System.Web.WebPages.xml
 E:\lip cms\workingproject\Ecommerce\Ecommerce.Web\bin\System.Web.WebPages.Deployment.xml
 E:\lip cms\workingproject\Ecommerce\Ecommerce.Web\bin\System.Web.WebPages.Razor.xml
 E:\lip cms\workingproject\Ecommerce\Ecommerce.Web\obj\Debug\Ecommerce.Web.csprojResolveAssemblyReference.cache
-E:\Working\Git\working-project\Ecommerce\Ecommerce.Web\bin\EC-TH2012-J.dll.config
-E:\Working\Git\working-project\Ecommerce\Ecommerce.Web\bin\EC-TH2012-J.dll
-E:\Working\Git\working-project\Ecommerce\Ecommerce.Web\bin\EC-TH2012-J.pdb
 E:\Working\Git\working-project\Ecommerce\Ecommerce.Web\bin\Antlr3.Runtime.dll
 E:\Working\Git\working-project\Ecommerce\Ecommerce.Web\bin\Autofac.dll
 E:\Working\Git\working-project\Ecommerce\Ecommerce.Web\bin\Autofac.Integration.Mvc.dll
@@ -287,8 +284,6 @@ E:\Working\Git\working-project\Ecommerce\Ecommerce.Web\bin\System.Web.WebPages.x
 E:\Working\Git\working-project\Ecommerce\Ecommerce.Web\bin\System.Web.WebPages.Deployment.xml
 E:\Working\Git\working-project\Ecommerce\Ecommerce.Web\bin\System.Web.WebPages.Razor.xml
 E:\Working\Git\working-project\Ecommerce\Ecommerce.Web\obj\Debug\Ecommerce.Web.csprojResolveAssemblyReference.cache
-E:\Working\Git\working-project\Ecommerce\Ecommerce.Web\obj\Debug\EC-TH2012-J.dll
-E:\Working\Git\working-project\Ecommerce\Ecommerce.Web\obj\Debug\EC-TH2012-J.pdb
 E:\lip cms\workingproject\Ecommerce\Ecommerce.Web\bin\WebActivatorEx.dll
 E:\Working\Git\working-project\Ecommerce\Ecommerce.Web\bin\WebActivatorEx.dll
 E:\lip cms\workingproject\Ecommerce\Ecommerce.Web\bin\Ecommerce.Web.dll.config
@@ -296,3 +291,8 @@ E:\lip cms\workingproject\Ecommerce\Ecommerce.Web\bin\Ecommerce.Web.dll
 E:\lip cms\workingproject\Ecommerce\Ecommerce.Web\bin\Ecommerce.Web.pdb
 E:\lip cms\workingproject\Ecommerce\Ecommerce.Web\obj\Debug\Ecommerce.Web.dll
 E:\lip cms\workingproject\Ecommerce\Ecommerce.Web\obj\Debug\Ecommerce.Web.pdb
+E:\Working\Git\working-project\Ecommerce\Ecommerce.Web\bin\Ecommerce.Web.dll.config
+E:\Working\Git\working-project\Ecommerce\Ecommerce.Web\bin\Ecommerce.Web.dll
+E:\Working\Git\working-project\Ecommerce\Ecommerce.Web\bin\Ecommerce.Web.pdb
+E:\Working\Git\working-project\Ecommerce\Ecommerce.Web\obj\Debug\Ecommerce.Web.dll
+E:\Working\Git\working-project\Ecommerce\Ecommerce.Web\obj\Debug\Ecommerce.Web.pdb

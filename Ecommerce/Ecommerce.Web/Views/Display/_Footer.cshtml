@@ -27,15 +27,14 @@
     </div>
     <div class="link-list-row">
         <div class="container no-padding">
-            <div class="col-xs-12 col-md-4 ">
-                <!-- ============================================================= CONTACT INFO ============================================================= -->
+            <div class="col-xs-12 col-md-4 ">           
                 <div class="contact-info">
                     <div class="footer-logo">
                         <a href="@Url.Action("Index", "Home")">
-                            <img alt="logo" src="@Model.Settings.Logo" width="233" height="54" />
+                            <img alt="logo" src="@Url.Content(Model.Settings.Logo)" width="233" height="54" />
                         </a>
                     </div>
-                    <p class="regular-bold">Địa chỉ:</p>
+                    <p class="regular-bold">Địa chỉ</p>
                     <p>
                         @Model.Settings.Address
                     </p>
@@ -44,17 +43,14 @@
                         <ul>
                             <li><a href="@Model.Settings.FaceBook" class="fa fa-facebook"></a></li>
                         </ul>
-                    </div><!-- /.social-icons -->
-
-                </div>
-                <!-- ============================================================= CONTACT INFO : END ============================================================= -->
+                    </div>
+                </div>               
             </div>
-
             <div class="col-xs-12 col-md-8 no-margin">
-                <!-- ============================================================= LINKS FOOTER ============================================================= -->
+               
                 <div class="link-widget">
                     <div class="widget">
-                        <h3>Email:</h3>
+                        <h3>Email</h3>
                         <ul>
                             <li><a>@Model.Settings.Email</a></li>
                         </ul>
@@ -77,8 +73,7 @@
                             <li><a href="#">Liên hệ</a></li>
                         </ul>
                     </div>
-                </div>
-                <!-- ============================================================= LINKS FOOTER : END ============================================================= -->
+                </div>               
             </div>
         </div>
     </div>
