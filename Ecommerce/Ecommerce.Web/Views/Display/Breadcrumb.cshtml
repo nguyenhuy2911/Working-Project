@@ -1,0 +1,49 @@
+﻿@model Ecommerce.Web.Models.ViewModel.Breadcrumb_ViewModel
+
+<div class="animate-dropdown">
+    <div id="breadcrumb-alt">
+        <div class="container">
+            <div class="breadcrumb-nav-holder minimal">
+                <ul>
+                    <li class="breadcrumb-item">
+                        <a href="/">Trang chủ</a>
+                    </li>
+                    @if (!string.IsNullOrEmpty(Model.Title1))
+                    {
+                        string currentClass = "";
+                        if (Model.Title1_Url == "#")
+                        {
+                            currentClass = "current";
+                        }
+                        <li class="breadcrumb-item @currentClass">
+                            <a href="@Model.Title1_Url">@Model.Title1</a>
+                        </li>
+                    }
+                    @if (!string.IsNullOrEmpty(Model.Title2))
+                    {
+                        string currentClass = "";
+                        if (Model.Title2_Url == "#")
+                        {
+                            currentClass = "current";
+                        }
+                        <li class="breadcrumb-item @currentClass">
+                            <a href="@Model.Title2_Url">@Model.Title2</a>
+                        </li>
+                    }
+                    @if (!string.IsNullOrEmpty(Model.Title3))
+                    {
+                        string currentClass = "";
+                        if (Model.Title3_Url == "#")
+                        {
+                            currentClass = "current";
+                        }
+                        <li class="breadcrumb-item @currentClass">
+                            <a href="@Model.Title3_Url">@Model.Title3</a>
+                        </li>
+                    }
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

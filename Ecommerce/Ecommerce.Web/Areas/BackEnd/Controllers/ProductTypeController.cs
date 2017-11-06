@@ -7,7 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace EC_TH2012_J.Areas.BackEnd.Controllers
+namespace Ecommerce.Web.Areas.BackEnd.Controllers
 {
     [AuthLog(Roles = "Quản trị viên,Nhân viên")]
     public class ProductTypeController : Controller

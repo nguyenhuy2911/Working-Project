@@ -5,25 +5,6 @@
     Layout = "~/Views/Shared/_LayoutFrontEnd.cshtml";
 }
 
-<script language="javascript" type="text/javascript">
-    $(document).ready(function () {
-        $(document).on("click", "#nav a[href]", function () {
-            $.ajax({
-                url: $(this).attr("href"),
-                type: 'GET',
-                cache: false,
-                success: function (result) {
-                    $('#Comments').html(result);
-                    $('html, body').animate({
-                        scrollTop: $("#reviews").offset().top
-                    }, 500);
-                }
-            });
-            return false;
-        });
-    });
-</script>
-
 <div id="single-product">
     <div class="container">
         <div class="no-margin col-xs-12 col-sm-6 col-md-5 gallery-holder">
@@ -187,4 +168,23 @@
         _ProductDetail = new ProductDetail();
     })
 
+</script>
+
+<script language="javascript" type="text/javascript">
+    $(document).ready(function () {
+        $(document).on("click", "#nav a[href]", function () {
+            $.ajax({
+                url: $(this).attr("href"),
+                type: 'GET',
+                cache: false,
+                success: function (result) {
+                    $('#Comments').html(result);
+                    $('html, body').animate({
+                        scrollTop: $("#reviews").offset().top
+                    }, 500);
+                }
+            });
+            return false;
+        });
+    });
 </script>

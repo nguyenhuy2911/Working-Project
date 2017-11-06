@@ -8,13 +8,14 @@ using Ecommerce.Web.Models;
 using Ecommerce.Web.Models.ViewModel;
 using Ecommerce.Web.Models.Service;
 using Ecommerce.Web.common;
+using Ecommerce.Web.common.Const;
 
 namespace Ecommerce.Web.Controllers
 {
 
     public class DisplayController : Controller
     {
-       // [OutputCache(CacheProfile = "SystemCache", Location = System.Web.UI.OutputCacheLocation.Client)]
+        // [OutputCache(CacheProfile = "SystemCache", Location = System.Web.UI.OutputCacheLocation.Client)]
         public ActionResult Header()
         {
             var model = new Header_ViewModel();
@@ -23,21 +24,13 @@ namespace Ecommerce.Web.Controllers
             return View(model);
         }
 
-       [OutputCache(CacheProfile = "SystemCache", Location = System.Web.UI.OutputCacheLocation.Client)]
+        [OutputCache(CacheProfile = "SystemCache", Location = System.Web.UI.OutputCacheLocation.Client)]
         public ActionResult Footer()
         {
             var model = new Footer_ViewModel();
             var disPlayService = new DisplayService();
             model.Settings = ConfigSetting.SystemConfig;
             return View("~/Views/Shared/_Footer.cshtml", model);
-        }
-
-        [AuthLog(Roles = "Quản trị viên,Nhân viên")]
-        public ActionResult General()
-        {
-            var disPlayService = new DisplayService();
-            List<Display> model = disPlayService.GetDisPlays().ToList();
-            return View(model);
         }
 
         [OutputCache(CacheProfile = "SystemCache", Location = System.Web.UI.OutputCacheLocation.Client)]
@@ -62,11 +55,14 @@ namespace Ecommerce.Web.Controllers
             return View(link);
         }
 
-        public ActionResult Breadcrumb(string title1, string title2, string title3, string title4)
+        public ActionResult Breadcrumb()
         {
-            Link link = new Link();
-            link.Group = "SlideShow";
-            return View(link);
+            var model = new Breadcrumb_ViewModel();
+            if (TempData[Const.TempData_BreadCrumb] != null)
+            {
+                model = (Breadcrumb_ViewModel)TempData[Const.TempData_BreadCrumb];
+            }
+            return View(model);
         }
 
     }

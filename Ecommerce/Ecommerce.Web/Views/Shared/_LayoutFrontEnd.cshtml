@@ -51,7 +51,6 @@
 <body>
     @using Microsoft.AspNet.Identity
     <div class="wrapper">
-        <!-- ============================================================= TOP NAVIGATION ============================================================= -->
         <nav class="top-bar animate-dropdown">
             <div class="container">
                 <div class="col-xs-12 col-sm-6 no-margin">
@@ -106,42 +105,17 @@
                     </ul>
                 </div>
             </div>
-        </nav>
-        <!-- ============================================================= TOP NAVIGATION : END ============================================================= -->
-        <!-- ============================================================= HEADER ============================================================= -->
+        </nav>      
         <header class="no-padding-bottom header-alt">
             @Html.Action("Header", "Display")
-            <!-- ========================================= NAVIGATION ========================================= -->
             @Html.Action("MainMenu", "Home")
-            <!-- ========================================= NAVIGATION : END ========================================= -->
-            <div class="animate-dropdown">
-                <!-- ========================================= BREADCRUMB ========================================= -->
-                <div id="breadcrumb-alt">
-                    <div class="container">
-                        <div class="breadcrumb-nav-holder minimal">
-                            <ul>
-
-                                <li class="breadcrumb-item">
-                                    <a href="#">Trang chủ</a>
-                                </li>
-                                <li class="breadcrumb-item current">
-                                    <a href="#">@ViewBag.Title</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!-- ========================================= BREADCRUMB : END ========================================= -->
-            </div>
+            @Html.Action("Breadcrumb", "Display")
         </header>
-        <!-- ============================================================= HEADER : END ============================================================= -->
-        <div>
+        <div class="content-body">
+            
             @RenderBody()
         </div>
-
-        <!-- ============================================================= FOOTER ============================================================= -->
         @Html.Action("Footer", "Display")
-        <!-- ============================================================= FOOTER : END ============================================================= -->
     </div>
     <script src="@Url.Content("~/template/assets/js/jquery-1.10.2.min.js")"></script>
     <script src="@Url.Content("~/template/assets/js/jquery-migrate-1.2.1.js")"></script>

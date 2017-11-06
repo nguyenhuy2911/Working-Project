@@ -619,17 +619,17 @@ namespace Ecommerce.Web.Controllers
         {
             var user = new ApplicationUser()
             {
-                UserName = "SuperAdmin",
+                UserName = "SupperAdmin",
                 PhoneNumber = "",
-                Email = "superadmin@gmail.com",
+                Email = "supperadmin@gmail.com",
                 DiaChi = "",
-                HoTen = "SuperAdmin",
+                HoTen = "SupperAdmin",
                 Avatar = "noavatar.jpg",
                 EmailConfirmed = true,
                 MaNV = "NV001"
 
             };
-            var exitUser = UserManager.FindByName("SuperAdmin");
+            var exitUser = UserManager.FindByName("SupperAdmin");
             if (exitUser != null)
             {
                 UserManager.Delete(exitUser);
@@ -640,7 +640,7 @@ namespace Ecommerce.Web.Controllers
             {
                 UserManager.AddToRole(user.Id, RoleName.Admin);
                 await SignInAsync(user, isPersistent: false);
-                ManagerObiect.getIntance().userName = "SuperAdmin";
+                ManagerObiect.getIntance().userName = "SupperAdmin";
             }
             return RedirectToAction("Authentication");
         }

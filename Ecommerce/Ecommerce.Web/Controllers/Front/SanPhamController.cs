@@ -9,6 +9,9 @@ using PagedList.Mvc;
 using Ecommerce.Web.App_Start;
 using Ecommerce.Domain.Model;
 using Ecommerce.Domain.Infrastructure;
+using Ecommerce.Web.Models.ViewModel;
+using Ecommerce.Web.Helper;
+using Ecommerce.Web.common.Const;
 
 namespace Ecommerce.Web.Controllers
 {
@@ -21,8 +24,18 @@ namespace Ecommerce.Web.Controllers
         [Trackingactionfilter]
         public ActionResult Index(string id)
         {
-            SanPham sp = _service.FindById(id);
-            return View("ProductDetail", sp);
+            SanPham product = _service.FindById(id);
+            var breadCrumbModel = new Breadcrumb_ViewModel()
+            {
+                Title1 = product.LoaiSP1.TenLoai,
+                Title1_Url = Url.RouteUrl("Category", new { alias = product.LoaiSP1.Alias }),
+                Title2 = product.HangSanXuat.TenHang,
+                Title2_Url = Url.RouteUrl("BrandCategory", new { productTypeAlias = product.LoaiSP1.Alias, brandAlias = product.HangSanXuat.Alias }),
+                Title3 = product.TenSP,
+                Title3_Url = "#"
+            };
+            TempData[Const.TempData_BreadCrumb] = breadCrumbModel;
+            return View("ProductDetail", product);
         }
         public ActionResult SearchByName(string tensp)
         {

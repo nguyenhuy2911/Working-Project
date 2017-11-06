@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace EC_TH2012_J.Areas.BackEnd
+namespace Ecommerce.Web.Areas.BackEnd
 {
     public class BackEndAreaRegistration : AreaRegistration 
     {

@@ -27,12 +27,24 @@ namespace Ecommerce.Web
 
             routes.MapRoute(
                 name: "Category",
-                url: "danh-muc/{alias}/{brandAlias}",
+                url: "danh-muc/{alias}",
                 defaults: new
                 {
                     controller = "Category",
                     action = "Index",
                     alias = UrlParameter.Optional,
+                    brandAlias = UrlParameter.Optional
+                }
+            );
+
+            routes.MapRoute(
+                name: "BrandCategory",
+                url: "danh-muc/{productTypeAlias}/{brandAlias}",
+                defaults: new
+                {
+                    controller = "Category",
+                    action = "BrandCategory",
+                    productTypeAlias = UrlParameter.Optional,
                     brandAlias = UrlParameter.Optional
                 }
             );

@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Drawing.Imaging;
 using System.Globalization;
 using System.IO;
@@ -57,5 +58,15 @@ namespace Ecommerce.Web.common
                 return "0";
 
         }
+
+        public static string GetEnumDisplayName(this Enum enumType)
+        {
+            return enumType.GetType().GetMember(enumType.ToString())
+                           .First()
+                           .GetCustomAttribute<DisplayAttribute>()
+                           .Name;
+        }
+
+
     }
 }

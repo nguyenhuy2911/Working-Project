@@ -11,8 +11,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EC_TH2012_J</RootNamespace>
-    <AssemblyName>EC-TH2012-J</AssemblyName>
+    <RootNamespace>Ecommerce.Web</RootNamespace>
+    <AssemblyName>Ecommerce.Web</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
@@ -215,8 +215,12 @@
     <Compile Include="Areas\BackEnd\Controllers\ProductController.cs" />
     <Compile Include="Areas\BackEnd\Controllers\ProductTypeController.cs" />
     <Compile Include="Areas\BackEnd\Controllers\PromotionController.cs" />
+    <Compile Include="Areas\BackEnd\Controllers\SettingController.cs" />
+    <Compile Include="Areas\BackEnd\Models\Setting\CrudSetting_ViewModel.cs" />
     <Compile Include="common\ConfigModel.cs" />
     <Compile Include="common\ConfigSetting.cs" />
+    <Compile Include="common\Const\Const.cs" />
+    <Compile Include="common\Const\Enum\SettingType.cs" />
     <Compile Include="common\Helper\Utility.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Back\AdminController.cs" />
@@ -279,6 +283,7 @@
     <Compile Include="Models\Service\Shipping.cs" />
     <Compile Include="Models\Service\Thanhviennhom.cs" />
     <Compile Include="Models\Service\UserModel.cs" />
+    <Compile Include="Models\ViewModel\Breadcrumb_ViewModel.cs" />
     <Compile Include="Models\ViewModel\CategoryViewModel.cs" />
     <Compile Include="Models\ViewModel\Footer_ViewModel.cs" />
     <Compile Include="Models\ViewModel\Header_ViewModel.cs" />
@@ -708,6 +713,9 @@
     <Content Include="Areas\BackEnd\Views\Promotion\CrudPromotion_View.cshtml" />
     <Content Include="Areas\BackEnd\Views\Product\_ListProduct.cshtml" />
     <Content Include="Areas\BackEnd\Views\Product\Index.cshtml" />
+    <Content Include="Areas\BackEnd\Views\Setting\Index.cshtml" />
+    <Content Include="Areas\BackEnd\Views\Setting\_ListSetting.cshtml" />
+    <Content Include="Areas\BackEnd\Views\Setting\CrudSetting_View.cshtml" />
     <None Include="Properties\PublishProfiles\NhanNguyenThanh.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
@@ -1734,7 +1742,6 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -2078,7 +2085,6 @@
     <Content Include="Views\Admin\SPDetail.cshtml" />
     <Content Include="Views\Admin\ThemThongSoKT.cshtml" />
     <Content Include="Views\Admin\SuaThongSoKT.cshtml" />
-    <Content Include="Views\Shared\_LayoutStock.cshtml" />
     <Content Include="Views\KhuyenMai\EditKhuyenMai.cshtml" />
     <Content Include="Views\KhuyenMai\KhuyenMaiPartial.cshtml" />
     <Content Include="Views\KhuyenMai\Index.cshtml" />
@@ -2158,6 +2164,7 @@
     <Content Include="Views\Shared\_Footer.cshtml" />
     <Content Include="Content\css\jquery-confirm.less" />
     <Content Include="Views\SanPham\_ProductsByBrand.cshtml" />
+    <Content Include="Views\Display\Breadcrumb.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -2170,7 +2177,6 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Areas\BackEnd\Models\" />
     <Folder Include="images\khuyenmai\" />
     <Folder Include="templatebackend\bower_components\bootstrap-tour\build\" />
   </ItemGroup>
