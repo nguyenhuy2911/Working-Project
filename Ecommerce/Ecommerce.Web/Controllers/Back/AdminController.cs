@@ -17,22 +17,9 @@ namespace  Ecommerce.Web.Controllers
 {
     public class AdminController : Controller
     {
-        [AuthLog(Roles = "Quản trị viên,Nhân viên")]
-        // GET: Admin
-        public ActionResult Index()
-        {
-            return View();
-        }
+       
 
-        [AuthLog(Roles = "Quản trị viên,Nhân viên")]
-        public ActionResult SanPham()
-        {
-            SanPhamModel spm = new SanPhamModel();
-            ViewBag.HangSX = new SelectList(spm.GetAllHangSX(), "HangSX", "TenHang");
-            ViewBag.LoaiSP = new SelectList(spm.GetAllLoaiSP(), "MaLoai", "TenLoai");
-            return View();
-        }
-
+        
         [AuthLog(Roles = "Quản trị viên,Nhân viên")]
         public ActionResult SPDetail(string id)
         {

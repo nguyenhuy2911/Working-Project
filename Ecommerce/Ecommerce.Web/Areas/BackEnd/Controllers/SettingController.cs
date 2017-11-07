@@ -10,7 +10,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using System.Net;
 namespace Ecommerce.Web.Areas.BackEnd.Controllers
 {
     [AuthLog(Roles = "Quản trị viên,Nhân viên")]
@@ -39,6 +39,14 @@ namespace Ecommerce.Web.Areas.BackEnd.Controllers
                 model.Id = data.Id;
                 model.Type = data.Type;
                 model.Value = data.Value;
+                if (model.Type == SettingType.Logo.ToString())
+                {
+                    model.Image = data.Value;
+                }
+                if (model.Type == SettingType.About.ToString() || model.Type == SettingType.Contact.ToString())
+                {
+                    model.Description = model.Value;
+                }
                 ViewBag.Title = "Cập nhật";
             }
             return View(model);
@@ -55,6 +63,15 @@ namespace Ecommerce.Web.Areas.BackEnd.Controllers
                 Type = model.Type,
                 Value = model.Value
             };
+            if (model.Type == SettingType.Logo.ToString())
+            {
+                string path = UploaImg(file, "Logo");
+                saveData.Value = path;
+            }
+            if (model.Type == SettingType.About.ToString() || model.Type == SettingType.Contact.ToString())
+            {
+                saveData.Value = WebUtility.HtmlEncode( model.Description);
+            }
             if (!string.IsNullOrEmpty(model.Id.ToString()) && model.Id > 0)
                 return UpdateSetting(saveData, file);
             else
@@ -65,11 +82,7 @@ namespace Ecommerce.Web.Areas.BackEnd.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (addModel.Type == SettingType.Logo.ToString())
-                {
-                    string path = UploaImg(file, "Logo");
-                    addModel.Value = path;
-                }
+                
                 _disPlayService.AddDisPlay(addModel);
                 return RedirectToAction("Index");
             }
@@ -79,12 +92,7 @@ namespace Ecommerce.Web.Areas.BackEnd.Controllers
         private ActionResult UpdateSetting(Display updateModel, HttpPostedFileBase file)
         {
             if (ModelState.IsValid)
-            {
-                if (updateModel.Type == SettingType.Logo.ToString())
-                {
-                    string path = UploaImg(file, "Logo");
-                    updateModel.Value = path;
-                }
+            {              
                 _disPlayService.UpdateDisPlay(updateModel);
                 return RedirectToAction("Index");
             }

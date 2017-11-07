@@ -17,7 +17,7 @@
         {
             <tr>
                 <td class="center">@item.Type</td>
-                <td class="center">@item.Value</td>
+                <td class="center">@Html.Raw(WebUtility.HtmlDecode(item.Value))</td>
                 <td class="center">
                     <a class="btn btn-info" href="@Url.Action("CrudSetting_View", "Setting", new { id = item.Id })">
                         <i class="glyphicon glyphicon-edit icon-white"></i>

@@ -154,8 +154,7 @@ namespace Ecommerce.Web.Controllers
             ////http://account/ConfirmMail/dbaf5ac1-9ac3-4fbb-a5a0-891ea80cd0e7
         }
 
-        //
-        // POST: /Account/Disassociate
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Disassociate(string loginProvider, string providerKey)
@@ -173,8 +172,7 @@ namespace Ecommerce.Web.Controllers
             return RedirectToAction("Manage", new { Message = message });
         }
 
-        //
-        // GET: /Account/Manage
+        
         public ActionResult Manage(ManageMessageId? message)
         {
             ViewBag.StatusMessage =
@@ -188,8 +186,7 @@ namespace Ecommerce.Web.Controllers
             return View();
         }
 
-        //
-        // POST: /Account/Manage
+     
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Manage(ManageUserViewModel model)
@@ -239,8 +236,7 @@ namespace Ecommerce.Web.Controllers
             return View(model);
         }
 
-        //
-        // POST: /Account/ExternalLogin
+     
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -250,8 +246,7 @@ namespace Ecommerce.Web.Controllers
             return new ChallengeResult(provider, Url.Action("ExternalLoginCallback", "Account", new { ReturnUrl = returnUrl }));
         }
 
-        //
-        // GET: /Account/ExternalLoginCallback
+        
         [AllowAnonymous]
         public async Task<ActionResult> ExternalLoginCallback(string returnUrl)
         {
@@ -277,8 +272,7 @@ namespace Ecommerce.Web.Controllers
             }
         }
 
-        //
-        // POST: /Account/LinkLogin
+     
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult LinkLogin(string provider)
@@ -512,7 +506,7 @@ namespace Ecommerce.Web.Controllers
             return View(info);
         }
 
-        // This action handles the form POST and the upload
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult EditAvatar(HttpPostedFileBase file)

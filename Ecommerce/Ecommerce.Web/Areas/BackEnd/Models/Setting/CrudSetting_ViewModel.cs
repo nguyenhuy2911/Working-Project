@@ -11,6 +11,7 @@ namespace Ecommerce.Web.Areas.BackEnd.Models
 {
     public class CrudSetting_ViewModel
     {
+ 
         public List<SelectListItem> ListSettingType
         {
             get
@@ -35,8 +36,16 @@ namespace Ecommerce.Web.Areas.BackEnd.Models
         [DisplayName("Loại")]
         public string Type { get; set; }
 
+        [AllowHtml]
         [DisplayName("Giá trị")]
         public string Value { get; set; }
         public int Id { get; set; }
+
+        [AllowHtml]
+        [DisplayName("Mô tả")]
+        public string Description { get; set; }
+
+        [DisplayName("Hình")]
+        public string Image { get; set; }
     }
 }

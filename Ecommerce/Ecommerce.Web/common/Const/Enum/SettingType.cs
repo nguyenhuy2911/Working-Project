@@ -22,6 +22,12 @@ namespace Ecommerce.Web.common.Const.Enum
         Address,
 
         [Display(Name = "Email")]
-        Email
+        Email,
+
+        [Display(Name = "Giới thiệu")]
+        About,
+
+        [Display(Name = "Liên hệ")]
+        Contact
     }
 }

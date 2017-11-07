@@ -9,36 +9,36 @@ using Ecommerce.Web.Models.ViewModel;
 using Ecommerce.Web.Models.Service;
 using Ecommerce.Web.common;
 using Ecommerce.Web.common.Const;
+using Ecommerce.Web.common.Const.Enum;
 
 namespace Ecommerce.Web.Controllers
 {
 
     public class DisplayController : Controller
     {
+       
         // [OutputCache(CacheProfile = "SystemCache", Location = System.Web.UI.OutputCacheLocation.Client)]
         public ActionResult Header()
         {
-            var model = new Header_ViewModel();
-            var disPlayService = new DisplayService();
+            var model = new Header_ViewModel();            
             model.Settings = ConfigSetting.SystemConfig;
-            return View(model);
+            return PartialView("~/Views/Display/Header.cshtml", model);
         }
 
         [OutputCache(CacheProfile = "SystemCache", Location = System.Web.UI.OutputCacheLocation.Client)]
         public ActionResult Footer()
         {
             var model = new Footer_ViewModel();
-            var disPlayService = new DisplayService();
             model.Settings = ConfigSetting.SystemConfig;
-            return PartialView("~/Views/Display/_Footer.cshtml", model);
+            return PartialView("~/Views/Display/Footer.cshtml", model);
         }
 
         [OutputCache(CacheProfile = "SystemCache", Location = System.Web.UI.OutputCacheLocation.Client)]
-        public ActionResult TopContentner()
+        public ActionResult HomeBanner()
         {
             PromotionService km = new PromotionService();
             var model = km.SearchPromotion(null, null, null).Where(m => m.NgayBatDau <= DateTime.Today && m.NgayKetThuc >= DateTime.Today);
-            return PartialView("~/Views/Display/_TopContentner.cshtml", model);
+            return PartialView("~/Views/Display/HomeBanner.cshtml", model);
         }
 
         public ActionResult SlideShowSetting()
@@ -65,5 +65,6 @@ namespace Ecommerce.Web.Controllers
             return View(model);
         }
 
+        
     }
 }

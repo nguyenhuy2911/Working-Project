@@ -14,6 +14,18 @@ namespace Ecommerce.Web
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+               name: "About",
+               url: "gioi-thieu",
+               defaults: new { controller = "Home", action = "About" }
+           );
+
+            routes.MapRoute(
+               name: "Contact",
+               url: "lien-he",
+               defaults: new { controller = "Home", action = "Contact" }
+           );
+
+            routes.MapRoute(
                 name: "ProductDetail",
                 url: "san-pham/{alias}-{id}",
                 defaults: new

@@ -1,7 +1,11 @@
 ﻿@{
-    ViewBag.Title = "About";
+    ViewBag.Title = "Giới thiệu";
+    Layout = "~/Views/Shared/_LayoutFrontEnd.cshtml";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+<div class="container">
+    <div class="col-xs-12 no-margin">
+        @Html.Raw(WebUtility.HtmlDecode(Model.Value))
+    </div>
+</div>
 
-<p>Use this area to provide additional information.</p>
+

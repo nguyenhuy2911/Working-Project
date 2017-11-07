@@ -1,6 +1,6 @@
 ﻿@{
     ViewBag.Title = "Sản phẩm của chương trình khuyến mại";
-    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    Layout = "~/Areas/BackEnd/Views/Share/_LayoutAdmin.cshtml";
 }
 
 <div class="row">
@@ -23,7 +23,6 @@
                     <div class="input-group">
                         @Html.DropDownList("maloai", (SelectList)@ViewBag.LoaiSP, String.Empty, new { @class = "form-control", id = "maloaisearch", onchange = "timkiemDSSanPham(\'"+ViewBag.makm+"\')" })
                     </div>
-
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-search red"></i></span>
                         <input id="inputIcon" type="text" class="form-control" placeholder="Nhập tên sản phẩm" oninput="timkiemDSSanPham('@ViewBag.makm');">

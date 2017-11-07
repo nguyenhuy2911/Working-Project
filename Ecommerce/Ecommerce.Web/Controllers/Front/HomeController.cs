@@ -7,13 +7,16 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Ecommerce.Domain.Infrastructure;
 using Ecommerce.Domain.Model;
+using Ecommerce.Web.Models.Service;
+using Ecommerce.Web.common.Const.Enum;
+using Ecommerce.Web.Models.ViewModel;
+using Ecommerce.Web.common.Const;
 
 namespace Ecommerce.Web.Controllers
 {
     public class HomeController : Controller
     {
-
-        public static List<Thanhviennhom> Ds_Group;
+        private DisplayService disPlayService = new DisplayService();
 
         // [OutputCache(CacheProfile = "SystemCache", Location = System.Web.UI.OutputCacheLocation.Client)]
         public ActionResult Index()
@@ -21,21 +24,6 @@ namespace Ecommerce.Web.Controllers
             ManagerObiect.getIntance();
             return View();
         }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
-
 
         public ActionResult Cart()
         {
@@ -105,7 +93,33 @@ namespace Ecommerce.Web.Controllers
             return PartialView("_MainMenuPartial", menulist);
         }
 
-        
+        public ActionResult About()
+        {
+            var display = disPlayService.GetDisPlays()?.Where(p => p.Type == SettingType.About.ToString())?.FirstOrDefault();
+            var breadCrumbModel = new Breadcrumb_ViewModel()
+            {
+                Title1 = "Giới thiệu",
+                Title1_Url = "#",
+
+            };
+            TempData[Const.TempData_BreadCrumb] = breadCrumbModel;
+            return View(display);
+        }
+
+        [OutputCache(CacheProfile = "SystemCache", Location = System.Web.UI.OutputCacheLocation.Client)]
+        public ActionResult Contact()
+        {
+
+            var display = disPlayService.GetDisPlays()?.Where(p => p.Type == SettingType.Contact.ToString())?.FirstOrDefault();
+            var breadCrumbModel = new Breadcrumb_ViewModel()
+            {
+                Title1 = "Liên hệ",
+                Title1_Url = "#",
+               
+            };
+            TempData[Const.TempData_BreadCrumb] = breadCrumbModel;
+            return View(display);
+        }
 
     }
 }
