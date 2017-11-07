@@ -44,7 +44,8 @@
                             <div class="col-md-10">
                                 @Html.TextArea("Description", WebUtility.HtmlDecode(Model.Description))
                                 <script>
-                                    CKEDITOR.replace('Description', { height: 800 });
+                                    var editor = CKEDITOR.replace('Description', { height: 800 });
+                                    CKFinder.setupCKEditor(editor, null, { type: 'Files', currentFolder: '/uploads/' });
                                 </script>
                             </div>
                         </div>

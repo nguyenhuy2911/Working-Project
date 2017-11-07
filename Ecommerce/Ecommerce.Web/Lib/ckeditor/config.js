@@ -9,8 +9,8 @@ CKEDITOR.editorConfig = function( config ) {
     // config.uiColor = '#AADC6E';
     config.height = '400px';
     //config.extraPlugins = 'imageuploader';
-    config.filebrowserBrowseUrl = '/Lib/ckfinder/ckfinder.html',
-    config.filebrowserImageBrowseUrl = '/Lib/ckfinder/ckfinder.html?type=Images',
-    config.filebrowserUploadUrl = '/Lib/ckfinder/connector?command=QuickUpload&type=Files',
-    config.filebrowserImageUploadUrl = '/Lib/ckfinder/connector?command=QuickUpload&type=Images'
+    //config.filebrowserBrowseUrl = '/Lib/ckfinder/ckfinder.html',
+    //config.filebrowserImageBrowseUrl = '/Lib/ckfinder/ckfinder.html?type=Images',
+    //config.filebrowserUploadUrl = '/Lib/ckfinder/core/connector/aspx/connector.aspx?command=QuickUpload&type=Files';
+    //config.filebrowserImageUploadUrl = '/Lib/ckfinder/core/connector/aspx/connector.aspx?command=QuickUpload&type=Images';
 };

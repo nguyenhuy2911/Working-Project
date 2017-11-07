@@ -272,7 +272,6 @@ E:\Working\Git\working-project\Ecommerce\Ecommerce.Web\bin\Microsoft.Owin.Securi
 E:\Working\Git\working-project\Ecommerce\Ecommerce.Web\bin\Newtonsoft.Json.xml
 E:\Working\Git\working-project\Ecommerce\Ecommerce.Web\bin\PagedList.xml
 E:\Working\Git\working-project\Ecommerce\Ecommerce.Web\bin\PagedList.Mvc.xml
-E:\Working\Git\working-project\Ecommerce\Ecommerce.Web\bin\System.Net.Http.Formatting.xml
 E:\Working\Git\working-project\Ecommerce\Ecommerce.Web\bin\System.Web.Helpers.xml
 E:\Working\Git\working-project\Ecommerce\Ecommerce.Web\bin\System.Web.Http.xml
 E:\Working\Git\working-project\Ecommerce\Ecommerce.Web\bin\System.Web.Http.Cors.xml
@@ -296,3 +295,10 @@ E:\Working\Git\working-project\Ecommerce\Ecommerce.Web\bin\Ecommerce.Web.dll
 E:\Working\Git\working-project\Ecommerce\Ecommerce.Web\bin\Ecommerce.Web.pdb
 E:\Working\Git\working-project\Ecommerce\Ecommerce.Web\obj\Debug\Ecommerce.Web.dll
 E:\Working\Git\working-project\Ecommerce\Ecommerce.Web\obj\Debug\Ecommerce.Web.pdb
+E:\Working\Git\working-project\Ecommerce\Ecommerce.Web\bin\ImageProcessor.dll
+E:\Working\Git\working-project\Ecommerce\Ecommerce.Web\bin\System.Net.Http.dll
+E:\Working\Git\working-project\Ecommerce\Ecommerce.Web\bin\System.Net.Http.Extensions.dll
+E:\Working\Git\working-project\Ecommerce\Ecommerce.Web\bin\System.Net.Http.Primitives.dll
+E:\Working\Git\working-project\Ecommerce\Ecommerce.Web\bin\System.Net.Http.WebRequest.dll
+E:\Working\Git\working-project\Ecommerce\Ecommerce.Web\bin\System.Net.Http.xml
+E:\Working\Git\working-project\Ecommerce\Ecommerce.Web\bin\System.Net.Http.WebRequest.xml
