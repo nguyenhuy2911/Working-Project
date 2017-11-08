@@ -54,37 +54,34 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="CKSource.CKFinder.Connector.Config">
-      <HintPath>App_Code\bin\CKSource.CKFinder.Connector.Config.dll</HintPath>
+      <HintPath>Lib\ckfinder\bin\CKSource.CKFinder.Connector.Config.dll</HintPath>
     </Reference>
     <Reference Include="CKSource.CKFinder.Connector.Core">
-      <HintPath>App_Code\bin\CKSource.CKFinder.Connector.Core.dll</HintPath>
+      <HintPath>Lib\ckfinder\bin\CKSource.CKFinder.Connector.Core.dll</HintPath>
     </Reference>
     <Reference Include="CKSource.CKFinder.Connector.Host.Owin">
-      <HintPath>App_Code\bin\CKSource.CKFinder.Connector.Host.Owin.dll</HintPath>
+      <HintPath>Lib\ckfinder\bin\CKSource.CKFinder.Connector.Host.Owin.dll</HintPath>
     </Reference>
     <Reference Include="CKSource.CKFinder.Connector.KeyValue.FileSystem">
-      <HintPath>App_Code\bin\CKSource.CKFinder.Connector.KeyValue.FileSystem.dll</HintPath>
+      <HintPath>Lib\ckfinder\bin\CKSource.CKFinder.Connector.KeyValue.FileSystem.dll</HintPath>
     </Reference>
     <Reference Include="CKSource.CKFinder.Connector.Logs.NLog">
-      <HintPath>App_Code\bin\CKSource.CKFinder.Connector.Logs.NLog.dll</HintPath>
+      <HintPath>Lib\ckfinder\bin\CKSource.CKFinder.Connector.Logs.NLog.dll</HintPath>
     </Reference>
     <Reference Include="CKSource.FileSystem">
-      <HintPath>App_Code\bin\CKSource.FileSystem.dll</HintPath>
+      <HintPath>Lib\ckfinder\bin\CKSource.FileSystem.dll</HintPath>
     </Reference>
     <Reference Include="CKSource.FileSystem.Amazon">
-      <HintPath>App_Code\bin\CKSource.FileSystem.Amazon.dll</HintPath>
+      <HintPath>Lib\ckfinder\bin\CKSource.FileSystem.Amazon.dll</HintPath>
     </Reference>
     <Reference Include="CKSource.FileSystem.Azure">
-      <HintPath>App_Code\bin\CKSource.FileSystem.Azure.dll</HintPath>
+      <HintPath>Lib\ckfinder\bin\CKSource.FileSystem.Azure.dll</HintPath>
     </Reference>
     <Reference Include="CKSource.FileSystem.Dropbox">
-      <HintPath>App_Code\bin\CKSource.FileSystem.Dropbox.dll</HintPath>
-    </Reference>
-    <Reference Include="CKSource.FileSystem.Ftp">
-      <HintPath>App_Code\bin\CKSource.FileSystem.Ftp.dll</HintPath>
+      <HintPath>Lib\ckfinder\bin\CKSource.FileSystem.Dropbox.dll</HintPath>
     </Reference>
     <Reference Include="CKSource.FileSystem.Local">
-      <HintPath>App_Code\bin\CKSource.FileSystem.Local.dll</HintPath>
+      <HintPath>Lib\ckfinder\bin\CKSource.FileSystem.Local.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
@@ -271,6 +268,8 @@
     <Compile Include="common\ConfigSetting.cs" />
     <Compile Include="common\Const\Const.cs" />
     <Compile Include="common\Const\Enum\SettingType.cs" />
+    <Compile Include="common\Helper\ckfinder\ConnectorConfig.cs" />
+    <Compile Include="common\Helper\ckfinder\RoleBasedAuthenticator.cs" />
     <Compile Include="common\Helper\Extention\HtmlHelperExtention.cs" />
     <Compile Include="common\Helper\Extention\UrlHelperExtention.cs" />
     <Compile Include="common\Helper\Utility.cs" />
