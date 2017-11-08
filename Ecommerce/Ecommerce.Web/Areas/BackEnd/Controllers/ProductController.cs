@@ -142,7 +142,7 @@ namespace Ecommerce.Web.Areas.BackEnd.Controllers
                 {
                     return false;
                 }
-                var path = Path.Combine(Server.MapPath("~/images/products"), fileName + ".jpg");
+                var path = Path.Combine(Server.MapPath("~/uploads/products"), fileName + ".jpg");
                 file.SaveAs(path);
                 return true;
             }
@@ -151,7 +151,7 @@ namespace Ecommerce.Web.Areas.BackEnd.Controllers
 
         public bool DeleteProductImg(string filename)
         {
-            string fullPath = Request.MapPath("~/images/products/" + filename);
+            string fullPath = Request.MapPath("~/uploads/products/" + filename);
             if (System.IO.File.Exists(fullPath))
             {
                 System.IO.File.Delete(fullPath);
