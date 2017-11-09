@@ -8,7 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using Ecommerce.Web.common.Helper;
 namespace Ecommerce.Web.Areas.BackEnd.Controllers
 {
     [AuthLog(Roles = "Quản trị viên,Nhân viên")]
@@ -73,7 +73,7 @@ namespace Ecommerce.Web.Areas.BackEnd.Controllers
             if (ModelState.IsValid && _service.KiemTraTen(model.TenCT))
             {
                 string makm = _service.AddPromotion(model);
-                UploadAnh(file, makm + "1");
+                UploadAnh(file, model.TenCT.GenerateFriendlyName());
                 checkSuccess = true;
             }
             return checkSuccess;
@@ -85,7 +85,7 @@ namespace Ecommerce.Web.Areas.BackEnd.Controllers
             if (ModelState.IsValid)
             {
                 _service.EditPromotion(loai);
-                UploadAnh(file, loai.MaKM + "1");
+                UploadAnh(file, loai.TenCT.GenerateFriendlyName());
                 checkSucess = true;
             }
             return checkSucess;

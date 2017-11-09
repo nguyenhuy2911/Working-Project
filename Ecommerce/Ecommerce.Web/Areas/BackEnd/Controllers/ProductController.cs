@@ -1,6 +1,6 @@
 ﻿using Ecommerce.Domain.Model;
 using Ecommerce.Web.Controllers;
-using Ecommerce.Web.Helper;
+using Ecommerce.Web.common.Helper;
 using Ecommerce.Web.Models;
 using PagedList;
 using System;

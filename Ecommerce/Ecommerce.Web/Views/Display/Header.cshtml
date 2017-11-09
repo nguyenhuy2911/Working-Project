@@ -4,7 +4,7 @@
     <div class="col-xs-12 col-md-3 logo-holder">
         <div class="logo">
             <a href="@Url.Action("Index", "Home")">
-                <img alt="logo" src="@Url.GetContent(Model.Settings.Logo)" width="233" height="54" />
+               @Html.Raw(WebUtility.HtmlDecode( Model.Settings.Logo))
             </a>
         </div>
     </div>

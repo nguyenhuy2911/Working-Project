@@ -67,6 +67,10 @@ namespace Ecommerce.Web.common
                            .Name;
         }
 
-
+        public static string LimitTo(this string data, int length)
+        {
+            return (data == null || data.Length < length)? data: data.Substring(0, length) + " ...................";
+        }
+        
     }
 }

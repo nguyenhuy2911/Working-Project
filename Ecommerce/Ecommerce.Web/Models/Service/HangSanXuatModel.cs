@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
-using Ecommerce.Web.Helper;
 namespace  Ecommerce.Web.Models
 {
     public class HangSanXuatModel

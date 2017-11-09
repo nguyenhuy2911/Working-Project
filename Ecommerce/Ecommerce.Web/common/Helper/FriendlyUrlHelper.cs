@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
 
-namespace Ecommerce.Web.Helper
+namespace Ecommerce.Web.common.Helper
 {
     public static class FriendlyUrlHelper
     {

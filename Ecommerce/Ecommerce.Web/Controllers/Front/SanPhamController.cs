@@ -10,7 +10,7 @@ using Ecommerce.Web.App_Start;
 using Ecommerce.Domain.Model;
 using Ecommerce.Domain.Infrastructure;
 using Ecommerce.Web.Models.ViewModel;
-using Ecommerce.Web.Helper;
+using Ecommerce.Web.common.Helper;
 using Ecommerce.Web.common.Const;
 
 namespace Ecommerce.Web.Controllers

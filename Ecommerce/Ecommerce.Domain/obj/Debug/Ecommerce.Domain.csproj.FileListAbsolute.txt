@@ -72,3 +72,4 @@ E:\lip cms\workingproject\Ecommerce\Ecommerce.Domain\bin\Debug\System.Web.WebPag
 E:\lip cms\workingproject\Ecommerce\Ecommerce.Domain\bin\Debug\System.Web.WebPages.Razor.xml
 E:\lip cms\workingproject\Ecommerce\Ecommerce.Domain\obj\Debug\Ecommerce.Domain.dll
 E:\lip cms\workingproject\Ecommerce\Ecommerce.Domain\obj\Debug\Ecommerce.Domain.pdb
+E:\lip cms\workingproject\Ecommerce\Ecommerce.Domain\obj\Debug\Ecommerce.Domain.csprojResolveAssemblyReference.cache

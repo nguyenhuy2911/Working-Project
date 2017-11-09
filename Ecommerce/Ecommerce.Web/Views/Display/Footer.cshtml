@@ -27,12 +27,12 @@
     </div>
     <div class="link-list-row">
         <div class="container no-padding">
-            <div class="col-xs-12 col-md-4 ">           
+            <div class="col-xs-12 col-md-4 ">
                 <div class="contact-info">
                     <div class="footer-logo">
-                      
+
                         <a href="@Url.Action("Index", "Home")">
-                            <img alt="logo" src="@Url.GetContent(Model.Settings.Logo)" width="233" height="54" />
+                            @Html.Raw(WebUtility.HtmlDecode(Model.Settings.Logo))
                         </a>
                     </div>
                     <p class="regular-bold">Địa chỉ</p>
@@ -45,10 +45,10 @@
                             <li><a href="@Model.Settings.FaceBook" class="fa fa-facebook"></a></li>
                         </ul>
                     </div>
-                </div>               
+                </div>
             </div>
             <div class="col-xs-12 col-md-8 no-margin">
-               
+
                 <div class="link-widget">
                     <div class="widget">
                         <h3>Email</h3>
@@ -74,7 +74,7 @@
                             <li><a href="/lien-he">Liên hệ</a></li>
                         </ul>
                     </div>
-                </div>               
+                </div>
             </div>
         </div>
     </div>

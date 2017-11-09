@@ -51,7 +51,7 @@
                             </div>
                             <div class="col-xs-12 col-md-3 col-lg-3 col-sm-12">
                                 <div class="form-group">
-                                    @Html.LabelFor(model => model.HangSX, "Hãng sản xuất")
+                                    @Html.LabelFor(model => model.HangSX, "Thương hiệu")
                                     @Html.DropDownListFor(model => model.HangSX, (List<SelectListItem>)ViewBag.Brands, new { @class = "form-control" })
                                     @Html.ValidationMessageFor(model => model.HangSX)
                                 </div>

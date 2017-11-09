@@ -2,18 +2,25 @@
 
 namespace Ecommerce.Web.Areas.BackEnd
 {
-    public class BackEndAreaRegistration : AreaRegistration 
+    public class BackEndAreaRegistration : AreaRegistration
     {
-        public override string AreaName 
+        public override string AreaName
         {
-            get 
+            get
             {
                 return "BackEnd";
             }
         }
 
-        public override void RegisterArea(AreaRegistrationContext context) 
+
+        public override void RegisterArea(AreaRegistrationContext context)
         {
+            context.MapRoute(
+               "DashBoard",
+               "admin",
+               new { controller= "DasBoard", action = "Index", id = UrlParameter.Optional }
+            );
+
             context.MapRoute(
                 "BackEnd_default",
                 "BackEnd/{controller}/{action}/{id}",

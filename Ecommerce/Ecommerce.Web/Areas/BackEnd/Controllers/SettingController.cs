@@ -17,7 +17,7 @@ namespace Ecommerce.Web.Areas.BackEnd.Controllers
     public class SettingController : Controller
     {
         private DisplayService _disPlayService = new DisplayService();
-        // GET: BackEnd/Setting
+
         public ActionResult Index()
         {
             return View();
@@ -39,11 +39,7 @@ namespace Ecommerce.Web.Areas.BackEnd.Controllers
                 model.Id = data.Id;
                 model.Type = data.Type;
                 model.Value = data.Value;
-                if (model.Type == SettingType.Logo.ToString())
-                {
-                    model.Image = data.Value;
-                }
-                if (model.Type == SettingType.About.ToString() || model.Type == SettingType.Contact.ToString())
+                if (model.Type == SettingType.About.ToString() || model.Type == SettingType.Contact.ToString() || model.Type == SettingType.Logo.ToString())
                 {
                     model.Description = model.Value;
                 }
@@ -51,7 +47,6 @@ namespace Ecommerce.Web.Areas.BackEnd.Controllers
             }
             return View(model);
         }
-
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -63,14 +58,10 @@ namespace Ecommerce.Web.Areas.BackEnd.Controllers
                 Type = model.Type,
                 Value = model.Value
             };
-            if (model.Type == SettingType.Logo.ToString())
+           
+            if (model.Type == SettingType.About.ToString() || model.Type == SettingType.Contact.ToString()|| model.Type == SettingType.Logo.ToString())
             {
-                string path = UploaImg(file, "Logo");
-                saveData.Value = path;
-            }
-            if (model.Type == SettingType.About.ToString() || model.Type == SettingType.Contact.ToString())
-            {
-                saveData.Value = WebUtility.HtmlEncode( model.Description);
+                saveData.Value = WebUtility.HtmlEncode(model.Description);
             }
             if (!string.IsNullOrEmpty(model.Id.ToString()) && model.Id > 0)
                 return UpdateSetting(saveData, file);
@@ -82,7 +73,7 @@ namespace Ecommerce.Web.Areas.BackEnd.Controllers
         {
             if (ModelState.IsValid)
             {
-                
+
                 _disPlayService.AddDisPlay(addModel);
                 return RedirectToAction("Index");
             }
@@ -92,26 +83,11 @@ namespace Ecommerce.Web.Areas.BackEnd.Controllers
         private ActionResult UpdateSetting(Display updateModel, HttpPostedFileBase file)
         {
             if (ModelState.IsValid)
-            {              
+            {
                 _disPlayService.UpdateDisPlay(updateModel);
                 return RedirectToAction("Index");
             }
             return CrudSetting_View(updateModel.Id);
-        }
-
-        public string UploaImg(HttpPostedFileBase file, string fileName)
-        {
-            if (file != null && file.ContentLength > 0)
-            {
-                var ext = Path.GetExtension(file.FileName);
-                if (!Path.GetExtension(file.FileName).Equals(".jpg") && !Path.GetExtension(file.FileName).Equals(".png"))
-                    return string.Empty;
-
-                var path = Path.Combine(Server.MapPath("~/images"), string.Format("{0}{1}", fileName, ext));
-                file.SaveAs(path);
-                return string.Format("~/images/{0}{1}", fileName, ext);
-            }
-            return string.Empty;
         }
     }
 }

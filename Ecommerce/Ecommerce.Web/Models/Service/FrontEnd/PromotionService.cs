@@ -7,7 +7,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
-
+using Ecommerce.Web.common.Helper;
 namespace  Ecommerce.Web.Models
 {
     public class PromotionService : BaseService
@@ -24,6 +24,7 @@ namespace  Ecommerce.Web.Models
             Promotion _editPromotion = dataContext.Promotions.Find(promotion.MaKM);
             _editPromotion.TenCT = promotion.TenCT;
             _editPromotion.NgayBatDau = promotion.NgayBatDau;
+            _editPromotion.AnhCT = promotion.TenCT.GenerateFriendlyName() + ".jpg";
             _editPromotion.NgayKetThuc = promotion.NgayKetThuc;
             _editPromotion.NoiDung = WebUtility.HtmlEncode(promotion.NoiDung);
             dataContext.Entry(_editPromotion).State = EntityState.Modified;
@@ -45,7 +46,7 @@ namespace  Ecommerce.Web.Models
         internal string AddPromotion(Promotion promotion)
         {
             promotion.MaKM = TaoMa();
-            promotion.AnhCT = promotion.MaKM + "1.jpg";
+            promotion.AnhCT = promotion.TenCT.GenerateFriendlyName() + ".jpg";
             promotion.NoiDung = WebUtility.HtmlEncode(promotion.NoiDung);
             dataContext.Promotions.Add(promotion);
             dataContext.SaveChanges();

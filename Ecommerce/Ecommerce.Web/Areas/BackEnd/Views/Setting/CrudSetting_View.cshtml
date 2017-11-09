@@ -20,7 +20,15 @@
                         <div class="form-group">
                             @Html.LabelFor(model => model.Type, new { @class = "control-label col-md-2" })
                             <div class="col-md-4">
-                                @Html.DropDownListFor(model => model.Type, Model.ListSettingType, new { @class = "form-control", })
+                                @{
+                                    bool disabled = false;
+                                    if (!string.IsNullOrEmpty(Model.Id.ToString()) && Model.Id > 0)
+                                    {
+                                        disabled = true;
+                                    }
+
+                                }
+                                @Html.DropDownListForCustom(model => model.Type, Model.ListSettingType, new { @class = "form-control" }, disabled)
                                 @Html.ValidationMessageFor(model => model.Type)
 
                             </div>
@@ -32,25 +40,15 @@
                                 @Html.ValidationMessageFor(model => model.Value)
                             </div>
                         </div>
-                        <div class="form-group img-value">
-                            @Html.LabelFor(model => model.Image, new { @class = "control-label col-md-2" })
-                            <div class="col-md-4">
-                                <img id="seting_image" src="@Url.GetContent(Model.Image)" alt="your image" width="233" height="54" />
-                                <input type="file" name="file" accept=".jpg,.png" class="form-control" onchange="readURL(this, '#seting_image');" />
-                            </div>
-                        </div>
                         <div class="form-group text-area-value">
                             @Html.LabelFor(model => model.Description, new { @class = "control-label col-md-2", @rows = 10 })
                             <div class="col-md-10">
                                 @Html.TextArea("Description", WebUtility.HtmlDecode(Model.Description))
-                                <script>
-                                    var editor = CKEDITOR.replace('Description', { height: 800 });
-                                    CKFinder.setupCKEditor(editor, null, { type: 'Files', currentFolder: '/uploads/' });
-                                </script>
+
                             </div>
                         </div>
 
-                        @if (string.IsNullOrEmpty(Model.Id.ToString()) && Model.Id > 0)
+                        @if (string.IsNullOrEmpty(Model.Id.ToString()) || Model.Id <= 0)
                         {
                             <div class="form-group">
                                 <div class="col-md-offset-2 col-md-10">
@@ -70,21 +68,22 @@
                             </div>
                         }
                     </div>
-                }
+                                    }
             </div>
         </div>
     </div>
 </div>
+<script>
+    var editor = CKEDITOR.replace('Description', { height: 600, });
+    CKFinder.setupCKEditor(editor);
+</script>
 <script>
     $(function () {
         $("#Type").change(function () {
             $('.img-value').hide();
             $('.text-value').hide();
             $('.text-area-value').hide();
-            if ($("#Type").val() == "Logo") {
-                $('.img-value').show();
-            }
-            else if ($("#Type").val() == "About" || $("#Type").val() == "Contact") {
+            if ($("#Type").val() == "About" || $("#Type").val() == "Contact" || $("#Type").val() == "Logo") {
                 $('.text-area-value').show();
             }
             else {
@@ -94,5 +93,6 @@
         $("#Type").change();
     });
 </script>
+
 
 
