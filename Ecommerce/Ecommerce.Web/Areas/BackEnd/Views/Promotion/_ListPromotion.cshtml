@@ -13,7 +13,7 @@
             <th>@Html.DisplayNameFor(model => model.First().TenCT)</th>
             <th>@Html.DisplayNameFor(model => model.First().NgayBatDau)</th>
             <th>@Html.DisplayNameFor(model => model.First().NgayKetThuc)</th>
-            <th>@Html.DisplayNameFor(model => model.First().AnhCT)</th>
+            <th>@Html.DisplayNameFor(model => model.First().Advertise)</th>
             <th>Hành động</th>
         </tr>
     </thead>
@@ -33,7 +33,11 @@
                     @if (item.NgayKetThuc != null)
                     {@item.NgayKetThuc.Value.ToShortDateString()}
                 </td>
-                <td class="center"><img src="@Url.Content("~/images/khuyenmai/")@item.AnhCT" width="150" height="80" /></td>
+                <td class="center" >
+                    <div style="width:250px;">
+                        @Html.Raw(WebUtility.HtmlDecode(item.Advertise))
+                    </div>
+                </td>
                 <td class="center">
                     <a class="btn btn-success" href='javascript:ChiTietItem("@Url.Action("CTKhuyenMai", "KhuyenMai")","@item.MaKM")'>
                         <i class="glyphicon glyphicon-zoom-in icon-white"></i>

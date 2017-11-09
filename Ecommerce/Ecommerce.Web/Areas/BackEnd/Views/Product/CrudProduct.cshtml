@@ -94,7 +94,7 @@
                             <div class="col-xs-12 col-md-2 col-lg-2 col-sm-12">
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.AnhDaiDien, "Ảnh đại diện")
-                                    <img id="anhdaidien" src="@Url.Content("~/images/products/")@Model.AnhDaiDien" alt="your image" height="200" width="200" />
+                                    <img id="anhdaidien" src="@Url.Content("~/uploads/products/")@Model.AnhDaiDien" alt="your image" height="200" width="200" />
 
                                     <input type="file" name="file1" accept=".jpg,.png" class="form-control" onchange="readURL(this, '#anhdaidien');" />
 
@@ -105,7 +105,7 @@
                             <div class="col-xs-12 col-md-2 col-lg-2 col-sm-12">
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.AnhNen, "Ảnh nền")
-                                    <img id="anhnen" src="@Url.Content("~/images/products/")@Model.AnhNen" alt="your image" height="200" width="200" />
+                                    <img id="anhnen" src="@Url.Content("~/uploads/products/")@Model.AnhNen" alt="your image" height="200" width="200" />
                                     <input type="file" name="file2" accept=".jpg,.png" class="form-control" onchange="readURL(this, '#anhnen');" />
                                 </div>
                             </div>
@@ -114,7 +114,7 @@
                             <div class="col-xs-12 col-md-2 col-lg-2 col-sm-12">
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.AnhKhac, "Ảnh khác")
-                                    <img id="anhkhac" src="@Url.Content("~/images/products/")@Model.AnhKhac" alt="your image" height="200" width="200" />
+                                    <img id="anhkhac" src="@Url.Content("~/uploads/products/")@Model.AnhKhac" alt="your image" height="200" width="200" />
 
                                     <input type="file" name="file3" accept=".jpg,.png" class="form-control" onchange="readURL(this, '#anhkhac');" />
                                 </div>

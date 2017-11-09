@@ -43,6 +43,11 @@
         [DisplayName("Hình ảnh")]
         public string AnhCT { get; set; }
 
+        [AllowHtml]
+        [Column(TypeName = "ntext")]
+        [DisplayName("Quảng cáo")]
+        public string Advertise { get; set; }
+
         public virtual ICollection<SanPhamKhuyenMai> SanPhamKhuyenMais { get; set; }
     }
 }

@@ -2,7 +2,7 @@
 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
     <div class="basket-item-count">
         <span class="count">@Model.Tinhtongsoluongtronggio()</span>
-        <img src="@Url.Content("~/template/assets/images/icon-cart.png")" alt="" />
+        <img src="@Url.Content("~/Areas/FrontEnd/Content/template/assets/images/icon-cart.png")" alt="" />
     </div>
     <div class="total-price-basket">
         <span class="lbl">giỏ hàng:</span>
@@ -19,7 +19,7 @@
                 <div class="row">
                     <div class="col-xs-4 col-sm-4 no-margin text-center">
                         <div class="thumb">
-                            <img alt="" src="@Url.Content("~/images/products/"+ @Model.getGiohang()[i].sanPham.AnhDaiDien)" />
+                            <img alt="" src="@Url.Content("~/uploads/products/"+ @Model.getGiohang()[i].sanPham.AnhDaiDien)" />
                         </div>
                     </div>
                     <div class="col-xs-8 col-sm-8 no-margin">

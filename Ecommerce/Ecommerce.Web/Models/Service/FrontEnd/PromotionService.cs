@@ -27,6 +27,7 @@ namespace  Ecommerce.Web.Models
             _editPromotion.AnhCT = promotion.TenCT.GenerateFriendlyName() + ".jpg";
             _editPromotion.NgayKetThuc = promotion.NgayKetThuc;
             _editPromotion.NoiDung = WebUtility.HtmlEncode(promotion.NoiDung);
+            _editPromotion.Advertise = WebUtility.HtmlEncode(promotion.Advertise);
             dataContext.Entry(_editPromotion).State = EntityState.Modified;
             dataContext.SaveChanges();
         }
@@ -48,6 +49,7 @@ namespace  Ecommerce.Web.Models
             promotion.MaKM = TaoMa();
             promotion.AnhCT = promotion.TenCT.GenerateFriendlyName() + ".jpg";
             promotion.NoiDung = WebUtility.HtmlEncode(promotion.NoiDung);
+            promotion.Advertise = WebUtility.HtmlEncode(promotion.Advertise);
             dataContext.Promotions.Add(promotion);
             dataContext.SaveChanges();
             return promotion.MaKM;

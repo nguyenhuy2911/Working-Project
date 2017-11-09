@@ -29,7 +29,6 @@ namespace  Ecommerce.Web.Models.Service
         {
             var _editDisplay = dataContext.Displays.Find(data.Id);
             _editDisplay.Value = data.Value;
-            _editDisplay.Type = data.Type;
             dataContext.Entry(_editDisplay).State = EntityState.Modified;
             dataContext.SaveChanges();
             return _editDisplay;

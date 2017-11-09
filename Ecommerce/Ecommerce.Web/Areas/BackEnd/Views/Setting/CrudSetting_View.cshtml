@@ -19,16 +19,8 @@
                         </div>
                         <div class="form-group">
                             @Html.LabelFor(model => model.Type, new { @class = "control-label col-md-2" })
-                            <div class="col-md-4">
-                                @{
-                                    bool disabled = false;
-                                    if (!string.IsNullOrEmpty(Model.Id.ToString()) && Model.Id > 0)
-                                    {
-                                        disabled = true;
-                                    }
-
-                                }
-                                @Html.DropDownListForCustom(model => model.Type, Model.ListSettingType, new { @class = "form-control" }, disabled)
+                            <div class="col-md-4">                                
+                                @Html.DropDownListForCustom(model => model.Type, Model.ListSettingType, new { @class = "form-control" }, false)
                                 @Html.ValidationMessageFor(model => model.Type)
 
                             </div>

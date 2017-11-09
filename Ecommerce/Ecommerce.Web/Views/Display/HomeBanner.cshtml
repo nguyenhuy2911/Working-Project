@@ -8,10 +8,13 @@
 
                     @foreach (var item in Model)
                     {
-                        <div class="item" style="background-image: url('@Url.Content("~/images/khuyenmai/")@item.AnhCT'); cursor:pointer" onclick="window.location = '@Url.Action("KhuyenMaiPost","KhuyenMai")?id=' + @item.MaKM;">
+                        <div class="item" onclick="window.location = '@Url.Action("KhuyenMaiPost","KhuyenMai")?id=' + @item.MaKM;">
+                            @Html.Raw(WebUtility.HtmlDecode(item.Advertise))
+                        </div>
+                        @*<div class="item" style="background-image: url('@Url.Content("~/images/khuyenmai/")@item.AnhCT'); cursor:pointer" onclick="window.location = '@Url.Action("KhuyenMaiPost","KhuyenMai")?id=' + @item.MaKM;">
                             <div class="container-fluid">
                             </div>
-                        </div>
+                        </div>*@
                     }
                 </div>
             </div>
