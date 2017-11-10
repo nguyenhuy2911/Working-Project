@@ -1,5 +1,6 @@
 ﻿@model List<Ecommerce.Domain.Model.HangSanXuat>
 @using Ecommerce.Web.common.Helper;
+@using Ecommerce.Web.common.Const;
 @if (Model != null && Model.Count > 0)
 {
     foreach (var item in Model)
@@ -7,7 +8,9 @@
         if (item.SanPhams != null && item.SanPhams.Count >= 5)
         {
             var products = item.SanPhams.OrderByDescending(p => p.Id).Skip(0).Take(8).ToList();
-
+            products[0].AnhDaiDien = string.Format("{0}{1}", Const.RootProductImages, products[0].AnhDaiDien);
+            products[0].AnhKhac = string.Format("{0}{1}", Const.RootProductImages, products[0].AnhKhac);
+            products[0].AnhNen = string.Format("{0}{1}", Const.RootProductImages, products[0].AnhNen);
 
             <section id="bestsellers" class="color-bg wow fadeInUp items-section">
                 <div class="container">
@@ -31,14 +34,14 @@
                                 <div id="@(products[0].MaSP+ "_slider")" class="single-product-slider owl-carousel">
                                     <div class="single-product-gallery-item" id="@(products[0].MaSP+ "_slider_1")">
                                         <a data-rel="prettyphoto" href="@Url.RouteUrl("ProductDetail", new { id = products[0].MaSP, alias =  products[0].TenSP.GenerateFriendlyName() })" title="@products[0].TenSP">
-                                            <img alt="" src="@Url.Content("~/uploads/products/")@products[0].AnhDaiDien" data-echo="@Url.Content("~/uploads/products/")@products[0].AnhDaiDien" />
+                                            <img alt="" src="@products[0].AnhDaiDien" data-echo="@products[0].AnhDaiDien" />
                                         </a>
                                     </div>
                                     @if (!string.IsNullOrEmpty(products[0].AnhNen))
                                     {
                                         <div class="single-product-gallery-item" id="@(products[0].MaSP+ "_slider_2")">
                                             <a data-rel="prettyphoto" href="@Url.RouteUrl("ProductDetail", new { id = products[0].MaSP, alias =  products[0].TenSP.GenerateFriendlyName() })" title="@products[0].TenSP">
-                                                <img alt="" src="@Url.Content("~/uploads/products/")@products[0].AnhNen" data-echo="@Url.Content("~/uploads/products/")@products[0].AnhNen" />
+                                                <img alt="" src="@products[0].AnhNen" data-echo="@products[0].AnhNen" />
                                             </a>
                                         </div>
                                     }
@@ -46,7 +49,7 @@
                                     {
                                         <div class="single-product-gallery-item" id="@(products[0].MaSP+ "_slider_2")">
                                             <a data-rel="prettyphoto" href="@Url.RouteUrl("ProductDetail", new { id = products[0].MaSP, alias =  products[0].TenSP.GenerateFriendlyName() })" title="@products[0].TenSP">
-                                                <img alt="" src="@Url.Content("~/uploads/products/")@products[0].AnhKhac" data-echo="@Url.Content("~/uploads/products/")@products[0].AnhKhac" />
+                                                <img alt="" src="@products[0].AnhKhac" data-echo="@products[0].AnhKhac" />
                                             </a>
                                         </div>
                                     }
@@ -57,14 +60,14 @@
                                     <ul>
                                         <li>
                                             <a class="horizontal-thumb active" data-target="#@(products[0].MaSP+ "_slider")" data-slide="0" href="#@(products[0].MaSP+ "_slider_1")">
-                                                <img alt="" src="@Url.Content("~/uploads/products/")@products[0].AnhDaiDien" data-echo="@Url.Content("~/uploads/products/")@products[0].AnhDaiDien" />
+                                                <img alt="" src="@products[0].AnhDaiDien" data-echo="@products[0].AnhDaiDien" />
                                             </a>
                                         </li>
                                         @if (!string.IsNullOrEmpty(products[0].AnhNen))
                                         {
                                             <li>
                                                 <a class="horizontal-thumb" data-target="#@(products[0].MaSP+ "_slider")" data-slide="1" href="#@(products[0].MaSP+ "_slider_2")">
-                                                    <img alt="" src="@Url.Content("~/uploads/products/")@products[0].AnhNen" data-echo="@Url.Content("~/uploads/products/")@products[0].AnhNen" />
+                                                    <img alt="" src="@products[0].AnhNen" data-echo="@products[0].AnhNen" />
                                                 </a>
                                             </li>
                                         }
@@ -72,7 +75,7 @@
                                         {
                                             <li>
                                                 <a class="horizontal-thumb" data-target="#@(products[0].MaSP+ "_slider")" data-slide="2" href="#@(products[0].MaSP+ "_slider_3")">
-                                                    <img alt="" src="@Url.Content("~/uploads/products/")@products[0].AnhKhac" data-echo="@Url.Content("~/uploads/products/")@products[0].AnhKhac" />
+                                                    <img alt="" src="@products[0].AnhKhac" data-echo="@products[0].AnhKhac" />
                                                 </a>
                                             </li>
                                         }

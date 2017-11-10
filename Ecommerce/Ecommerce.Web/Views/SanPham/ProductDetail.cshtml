@@ -1,28 +1,33 @@
 ﻿@model Ecommerce.Domain.Model.SanPham
+@using Ecommerce.Web.common.Const;
 @{
     ViewBag.Title = Model.TenSP;
     ViewBag.Keywords = Model.TenSP;
     Layout = "~/Views/Shared/_LayoutFrontEnd.cshtml";
 }
-
+@{
+    Model.AnhDaiDien = string.Format("{0}{1}", Const.RootProductImages, Model.AnhDaiDien);
+    Model.AnhKhac = string.Format("{0}{1}", Const.RootProductImages, Model.AnhKhac);
+    Model.AnhNen = string.Format("{0}{1}", Const.RootProductImages, Model.AnhNen);
+}
 <div id="single-product">
     <div class="container">
         <div class="no-margin col-xs-12 col-sm-6 col-md-5 gallery-holder">
             <div class="product-item-holder size-big single-product-gallery small-gallery">
                 <div id="owl-single-product">
                     <div class="single-product-gallery-item" id="slide1">
-                        <a data-rel="prettyphoto" href="@Url.Content("~/images/products/")@Model.AnhDaiDien">
-                            <img class="img-responsive" alt="" src="@Url.Content("~/template/")assets/images/blank.gif" data-echo="@Url.Content("~/images/products/")@Model.AnhDaiDien" width="353" />
+                        <a data-rel="prettyphoto" href="@Model.AnhDaiDien">
+                            <img class="img-responsive" alt="" src="@Url.Content("~/template/")assets/images/blank.gif" data-echo="@Model.AnhDaiDien" width="353" />
                         </a>
                     </div>
                     <div class="single-product-gallery-item" id="slide2">
-                        <a data-rel="prettyphoto" href="@Url.Content("~/images/products/")@Model.AnhNen">
-                            <img class="img-responsive" alt="" src="@Url.Content("~/template/")assets/images/blank.gif" data-echo="@Url.Content("~/images/products/")@Model.AnhNen" />
+                        <a data-rel="prettyphoto" href="@Model.AnhNen">
+                            <img class="img-responsive" alt="" src="@Url.Content("~/template/")assets/images/blank.gif" data-echo="@Model.AnhNen" />
                         </a>
                     </div>
                     <div class="single-product-gallery-item" id="slide3">
-                        <a data-rel="prettyphoto" href="@Url.Content("~/images/products/")@Model.AnhKhac">
-                            <img class="img-responsive" alt="" src="@Url.Content("~/template/")assets/images/blank.gif" data-echo="@Url.Content("~/images/products/")@Model.AnhKhac" />
+                        <a data-rel="prettyphoto" href="@Model.AnhKhac">
+                            <img class="img-responsive" alt="" src="@Url.Content("~/template/")assets/images/blank.gif" data-echo="@Model.AnhKhac" />
                         </a>
                     </div>
                 </div>
@@ -30,13 +35,13 @@
                 <div class="single-product-gallery-thumbs gallery-thumbs">
                     <div id="owl-single-product-thumbnails">
                         <a class="horizontal-thumb active" data-target="#owl-single-product" data-slide="0" href="#slide1">
-                            <img width="67" alt="" src="@Url.Content("~/template/")assets/images/blank.gif" data-echo="@Url.Content("~/images/products/")@Model.AnhDaiDien" />
+                            <img width="67" alt="" src="@Url.Content("~/template/")assets/images/blank.gif" data-echo="@Model.AnhDaiDien" />
                         </a>
                         <a class="horizontal-thumb" data-target="#owl-single-product" data-slide="1" href="#slide2">
-                            <img width="67" alt="" src="@Url.Content("~/template/")assets/images/blank.gif" data-echo="@Url.Content("~/images/products/")@Model.AnhNen" />
+                            <img width="67" alt="" src="@Url.Content("~/template/")assets/images/blank.gif" data-echo="@Model.AnhNen" />
                         </a>
                         <a class="horizontal-thumb" data-target="#owl-single-product" data-slide="2" href="#slide3">
-                            <img width="67" alt="" src="@Url.Content("~/template/")assets/images/blank.gif" data-echo="@Url.Content("~/images/products/")@Model.AnhKhac" />
+                            <img width="67" alt="" src="@Url.Content("~/template/")assets/images/blank.gif" data-echo="@Model.AnhKhac" />
                         </a>
                     </div>
                 </div>

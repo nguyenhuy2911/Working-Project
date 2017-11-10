@@ -31,7 +31,7 @@ namespace Ecommerce.Web.common.Helper.ckfinder
                 .SetRequestConfiguration(
                     (request, config) =>
                     {
-                        //config.LoadConfig();
+                       config.LoadConfig();
 
                         //var defaultBackend = config.GetBackend("default");
                         //var keyValueStoreProvider = new FileSystemKeyValueStoreProvider(defaultBackend);

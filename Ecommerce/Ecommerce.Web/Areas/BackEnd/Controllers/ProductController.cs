@@ -10,6 +10,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Ecommerce.Web.common.Const;
 
 namespace Ecommerce.Web.Areas.BackEnd.Controllers
 {
@@ -142,7 +143,7 @@ namespace Ecommerce.Web.Areas.BackEnd.Controllers
                 {
                     return false;
                 }
-                var path = Path.Combine(Server.MapPath("~/uploads/products"), fileName + ".jpg");
+                var path = Path.Combine(Server.MapPath(Const.RootProductImages), fileName + ".jpg");
                 file.SaveAs(path);
                 return true;
             }
@@ -151,7 +152,7 @@ namespace Ecommerce.Web.Areas.BackEnd.Controllers
 
         public bool DeleteProductImg(string filename)
         {
-            string fullPath = Request.MapPath("~/uploads/products/" + filename);
+            string fullPath = Request.MapPath(Const.RootProductImages + filename);
             if (System.IO.File.Exists(fullPath))
             {
                 System.IO.File.Delete(fullPath);

@@ -1,24 +1,14 @@
 ﻿@model IQueryable<Ecommerce.Domain.Model.Promotion>
 
 <div id="top-banner-and-menu" class="homepage2">
-    <div class="container">
-        <div class="col-xs-12">
-            <div id="hero">
-                <div id="owl-main" class="owl-carousel height-lg owl-inner-nav owl-ui-lg">
+    <div id="owl-main" class="owl-carousel height-lg owl-inner-nav owl-ui-lg">
 
-                    @foreach (var item in Model)
-                    {
-                        <div class="item" onclick="window.location = '@Url.Action("KhuyenMaiPost","KhuyenMai")?id=' + @item.MaKM;">
-                            @Html.Raw(WebUtility.HtmlDecode(item.Advertise))
-                        </div>
-                        @*<div class="item" style="background-image: url('@Url.Content("~/images/khuyenmai/")@item.AnhCT'); cursor:pointer" onclick="window.location = '@Url.Action("KhuyenMaiPost","KhuyenMai")?id=' + @item.MaKM;">
-                            <div class="container-fluid">
-                            </div>
-                        </div>*@
-                    }
-                </div>
+        @foreach (var item in Model)
+            {
+            <div class="item" onclick="window.location = '@Url.Action("KhuyenMaiPost","KhuyenMai")?id=' + @item.MaKM;">
+                @Html.Raw(WebUtility.HtmlDecode(item.Advertise))
             </div>
-        </div>
+        }
     </div>
 </div><!-- /.homepage2 -->
 <!-- ========================================= HOME BANNERS ========================================= -->

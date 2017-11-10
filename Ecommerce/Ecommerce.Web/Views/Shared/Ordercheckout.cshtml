@@ -1,10 +1,12 @@
 ﻿@model Ecommerce.Web.Models.Giohang
 @using Ecommerce.Web.common.Helper;
+@using Ecommerce.Web.common.Const;
 <section id="your-order">
     <h2 class="border h1">Order của bạn</h2>
     <form>
         @for (int i = 0; i < Model.getGiohang().Count; i++)
         {
+            Model.getGiohang()[i].sanPham.AnhDaiDien = string.Format("{0}{1}", Const.RootProductImages, Model.getGiohang()[i].sanPham.AnhDaiDien);
             <div class="row no-margin order-item">
                 <div class="col-xs-12 col-sm-1 no-margin">
                     <a href="#" class="qty">@Model.getGiohang()[i].Soluong x</a>
@@ -12,7 +14,7 @@
                 <div class="col-xs-12 col-sm-9 ">
                     <div class="col-xs-12 col-sm-1 no-margin">
                         <a href="@Url.RouteUrl("ProductDetail", new { id = @Model.getGiohang()[i].sanPham.MaSP, alias= @Model.getGiohang()[i].sanPham.TenSP.GenerateFriendlyName()})" title="@Model.getGiohang()[i].sanPham.TenSP" class="thumb-holder">
-                            <img class="lazy" alt="@Model.getGiohang()[i].sanPham.TenSP" src="~/uploads/products/@Model.getGiohang()[i].sanPham.AnhDaiDien" />
+                            <img class="lazy" alt="@Model.getGiohang()[i].sanPham.TenSP" src="@Model.getGiohang()[i].sanPham.AnhDaiDien" />
                         </a>
                     </div>
                     <div class="col-xs-12 col-sm-10">

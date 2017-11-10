@@ -3,7 +3,9 @@
  For licensing, see LICENSE.html or http://cksource.com/ckfinder/license
  */
 
-var config = {};
+var config = {
+    defaultViewType: thumbnails
+};
 
 // Set your configuration options below.
 

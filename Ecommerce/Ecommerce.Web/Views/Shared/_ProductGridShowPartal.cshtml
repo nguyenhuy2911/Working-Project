@@ -1,5 +1,6 @@
 ﻿@model Ecommerce.Domain.Model.SanPham
 @using Ecommerce.Web.common.Helper;
+@using Ecommerce.Web.common.Const;
 <div class="product-item">
     @if (Model.GiaTien < Model.GiaGoc)
     {
@@ -13,9 +14,14 @@
     {
         <div class="ribbon red"><span>Hot</span></div>
     }
+    @{ 
+        string AnhDaiDien = string.Format("{0}{1}", Const.RootProductImages, Model.AnhDaiDien);
+        string AnhKhac = string.Format("{0}{1}", Const.RootProductImages, Model.AnhKhac);
+        string AnhNen = string.Format("{0}{1}", Const.RootProductImages, Model.AnhNen);
+    }
     <div class="image">
         <a href="@Url.RouteUrl("ProductDetail", new { id = @Model.MaSP, alias =  Model.TenSP.GenerateFriendlyName() })" title="@Model.TenSP">
-            <img alt="@Model.TenSP" src="@Url.Content("~/uploads/products/")@Model.AnhDaiDien" data-echo="@Url.Content("~/uploads/products/")@Model.AnhDaiDien" />
+            <img alt="@Model.TenSP" src="AnhDaiDien" data-echo="@AnhDaiDien" />
         </a>
     </div>
     <div class="body">

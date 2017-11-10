@@ -1,5 +1,5 @@
 ﻿@model Ecommerce.Domain.Model.SanPham
-
+@using Ecommerce.Web.common.Const;
 <div class="product-item product-item-holder">
     @if (Model.GiaTien < Model.GiaGoc)
     {
@@ -13,11 +13,15 @@
     {
         <div class="ribbon red"><span>Hot</span></div>
     }
-
+    @{
+        Model.AnhDaiDien = string.Format("{0}{1}", Const.RootProductImages, Model.AnhDaiDien);
+        Model.AnhKhac = string.Format("{0}{1}", Const.RootProductImages, Model.AnhKhac);
+        Model.AnhNen = string.Format("{0}{1}", Const.RootProductImages, Model.AnhNen);
+    }
     <div class="row">
         <div class="no-margin col-xs-12 col-sm-4 image-holder">
             <div class="image">
-                <img alt="@Model.TenSP" src="@Url.Content("~/uploads/products/")@Model.AnhDaiDien" data-echo="@Url.Content("~/uploads/products/")@Model.AnhDaiDien" />
+                <img alt="@Model.TenSP" src="@Model.AnhDaiDien" data-echo="@Model.AnhDaiDien" />
             </div>
         </div>
         <div class="no-margin col-xs-12 col-sm-5 body-holder">

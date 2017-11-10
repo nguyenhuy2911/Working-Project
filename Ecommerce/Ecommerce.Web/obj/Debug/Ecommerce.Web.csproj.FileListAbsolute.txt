@@ -328,3 +328,8 @@ E:\Working\Git\working-project\Ecommerce\Ecommerce.Web\bin\CKSource.FileSystem.A
 E:\Working\Git\working-project\Ecommerce\Ecommerce.Web\bin\CKSource.FileSystem.dll
 E:\Working\Git\working-project\Ecommerce\Ecommerce.Web\bin\CKSource.FileSystem.Dropbox.dll
 E:\Working\Git\working-project\Ecommerce\Ecommerce.Web\bin\CKSource.FileSystem.Local.dll
+E:\lip cms\workingproject\Ecommerce\Ecommerce.Web\bin\Microsoft.Owin.FileSystems.dll
+E:\lip cms\workingproject\Ecommerce\Ecommerce.Web\bin\Microsoft.Owin.StaticFiles.dll
+E:\lip cms\workingproject\Ecommerce\Ecommerce.Web\bin\Microsoft.Owin.FileSystems.xml
+E:\lip cms\workingproject\Ecommerce\Ecommerce.Web\bin\Microsoft.Owin.StaticFiles.xml
+E:\lip cms\workingproject\Ecommerce\Ecommerce.Web\bin\cs\Microsoft.Owin.StaticFiles.resources.dll

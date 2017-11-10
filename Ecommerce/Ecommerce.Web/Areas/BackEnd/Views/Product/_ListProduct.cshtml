@@ -1,6 +1,7 @@
 ﻿@using Ecommerce.Web.Models;
 @using PagedList;
 @using PagedList.Mvc;
+@using Ecommerce.Web.common.Const;
 @model PagedList.IPagedList<Ecommerce.Domain.Model.SanPham>
 
 
@@ -22,11 +23,12 @@
     <tbody>
         @foreach (var item in Model)
         {
+            item.AnhDaiDien = string.Format("{0}{1}", Const.RootProductImages, item.AnhDaiDien);
             <tr>
                 <td>
                     <input type="checkbox" name="lstdel" value="@item.MaSP" />
                 </td>
-                <td><img src="@Url.Content("~/uploads/products/")@item.AnhDaiDien" width="90" height="120" /></td>
+                <td><img src="@item.AnhDaiDien" width="90" height="120" /></td>
                 <td class="center">@item.TenSP</td>
                 <td class="center">@item.LoaiSP1.TenLoai</td>
                 <td class="center">@item.HangSanXuat.TenHang</td>
