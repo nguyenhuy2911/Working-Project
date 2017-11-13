@@ -15,7 +15,7 @@
 <ul class="dropdown-menu">
     @for (int i = 0; i < @Model.getGiohang().Count; i++)
     {
-        Model.getGiohang()[i].sanPham.AnhDaiDien = string.Format("{0}{1}", Const.RootProductImages, @Model.getGiohang()[i].sanPham.AnhDaiDien);
+        string productImg = string.Format("{0}{1}", Const.RootProductImages, @Model.getGiohang()[i].sanPham.AnhDaiDien);
 
 
         <li>
@@ -23,7 +23,7 @@
                 <div class="row">
                     <div class="col-xs-4 col-sm-4 no-margin text-center">
                         <div class="thumb">
-                            <img alt="" src="Model.getGiohang()[i].sanPham.AnhDaiDien)" />
+                            <img alt="@Model.getGiohang()[i].sanPham.TenSP" src="@productImg" />
                         </div>
                     </div>
                     <div class="col-xs-8 col-sm-8 no-margin">

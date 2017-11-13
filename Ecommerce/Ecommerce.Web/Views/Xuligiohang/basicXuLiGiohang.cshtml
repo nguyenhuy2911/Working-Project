@@ -9,11 +9,11 @@
     <div class="col-xs-12 col-md-8 items-holder no-margin">
         @for (int i = 0; i < Model.getGiohang().Count; i++)
         {
-            Model.getGiohang()[i].sanPham.AnhDaiDien = string.Format("{0}{1}", Const.RootProductImages, Model.getGiohang()[i].sanPham.AnhDaiDien);
+            string productimg = string.Format("{0}{1}", Const.RootProductImages, Model.getGiohang()[i].sanPham.AnhDaiDien);
             <div class="row no-margin cart-item">
                 <div class="col-xs-12 col-sm-2 no-margin">
                     <a href="#" class="thumb-holder">
-                        <img class="lazy" alt="" src="@Model.getGiohang()[i].sanPham.AnhDaiDien" />
+                        <img class="lazy" alt="@Model.getGiohang()[i].sanPham.TenSP" src="@productimg" />
                     </a>
                 </div>
                 <div class="col-xs-12 col-sm-5 ">

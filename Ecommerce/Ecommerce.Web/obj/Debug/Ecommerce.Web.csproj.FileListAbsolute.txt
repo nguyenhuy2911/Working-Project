@@ -333,3 +333,8 @@ E:\lip cms\workingproject\Ecommerce\Ecommerce.Web\bin\Microsoft.Owin.StaticFiles
 E:\lip cms\workingproject\Ecommerce\Ecommerce.Web\bin\Microsoft.Owin.FileSystems.xml
 E:\lip cms\workingproject\Ecommerce\Ecommerce.Web\bin\Microsoft.Owin.StaticFiles.xml
 E:\lip cms\workingproject\Ecommerce\Ecommerce.Web\bin\cs\Microsoft.Owin.StaticFiles.resources.dll
+E:\Working\Git\working-project\Ecommerce\Ecommerce.Web\bin\Microsoft.Owin.FileSystems.dll
+E:\Working\Git\working-project\Ecommerce\Ecommerce.Web\bin\Microsoft.Owin.StaticFiles.dll
+E:\Working\Git\working-project\Ecommerce\Ecommerce.Web\bin\Microsoft.Owin.FileSystems.xml
+E:\Working\Git\working-project\Ecommerce\Ecommerce.Web\bin\Microsoft.Owin.StaticFiles.xml
+E:\Working\Git\working-project\Ecommerce\Ecommerce.Web\bin\cs\Microsoft.Owin.StaticFiles.resources.dll
