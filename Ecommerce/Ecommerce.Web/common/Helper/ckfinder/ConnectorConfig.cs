@@ -26,21 +26,22 @@ namespace Ecommerce.Web.common.Helper.ckfinder
             var connectorFactory = new OwinConnectorFactory();
             var connectorBuilder = new ConnectorBuilder();
             var connector = connectorBuilder
-                //.LoadConfig()
+                .LoadConfig()
                 .SetAuthenticator(authenticator)
                 .SetRequestConfiguration(
                     (request, config) =>
                     {
-                       config.LoadConfig();
+                        config.LoadConfig();
 
-                        //var defaultBackend = config.GetBackend("default");
+                       // var defaultBackend = config.GetBackend("default");
                         //var keyValueStoreProvider = new FileSystemKeyValueStoreProvider(defaultBackend);
                         //config.SetKeyValueStoreProvider(keyValueStoreProvider);
-                        
-                        config.AddProxyBackend("local", new LocalStorage(@"uploads"));
-                        config.AddResourceType("Files", resourceBuilder => resourceBuilder.SetBackend("local", "files"));
-                        config.AddResourceType("Images", resourceBuilder => resourceBuilder.SetBackend("local", "images"));
-                        config.AddResourceType("Products", resourceBuilder => resourceBuilder.SetBackend("local", "products"));
+
+                        //config.AddProxyBackend("local", new LocalStorage(@"uploads"));
+                        //  config.AddResourceType("Files", resourceBuilder => resourceBuilder.SetBackend("local", "files"));
+                        // config.AddResourceType("Images", resourceBuilder => resourceBuilder.SetBackend("local", "images"));
+                       //  config.AddResourceType("Products", resourceBuilder => resourceBuilder.SetBackend("local", "products"));
+                        // config.SetThumbnailBackend(defaultBackend.Name, "uploads/App_Data");
                         config.AddAclRule(new AclRule(
                             new StringMatcher("*"), new StringMatcher("/"), new StringMatcher("*"),
                             new Dictionary<Permission, PermissionType>

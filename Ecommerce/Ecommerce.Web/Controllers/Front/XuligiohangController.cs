@@ -30,7 +30,10 @@ namespace  Ecommerce.Web.Controllers
                 }
                 return PartialView("Addcart1", ManagerObiect.getIntance().giohang);
             }
-            catch (Exception e) {return Json("faill"); }
+            catch (Exception ex)
+            {
+                return Json(ex);
+            }
             
         }
         public int Kiemtratontai(string id)

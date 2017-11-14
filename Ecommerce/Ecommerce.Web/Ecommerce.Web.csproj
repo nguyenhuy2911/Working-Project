@@ -13,7 +13,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Ecommerce.Web</RootNamespace>
     <AssemblyName>Ecommerce.Web</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -358,7 +358,6 @@
     <Content Include="App_Data\EC-TH2012-J-Data_log.ldf">
       <DependentUpon>EC-TH2012-J-Data.mdf</DependentUpon>
     </Content>
-    <Content Include="Lib\ckeditor\adapters\jquery.js" />
     <Content Include="Lib\ckeditor\build-config.js" />
     <Content Include="Lib\ckeditor\ckeditor.js" />
     <Content Include="Lib\ckeditor\config.js" />
@@ -757,49 +756,7 @@
     <Content Include="Lib\ckeditor\plugins\imageuploader\uploads\placeholder.jpg" />
     <Content Include="Lib\ckfinder\ckfinder.html" />
     <Content Include="Lib\ckfinder\ckfinder.js" />
-    <Content Include="Lib\ckfinder\config.ascx" />
     <Content Include="Lib\ckfinder\config.js" />
-    <Content Include="Lib\ckfinder\core\connector\aspx\connector.aspx" />
-    <Content Include="Lib\ckfinder\core\connector\aspx\lang\bg.xml" />
-    <Content Include="Lib\ckfinder\core\connector\aspx\lang\ca.xml" />
-    <Content Include="Lib\ckfinder\core\connector\aspx\lang\cs.xml" />
-    <Content Include="Lib\ckfinder\core\connector\aspx\lang\cy.xml" />
-    <Content Include="Lib\ckfinder\core\connector\aspx\lang\da.xml" />
-    <Content Include="Lib\ckfinder\core\connector\aspx\lang\de.xml" />
-    <Content Include="Lib\ckfinder\core\connector\aspx\lang\el.xml" />
-    <Content Include="Lib\ckfinder\core\connector\aspx\lang\en.xml" />
-    <Content Include="Lib\ckfinder\core\connector\aspx\lang\eo.xml" />
-    <Content Include="Lib\ckfinder\core\connector\aspx\lang\es-mx.xml" />
-    <Content Include="Lib\ckfinder\core\connector\aspx\lang\es.xml" />
-    <Content Include="Lib\ckfinder\core\connector\aspx\lang\et.xml" />
-    <Content Include="Lib\ckfinder\core\connector\aspx\lang\fa.xml" />
-    <Content Include="Lib\ckfinder\core\connector\aspx\lang\fi.xml" />
-    <Content Include="Lib\ckfinder\core\connector\aspx\lang\fr.xml" />
-    <Content Include="Lib\ckfinder\core\connector\aspx\lang\gu.xml" />
-    <Content Include="Lib\ckfinder\core\connector\aspx\lang\he.xml" />
-    <Content Include="Lib\ckfinder\core\connector\aspx\lang\hi.xml" />
-    <Content Include="Lib\ckfinder\core\connector\aspx\lang\hr.xml" />
-    <Content Include="Lib\ckfinder\core\connector\aspx\lang\hu.xml" />
-    <Content Include="Lib\ckfinder\core\connector\aspx\lang\it.xml" />
-    <Content Include="Lib\ckfinder\core\connector\aspx\lang\ja.xml" />
-    <Content Include="Lib\ckfinder\core\connector\aspx\lang\lt.xml" />
-    <Content Include="Lib\ckfinder\core\connector\aspx\lang\lv.xml" />
-    <Content Include="Lib\ckfinder\core\connector\aspx\lang\nb.xml" />
-    <Content Include="Lib\ckfinder\core\connector\aspx\lang\nl.xml" />
-    <Content Include="Lib\ckfinder\core\connector\aspx\lang\nn.xml" />
-    <Content Include="Lib\ckfinder\core\connector\aspx\lang\no.xml" />
-    <Content Include="Lib\ckfinder\core\connector\aspx\lang\pl.xml" />
-    <Content Include="Lib\ckfinder\core\connector\aspx\lang\pt-br.xml" />
-    <Content Include="Lib\ckfinder\core\connector\aspx\lang\ro.xml" />
-    <Content Include="Lib\ckfinder\core\connector\aspx\lang\ru.xml" />
-    <Content Include="Lib\ckfinder\core\connector\aspx\lang\sk.xml" />
-    <Content Include="Lib\ckfinder\core\connector\aspx\lang\sl.xml" />
-    <Content Include="Lib\ckfinder\core\connector\aspx\lang\sr.xml" />
-    <Content Include="Lib\ckfinder\core\connector\aspx\lang\sv.xml" />
-    <Content Include="Lib\ckfinder\core\connector\aspx\lang\tr.xml" />
-    <Content Include="Lib\ckfinder\core\connector\aspx\lang\vi.xml" />
-    <Content Include="Lib\ckfinder\core\connector\aspx\lang\zh-cn.xml" />
-    <Content Include="Lib\ckfinder\core\connector\aspx\lang\zh-tw.xml" />
     <Content Include="Lib\ckfinder\skins\core\ckfinder.css" />
     <Content Include="Lib\ckfinder\skins\core\file-icons\128\7z.png" />
     <Content Include="Lib\ckfinder\skins\core\file-icons\128\access.png" />
