@@ -41,12 +41,12 @@
                         <div class="form-group">
                             <div class="col-md-3">
                                 @Html.LabelFor(model => model.NgayBatDau):
-                                @Html.TextBoxFor(model => model.NgayBatDau, new { @class = "form-control datepicker" })
+                                @Html.TextBoxFor(model => model.NgayBatDau, new { @Value = Model.NgayBatDau.Value.ToString("yyyy/MM/dd"), @class = "form-control datepicker" })
                                 @Html.ValidationMessageFor(model => model.NgayBatDau)
                             </div>
                             <div class="col-md-3">
                                 @Html.LabelFor(model => model.NgayKetThuc):
-                                @Html.TextBoxFor(model => model.NgayKetThuc, new { @class = "form-control datepicker" })
+                                @Html.TextBoxFor(model => model.NgayKetThuc, new { @Value = Model.NgayKetThuc.Value.ToString("yyyy/MM/dd"), @class = "form-control datepicker" })
                                 @Html.ValidationMessageFor(model => model.NgayKetThuc)
                             </div>
                         </div>
@@ -101,7 +101,7 @@
 <script>
     $(function () {
         $('.datepicker').datepicker({
-            format: 'mm/dd/yyyy'
+            format: 'yyyy/mm/dd'
         });
         var AdvertiseEditor = CKEDITOR.replace('Advertise');
         var descriptionEditor = CKEDITOR.replace('NoiDung');

@@ -22,10 +22,12 @@
         public string MaKM { get; set; }
 
         [Column(TypeName = "date")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{yyyy/MM/dd}")]
         [DisplayName("Ngày bắt đầu")]
         public DateTime? NgayBatDau { get; set; }
 
         [Column(TypeName = "date")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{yyyy/MM/dd}")]
         [DisplayName("Ngày kết thúc")]
         public DateTime? NgayKetThuc { get; set; }
 

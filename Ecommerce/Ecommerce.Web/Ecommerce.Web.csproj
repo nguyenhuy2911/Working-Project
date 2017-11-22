@@ -306,7 +306,7 @@
     <Compile Include="Controllers\DonhangController.cs" />
     <Compile Include="Controllers\Front\DisplayController.cs" />
     <Compile Include="Controllers\Front\HomeController.cs" />
-    <Compile Include="Controllers\KhuyenMaiController.cs" />
+    <Compile Include="Controllers\AdvertiseController.cs" />
     <Compile Include="Controllers\OauthController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\Back\RolesController.cs" />
@@ -2403,13 +2403,10 @@
     <Content Include="Views\Admin\SPDetail.cshtml" />
     <Content Include="Views\Admin\ThemThongSoKT.cshtml" />
     <Content Include="Views\Admin\SuaThongSoKT.cshtml" />
-    <Content Include="Views\KhuyenMai\EditKhuyenMai.cshtml" />
-    <Content Include="Views\KhuyenMai\KhuyenMaiPartial.cshtml" />
-    <Content Include="Views\KhuyenMai\Index.cshtml" />
-    <Content Include="Views\KhuyenMai\KhuyenMaiDetail.cshtml" />
-    <Content Include="Views\KhuyenMai\SuaSPKhuyenMai.cshtml" />
-    <Content Include="Views\KhuyenMai\DSSanPhamKhuyenMai.cshtml" />
-    <Content Include="Views\KhuyenMai\DSSanPham.cshtml" />
+    <Content Include="Views\Advertise\KhuyenMaiDetail.cshtml" />
+    <Content Include="Views\Advertise\SuaSPKhuyenMai.cshtml" />
+    <Content Include="Views\Advertise\DSSanPhamKhuyenMai.cshtml" />
+    <Content Include="Views\Advertise\DSSanPham.cshtml" />
     <Content Include="Views\Comment\RepComment.cshtml" />
     <Content Include="Views\Comment\Index.cshtml" />
     <Content Include="Views\Comment\BinhLuanPartial.cshtml" />
@@ -2432,7 +2429,7 @@
     <Content Include="Views\Roles\Rolelist.cshtml" />
     <Content Include="Views\Account\UserDetail.cshtml" />
     <Content Include="Views\Display\HomeBanner.cshtml" />
-    <Content Include="Views\KhuyenMai\KhuyenMaiPostView.cshtml" />
+    <Content Include="Views\Advertise\AdvertiseDetail.cshtml" />
     <Content Include="Views\SideBar\_KhuyenMaiPost.cshtml" />
     <Content Include="Views\Donhang\Index.cshtml" />
     <Content Include="Views\Donhang\DonHangPartial.cshtml" />

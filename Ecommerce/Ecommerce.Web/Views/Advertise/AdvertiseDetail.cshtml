@@ -1,0 +1,30 @@
+﻿@model Ecommerce.Domain.Model.Promotion
+@{
+    ViewBag.Title = Model.TenCT;
+    Layout = "~/Views/Shared/_LayoutFrontEnd.cshtml";
+}
+
+<section id="blog-single">
+    <div class="container">
+        <div class="posts col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="post-entry">
+                <div class="post-content text-justify">
+                    @*<h2 class="post-title">@Model.TenCT</h2>
+                        <ul class="meta">
+                            <li class="red-text">Bắt đầu : @Model.NgayBatDau.Value.ToShortDateString()</li>
+                            <li class="red-text">Kết thúc : @Model.NgayKetThuc.Value.ToShortDateString()</li>
+                        </ul>*@
+                    @Html.Raw(WebUtility.HtmlDecode(Model.NoiDung))
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <aside class="sidebar blog-sidebar">
+
+                @*@Html.Action("KhuyenMaiPost", "SideBar")*@
+                @*@Html.Action("GiamGiaNhieu", "SideBar")*@
+            </aside>
+        </div>
+    </div>
+</section>
+

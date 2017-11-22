@@ -9,20 +9,23 @@ using Ecommerce.Web.Models;
 using System.Net;
 using System.IO;
 using Ecommerce.Domain.Model;
+using Ecommerce.Web.Models.ViewModel;
+using Ecommerce.Web.common.Const;
 
-namespace  Ecommerce.Web.Controllers
+namespace Ecommerce.Web.Controllers
 {
-    [AuthLog(Roles = "Quản trị viên,Nhân viên")]
-    public class KhuyenMaiController : Controller
+
+    public class AdvertiseController : Controller
     {
+        private PromotionService _service = new PromotionService();
         public ActionResult DeleteSPKhuyenMai(string makm, string masp)
         {
             PromotionService spm = new PromotionService();
             spm.Delete_Product_Promotion(makm, masp);
-            
+
             return RedirectToAction("DSSanPham", new { makm = makm });
         }
-        
+
         public ActionResult kiemtra(string key)
         {
             PromotionService spm = new PromotionService();
@@ -40,23 +43,9 @@ namespace  Ecommerce.Web.Controllers
             return null;
         }
 
-        [HttpPost]
-        public ActionResult ThemSPKhuyenMai(List<SanPhamKhuyenMai> lstkt)
-        {
-            if (lstkt.Count == 0)
-            {
-                return RedirectToAction("Index");
-            }
-            PromotionService spm = new PromotionService();
-            foreach (var item in lstkt)
-            {
-                if (!string.IsNullOrEmpty(item.MaSP) && !string.IsNullOrEmpty(item.MaKM))
-                    spm.AddPromotion(item);
-            }
-            return RedirectToAction("Index");
-        }
 
-        [HttpPost] 
+
+        [HttpPost]
         public ActionResult ThemSP1KhuyenMai([Bind(Include = "MaKM,MaSP,MoTa,GiamGia")] SanPhamKhuyenMai spkm)
         {
             PromotionService spm = new PromotionService();
@@ -122,11 +111,17 @@ namespace  Ecommerce.Web.Controllers
             return PartialView(stringview, lst.OrderBy(m => m.MaSP).ToPagedList(pageNumber, pageSize));
         }
 
-        [AllowAnonymous]
-        public ActionResult KhuyenMaiPost(string id)
+        public ActionResult AdvertiseDetail(string id)
         {
-            PromotionService km = new PromotionService();
-            return View("KhuyenMaiPostView", km.FindById(id));
+            var model = _service.FindById(id);
+            var breadCrumbModel = new Breadcrumb_ViewModel()
+            {
+                Title1 = model.TenCT,
+                Title1_Url = "#"
+
+            };
+            TempData[Const.TempData_BreadCrumb] = breadCrumbModel;
+            return View("AdvertiseDetail", model);
         }
 
     }

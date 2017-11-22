@@ -4,17 +4,17 @@
 @model PagedList.IPagedList<Ecommerce.Domain.Model.Promotion>
 
 
-<table class="table table-striped table-bordered bootstrap-datatable datatable responsive">
+<table class="table table-striped table-bordered bootstrap-datatable datatable responsive tb-promotion">
     <thead>
         <tr>
-            <th>
+            <th class="text-center">
                 <input type="checkbox" onclick="toggle(this)" />
             </th>
-            <th>@Html.DisplayNameFor(model => model.First().TenCT)</th>
-            <th>@Html.DisplayNameFor(model => model.First().NgayBatDau)</th>
-            <th>@Html.DisplayNameFor(model => model.First().NgayKetThuc)</th>
-            <th>@Html.DisplayNameFor(model => model.First().Advertise)</th>
-            <th>Hành động</th>
+            <th class="text-center">@Html.DisplayNameFor(model => model.First().TenCT)</th>
+            <th class="text-center">@Html.DisplayNameFor(model => model.First().NgayBatDau)</th>
+            <th class="text-center">@Html.DisplayNameFor(model => model.First().NgayKetThuc)</th>
+            <th class="text-center">@Html.DisplayNameFor(model => model.First().Advertise)</th>
+            <th class="text-center">Hành động</th>
         </tr>
     </thead>
     <tbody>
@@ -34,11 +34,11 @@
                     {@item.NgayKetThuc.Value.ToShortDateString()}
                 </td>
                 <td class="center" >
-                    <div style="width:250px;">
+                    <div class="promotion-advertise-thumb" >
                         @Html.Raw(WebUtility.HtmlDecode(item.Advertise))
                     </div>
                 </td>
-                <td class="center">
+                <td class="text-center">
                     <a class="btn btn-success" href='javascript:ChiTietItem("@Url.Action("CTKhuyenMai", "KhuyenMai")","@item.MaKM")'>
                         <i class="glyphicon glyphicon-zoom-in icon-white"></i>
                         Chi tiết

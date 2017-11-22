@@ -1,14 +1,11 @@
-﻿using Ecommerce.Domain.Infrastructure;
-using Ecommerce.Domain.Model;
+﻿using Ecommerce.Domain.Model;
+using Ecommerce.Web.common.Helper;
 using Ecommerce.Web.Models.Core;
 using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
-using Ecommerce.Web.common.Helper;
-namespace  Ecommerce.Web.Models
+namespace Ecommerce.Web.Models
 {
     public class PromotionService : BaseService
     {
@@ -17,7 +14,7 @@ namespace  Ecommerce.Web.Models
         internal Promotion FindById(string id)
         {
             return dataContext.Promotions.Find(id);
-        }
+        }        
 
         internal void EditPromotion(Promotion promotion)
         {

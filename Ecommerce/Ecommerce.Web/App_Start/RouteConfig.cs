@@ -62,6 +62,18 @@ namespace Ecommerce.Web
             );
 
             routes.MapRoute(
+                name: "Advertise",
+                url: "quang-cao/{alias}-{id}",
+                defaults: new
+                {
+                    controller = "Advertise",
+                    action = "AdvertiseDetail",
+                    alias = UrlParameter.Optional,    
+                    id = UrlParameter.Optional,
+                }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

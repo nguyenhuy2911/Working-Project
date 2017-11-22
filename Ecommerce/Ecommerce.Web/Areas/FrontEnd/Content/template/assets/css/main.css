@@ -2682,6 +2682,7 @@ header .top-cart-row .top-cart-holder .total-price-basket {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    cursor:pointer;
 }
 
 #owl-main.height-md .item {
@@ -3360,6 +3361,7 @@ header .top-cart-row .top-cart-holder .total-price-basket {
     #top-banner-and-menu.homepage2 {
         background-color: #f6f6f6;
         margin: 0;
+        
     }
 
 .homebanner-holder {
@@ -3538,7 +3540,7 @@ header .top-cart-row .top-cart-holder .total-price-basket {
 }
 
 #products-tab {
-    margin: 50px 0 20px 0;
+    margin: 0px 0 20px 0;
 }
 
     #products-tab .image {

@@ -1,12 +1,14 @@
 ﻿@model IQueryable<Ecommerce.Domain.Model.Promotion>
-
+@using Ecommerce.Web.common.Helper
 <div id="top-banner-and-menu" class="homepage2">
-    <div id="owl-main" class="owl-carousel height-lg owl-inner-nav owl-ui-lg">
+    <div id="owl-main" class="owl-carousel owl-inner-nav owl-ui-lg">
 
         @foreach (var item in Model)
-            {
-            <div class="item" onclick="window.location = '@Url.Action("KhuyenMaiPost","KhuyenMai")?id=' + @item.MaKM;">
-                @Html.Raw(WebUtility.HtmlDecode(item.Advertise))
+        {
+            <div class="item">
+                <a href="@Url.RouteUrl("Advertise",new {alias =item.TenCT.GenerateFriendlyName(), id=item.MaKM })" title="@item.TenCT">
+                    @Html.Raw(WebUtility.HtmlDecode(item.Advertise))
+                </a>
             </div>
         }
     </div>
